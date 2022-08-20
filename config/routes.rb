@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
-    resources :list_posts
+    resources :listposts
   end
 
 end

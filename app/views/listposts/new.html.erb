@@ -1,8 +1,0 @@
-<div class="container">
-  <h1>Add a Post to your List </h1>
-  <%= simple_form_for([@list, @listpost]) do |f| %>
-        <%= f.input :list, as: :radio_buttons%>
-        <%= f.input :post, as: :radio_buttons%>
-        <%= f.submit class: "button-primary" %>
-      <% end %>
-</div>

@@ -4,10 +4,10 @@ class ListpostsController < ApplicationController
     @listposts = Listpost.where(list_id: params[:list_id])
   end
 
-  def new
-    @list = List.find(params[:list_id])
-    @listpost = Listpost.new
-  end
+  # def new
+  #   @list = List.find(params[:list_id])
+  #   @listpost = Listpost.new
+  # end
 
   def create
     @list = List.find(params[:list_id])
@@ -26,7 +26,7 @@ class ListpostsController < ApplicationController
   private
 
   def listpost_params
-    params.require(:listpost).permit(:post_id, :list_id)
+    params.require(:listpost).permit(:post_id)
   end
 
 end
