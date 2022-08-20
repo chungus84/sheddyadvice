@@ -1,7 +1,8 @@
 <div class="container">
   <h1>All posts</h1>
     <ul>
-      <% @posts.each |post| do%>
-      <li><%= post.title post.body %></li>
+      <% @posts.each do |post| %>
+      <li><%= post.title %></li>
+      <% end %>
     </ul>
 </div>
