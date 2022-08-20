@@ -30,7 +30,7 @@ puts "Populating the database, buckle up"
       # adds images for the post,
       image: Faker::LoremFlickr.image(size: "320x240", search_terms: ['hobby', 'diy'], match_all: true),
       user_id: user.id
-  )
+    )
   end
   puts "I've just shared some great tips how to be good at DIY #{user}"
 end
