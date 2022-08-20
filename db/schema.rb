@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_20_135748) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_20_144442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_135748) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_feedbacks_on_post_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
+  create_table "listposts", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "list_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_listposts_on_list_id"
+    t.index ["post_id"], name: "index_listposts_on_post_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -39,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_135748) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "video"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -56,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_135748) do
 
   add_foreign_key "feedbacks", "posts"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "listposts", "lists"
+  add_foreign_key "listposts", "posts"
   add_foreign_key "lists", "users"
   add_foreign_key "posts", "users"
 end
