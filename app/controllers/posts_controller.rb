@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @feedback = Feedback.new
+    @post = Post.find(params[:id])
+    @feedbacks = Feedback.where(post_id: @post.id)
   end
 
   def edit
@@ -18,9 +21,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    if post.save
-      redirect_to posts_path
+    @post = Post.new(post_params)
+    @post.user = current_user
+    if @post.save
+      redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,4 +33,8 @@ class PostsController < ApplicationController
   def destroy
   end
 
+private
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 end
