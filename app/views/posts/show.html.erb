@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @post.title %></h1>
+  <%= simple_form_for([@post, @feedback]) do |f| %>
+    <%= f.input :rating, placeholder: "Enter a rating"%>
+    <%= f.input :comment %>
+    <%= f.submit class: "button-primary" %>
+  <% end %>
+  <h3>Reviews</h3>
+    <ul>
+      <% @feedbacks.each do |feedback| %>
+        <li>
+          <p><%= feedback.rating %></p>
+          <p><%= feedback.comment %></p>
+        </li>
+        <% end %>
+    </ul>
+</div>

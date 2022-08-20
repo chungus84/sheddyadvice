@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @feedback = Feedback.new
+    @post = Post.find(params[:id])
+    @feedbacks = Feedback.where(post_id: @post.id)
   end
 
   def edit
