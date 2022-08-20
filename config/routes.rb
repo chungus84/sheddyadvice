@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  resources :lists do
+    resources :list_posts
+  end
+
 end
