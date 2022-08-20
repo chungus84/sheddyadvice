@@ -22,7 +22,13 @@ class ListsController < ApplicationController
       redirect_to list_path(@list), success: "Created your list #{@list.name}"
     end
 
+  end
 
+  def update
+    @list = List.find(params[:id])
+    if @list.user == current_user && @list.save
+        redirect_to lists_path, success: "Your list has been updated"
+    end
   end
 
   private
