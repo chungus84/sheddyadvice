@@ -16,10 +16,8 @@
       <h3>Reviews</h3>
       <ul>
       <% @feedbacks.each do |feedback| %>
-        <li>
-          <p><%= feedback.rating %></p>
-          <p><%= feedback.comment %></p>
-        </li>
+        <p>Rating: <%= feedback.rating %></p>
+        <p>Comment: <%= feedback.comment %></p>
         <%= link_to 'Edit', edit_post_feedback_path(@post) %>
         <% end %>
       </ul>
