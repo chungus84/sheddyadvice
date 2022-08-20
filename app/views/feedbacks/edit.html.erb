@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Edit Comment</h1>
+  <%= link_to 'Back to Post', post_path(@post) %>
+  <%= simple_form_for([@post, @feedback]) do |f| %>
+        <%= f.input :rating, placeholder: "Enter a rating"%>
+        <%= f.input :comment %>
+        <%= f.submit class: "button-primary" %>
+  <% end %>
+</div>
