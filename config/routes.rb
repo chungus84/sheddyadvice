@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :listposts
   end
 
+  resources :chatrooms, only: :show
+
 end
