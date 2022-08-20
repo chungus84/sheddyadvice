@@ -4,9 +4,11 @@ class ListsController < ApplicationController
     @lists = List.where(user_id: current_user)
     @list = List.new
   end
+
   def show
     @list = List.find(params[:id])
     @posts = Post.where(list_id: @list.id)
+    @listpost = Listpost.new
   end
 
   def new

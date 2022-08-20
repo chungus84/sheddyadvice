@@ -3,7 +3,6 @@ class FeedbacksController < ApplicationController
   def new
   end
 
-
   def create
     if user_signed_in?
       @post = Post.find(params[:post_id])
