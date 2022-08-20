@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= @post.title %></h1>
+  <p><%= @post.body %></p>
   <%= simple_form_for([@post, @feedback]) do |f| %>
     <%= f.input :rating, placeholder: "Enter a rating"%>
     <%= f.input :comment %>
