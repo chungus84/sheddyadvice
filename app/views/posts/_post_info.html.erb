@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-4">
+    <div class="d-flex " data-edit-fields-target="post">
+      <h1 class=""><%= @post.title %></h1>
+      <p class=""><%= @post.body %></p>
+    </div>
+        <%# edit post title button %>
+      <%= simple_form_for @post, html: {class: "d-none", data: {
+          edit_fields_target: "form",
+          action: "submit->edit-fields#update"
+              }} do |f| %>
+        <%= f.input :title, placeholder: "#{@post.title}" %>
+        <%= f.input :body, placeholder: "#{@post.body}" %>
+        <%= f.button :submit %>
+      <% end %>
+  </div>
+  <div class="col-2">
+    <button style="border:0; background:none;"aria-label="Edit title">
+      <i class="fa-solid fa-pen fa-xs ml-2" data-edit-fields-target="button" data-action="click->edit-fields#displayForm"></i>
+    </button>
+  </div>
+</div>
