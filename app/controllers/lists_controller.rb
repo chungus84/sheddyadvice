@@ -7,7 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @posts = Post.where(list_id: @list.id)
+    # @post = Post.where(list_id: @list.id)
     @listpost = Listpost.new
     if params[:query].present?
       @searched_posts = Post.search_by_title_and_body(params[:query])

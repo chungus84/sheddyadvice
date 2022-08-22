@@ -1,0 +1,10 @@
+<div class="add-review">
+  <%= simple_form_for([post, feedback],
+    data: {add_review_in_list_target: "form",
+    action: "submit->add-review-in-list#send"
+    }) do |f| %>
+      <%= f.input :rating, placeholder: "Enter a rating"%>
+      <%= f.input :comment %>
+      <%= f.submit 'Create Review', class: "button-primary" %>
+  <% end %>
+</div>
