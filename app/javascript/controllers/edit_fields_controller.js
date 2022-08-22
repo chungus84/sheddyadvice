@@ -2,10 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="edit-fields"
 export default class extends Controller {
-  static targets = ["post", "form", "bodyForm", "button"]
+  static targets = ["post", "form", "bodyForm", "button", "info"]
 
   connect() {
     console.log("hello")
+
     }
 
   displayForm() {
@@ -23,9 +24,9 @@ export default class extends Controller {
     })
       .then(response => response.text())
       .then((data) => {
-        this.formTarget.outerHTML = data
+         this.infoTarget.outerHTML = data
       })
-    this.buttonTarget.classList.add('d-none')
+  //  this.buttonTarget.classList.add('d-none')
 
   }
 }
