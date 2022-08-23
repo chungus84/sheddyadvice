@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :feedbacks
+  has_many :lists, through: :listposts
+  has_many :listposts
   validates :title, presence: true
   # validates :title, uniqueness: true
   validates :body, length: { minimum: 20 }

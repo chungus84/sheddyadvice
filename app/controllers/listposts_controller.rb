@@ -26,7 +26,7 @@ class ListpostsController < ApplicationController
   private
 
   def listpost_params
-    params.require(:listpost).permit(:post_id)
+    params.require(:listpost).permit(:post_id, :list_id)
   end
 
 end

@@ -9,8 +9,15 @@ class FeedbacksController < ApplicationController
       @feedback = Feedback.new(feedback_params)
       @feedback.post = @post
       @feedback.user = current_user
-      if @feedback.save
-        redirect_to post_path(@post), success: "Thanks for feedback"
+
+      respond_to do | format |
+        if @feedback.save
+          format.html { redirect_to restaurant_path(@post) }
+          format.json
+        else
+          format.html { render "posts/show", status: :unprocessable_entity }
+          format.json
+        end
       end
     end
   end

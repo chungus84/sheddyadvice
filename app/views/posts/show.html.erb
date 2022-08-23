@@ -1,26 +1,33 @@
+
 <div class="container">
+
   <div class="post">
-    <h1><%= @post.title %></h1>
-    <p><%= @post.body %></p>
+      <h1><%= @post.title %></h1>
+      <p><%= @post.body %></p>
   </div>
 
-  <div class="review">
-    <div class="add-review">
-      <%= simple_form_for([@post, @feedback]) do |f| %>
-        <%= f.input :rating, placeholder: "Enter a rating"%>
-        <%= f.input :comment %>
-        <%= f.submit class: "button-primary" %>
-      <% end %>
-    </div>
-    <div class="all-reviews">
-      <h3>Reviews</h3>
-      <ul>
-      <% @feedbacks.each do |feedback| %>
-        <p>Rating: <%= feedback.rating %></p>
-        <p>Comment: <%= feedback.comment %></p>
-        <%= link_to 'Edit', edit_post_feedback_path(@post) %>
+  <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="beforeend">
+
+      <div class="all-reviews" data-add-review-in-list-target="reviews">
+        <h3>Reviews</h3>
+        <% @feedbacks.each do |feedback| %>
+          <%= render "feedbacks/feedback", feedback: feedback %>
         <% end %>
-      </ul>
-    </div>
+      </div>
+      <%= render "feedbacks/form", post: @post, feedback: @feedback %>
+
   </div>
+
+  <div class="container-list">
+    <h2>Add to list</h2>
+    <% @searched_lists.each do |list| %>
+        <p><%= list.name %></p>
+        <%= simple_form_for([@post]) do |f| %>
+          <%= f.hidden_field :list_id, value: list.id %>
+          <%= f.submit 'Add', class: "btn btn-primary" %>
+        <% end %>
+    <% end %>
+  </div>
+
+
 </div>
