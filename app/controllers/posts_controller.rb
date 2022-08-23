@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @listpost = Listpost.new
     @post = Post.find(params[:id])
     @feedback = Feedback.new
-    @feedbacks = Feedback.where(post_id:e @post.id)
+    @feedbacks = Feedback.where(post_id: @post.id)
     @searched_lists = List.where(user_id: current_user)
   end
 
