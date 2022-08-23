@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
-  resources :lists do
-    resources :listposts
-  end
+  resources :listposts
+
+  resources :lists
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
