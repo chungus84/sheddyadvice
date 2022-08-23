@@ -9,7 +9,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
-    @searched_lists = List.where(user_id: current_user)
+    if params[:query].present?
+      @searched_lists = List.where(user_id: current_user).search_by_name(params[:query])
+    else
+      @searched_lists = List.where(user_id: current_user)
+    end
   end
 
   def edit
