@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    if params[:query].present?
+      @posts = Post.search_by_title_and_body(params[:query])
+    else
+      @posts = Post.all
+    end
+
   end
 
   def show
@@ -9,7 +14,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
-    @searched_lists = List.where(user_id: current_user)
+    if params[:query].present?
+      @searched_lists = List.where(user_id: current_user).search_by_name(params[:query])
+    else
+      @searched_lists = List.where(user_id: current_user)
+    end
   end
 
   def edit
@@ -45,6 +54,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy!
+    rescue ActiveRecord::RecordNotDestroyed => error
+      puts "errors that prevented destruction: #{error.record.errors.full_messages}"
+  redirect_to posts_path, status: :see_other
   end
 
 private

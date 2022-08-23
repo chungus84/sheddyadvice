@@ -1,5 +1,13 @@
 <div class="container">
   <h1>All posts</h1>
+  <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search for a post"
+      %>
+      <%= submit_tag "search", class: "btn btn-primary" %>
+    <% end %>
     <ul>
       <% @posts.each do |post| %>
         <%= link_to post_path(post) do %>

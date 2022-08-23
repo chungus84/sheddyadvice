@@ -15,3 +15,6 @@ application.register("edit-fields", EditFieldsController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import PostDropdownController from "./post_dropdown_controller"
+application.register("post-dropdown", PostDropdownController)
