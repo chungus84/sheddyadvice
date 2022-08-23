@@ -1,8 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to posts_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <p>Home</p>
+          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+          <p>Home</p>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,6 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-          <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.username %></a>
             <%= link_to "Posts", posts_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -20,9 +19,13 @@
           <li class="nav-item">
             <%= link_to "Add Post", new_post_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link" href="#" data-bs-toggle="dropdown">
+              <%= current_user.username %></a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+        </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Posts", posts_path, class: "nav-link" %>
