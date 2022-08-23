@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user, dependent: :destroy
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :destroy
   has_many :lists, through: :listposts
   has_many :listposts
   validates :title, presence: true
