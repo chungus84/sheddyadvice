@@ -3,7 +3,6 @@ class FeedbacksController < ApplicationController
   def new
   end
 
-
   def create
     if user_signed_in?
       @post = Post.find(params[:post_id])
@@ -16,6 +15,11 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:post_id])
+    @feedback = Feedback.find(params[:id])
+  end
+
   def update
     @post = Post.find(params[:post_id])
     @feedback = Feedback.find(params[:id])
@@ -23,7 +27,7 @@ class FeedbacksController < ApplicationController
     @feedback.user = current_user
     @feedback.post = @post
     if @feedback.save
-      redirect_to post_feedback_path, success: "Successfully updated"
+      redirect_to post_path, success: "Successfully updated"
     end
   end
 

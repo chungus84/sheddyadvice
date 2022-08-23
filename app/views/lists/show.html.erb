@@ -1,0 +1,38 @@
+<div class="container">
+
+
+  <h1><%= @list.name %></h1>
+
+
+  <div class="listposts">
+    <% @list.listposts.each do |listpost| %>
+    <p><%= listpost.post.title %></p>
+    <% end %>
+  </div>
+
+  <div class="search-posts">
+    <h1>Add a Post to your List </h1>
+    <%= form_with url: list_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a post"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
+      <% @searched_posts.each do |post| %>
+        <div class="search-results">
+          <div class="post-title">
+            <p><%= post.title %></p>
+          </div>
+          <div class="post-add-button">
+            <%= simple_form_for([@list, @listpost]) do |f| %>
+              <%= f.hidden_field :post_id, value: post.id %>
+              <%= f.submit 'Add', class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
