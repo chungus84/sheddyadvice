@@ -1,6 +1,16 @@
 <div class="container chatroom">
   <h1>#<%= @chatroom.name %></h1>
 
+<%= simple_form_for [@chatroom, @message],
+  html: {class: "d-flex"} do |f|
+%>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message ##{@chatroom.name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
   <div class="messages">
     <% @chatroom.messages.each do |message| %>
       <div id="message-<%= message.id %>">
