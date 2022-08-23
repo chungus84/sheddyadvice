@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import EditFieldsController from "./edit_fields_controller"
+application.register("edit-fields", EditFieldsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
