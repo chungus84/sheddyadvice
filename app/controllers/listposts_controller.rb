@@ -10,13 +10,14 @@ class ListpostsController < ApplicationController
   # end
 
   def create
-    @list = List.find(params[:list_id])
+    @list = List.find(listpost_params[:list_id])
+    # @list = List.find(params[:id])
     @listpost = Listpost.new(listpost_params)
-    @listpost.list = @list
+    # @listpost.list = @list
     if @listpost.save
       redirect_to list_path(@list)
     else
-      render :new, status: :unprocessable_entity
+      # redirect_to post_path(@post)
     end
   end
 

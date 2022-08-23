@@ -29,8 +29,9 @@
             <p><%= post.title %></p>
           </div>
           <div class="post-add-button">
-            <%= simple_form_for([@list, @listpost]) do |f| %>
+            <%= simple_form_for([@listpost]) do |f| %>
               <%= f.hidden_field :post_id, value: post.id %>
+              <%= f.hidden_field :list_id, value: @list.id %>
               <%= f.submit 'Add', class: "btn btn-primary" %>
             <% end %>
           </div>
