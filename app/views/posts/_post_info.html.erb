@@ -4,7 +4,6 @@
       <h1 class=""><%= @post.title %></h1>
       <p class=""><%= @post.body %></p>
     </div>
-        <%# edit post title button %>
       <%= simple_form_for @post, html: {class: "d-none", data: {
           edit_fields_target: "form",
           action: "submit->edit-fields#update"
@@ -14,9 +13,18 @@
         <%= f.button :submit %>
       <% end %>
   </div>
-  <div class="col-2">
-    <button style="border:0; background:none;"aria-label="Edit title">
-      <i class="fa-solid fa-pen fa-xs ml-2" data-edit-fields-target="button" data-action="click->edit-fields#displayForm"></i>
-    </button>
+  <div class="col-2" data-controller="post-dropdown">
+    <i class="fa-solid fa-ellipsis" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
+    <div class="post-menu d-none" data-post-dropdown-target="menuBody">
+      <button style="border:0; background:none;"aria-label="Edit post">
+        <i class="fa-solid fa-pen fa-xs ml-2" data-edit-fields-target="button" data-action="click->edit-fields#displayForm"></i>
+      </button>
+      <button style="border:0; background:none;" aria-label="delete post">
+<%= link_to "Delete",
+  post_path(@post),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+      <button>
+    </div>
   </div>
 </div>

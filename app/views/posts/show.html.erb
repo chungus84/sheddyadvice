@@ -1,10 +1,7 @@
 
-<div class="container">
+<div class="container" data-controller="edit-fields">
 
-  <div class="post">
-      <h1><%= @post.title %></h1>
-      <p><%= @post.body %></p>
-  </div>
+  <%= render "post_info" %>
 
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="beforeend">
 
@@ -28,6 +25,5 @@
         <% end %>
     <% end %>
   </div>
-
 
 </div>
