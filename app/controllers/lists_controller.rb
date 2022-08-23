@@ -1,12 +1,12 @@
 class ListsController < ApplicationController
 
+  before_action :set_list, only: %i[ show edit update destroy]
   def index
     @lists = List.where(user_id: current_user)
     @list = List.new
   end
 
   def show
-    @list = List.find(params[:id])
     # @post = Post.where(list_id: @list.id)
     @listpost = Listpost.new
     if params[:query].present?
@@ -26,13 +26,22 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list), success: "Created your list #{@list.name}"
     end
+  end
 
+  def edit
   end
 
   def update
-    @list = List.find(params[:id])
+    @list.update(list_params)
     if @list.user == current_user && @list.save
-        redirect_to lists_path, success: "Your list has been updated"
+      redirect_to lists_path, success: "Your list has been updated"
+    end
+  end
+
+  def destroy
+    if @list.user == current_user
+      @list.destroy
+      redirect_to lists_path, status: :see_other
     end
   end
 
@@ -41,4 +50,9 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:name)
   end
+
+  def set_list
+    @list = List.find(params[:id])
+  end
+
 end
