@@ -1,12 +1,11 @@
 <div class="container">
-
-
   <h1><%= @list.name %></h1>
-
 
   <div class="listposts">
     <% @list.listposts.each do |listpost| %>
-    <p><%= listpost.post.title %></p>
+    <div class="card-post">
+      <p><%= listpost.post.title %></p>
+    </div>
     <% end %>
   </div>
 
@@ -36,4 +35,5 @@
         </div>
       <% end %>
   </div>
+
 </div>
