@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    if params[:query].present?
+      @posts = Post.search_by_title_and_body(params[:query])
+    else
+      @posts = Post.all
+    end
+
   end
 
   def show
@@ -54,6 +59,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, status: :see_other
   end
 
 private
