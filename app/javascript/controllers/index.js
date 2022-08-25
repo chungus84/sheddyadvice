@@ -16,5 +16,8 @@ application.register("edit-fields", EditFieldsController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import SearchListsController from "./search_lists_controller"
+application.register("search-lists", SearchListsController)
+
 import PostDropdownController from "./post_dropdown_controller"
 application.register("post-dropdown", PostDropdownController)

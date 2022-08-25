@@ -19,6 +19,11 @@ class PostsController < ApplicationController
     else
       @searched_lists = List.where(user_id: current_user)
     end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "posts/my_lists", locals: {searched_lists: @searched_lists}, formats: [:html] }
+    end
+
   end
 
   def edit

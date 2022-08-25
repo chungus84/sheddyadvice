@@ -4,41 +4,27 @@
   <%= render "post_info" %>
 
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="beforeend">
-      <div class="all-reviews" data-add-review-in-list-target="reviews">
-        <h3>Reviews</h3>
-        <% @feedbacks.each do |feedback| %>
-          <%= render "feedbacks/feedback", feedback: feedback %>
-        <% end %>
-      </div>
-      <%= render "feedbacks/form", post: @post, feedback: @feedback %>
-
+    <div class="all-reviews" data-add-review-in-list-target="reviews">
+      <h3>Reviews</h3>
+      <% @feedbacks.each do |feedback| %>
+        <%= render "feedbacks/feedback", feedback: feedback %>
+      <% end %>
+    </div>
+    <%= render "feedbacks/form", post: @post, feedback: @feedback %>
   </div>
 
-  <div class="search-lists">
+  <div class="search-lists" data-controller="search-lists">
     <h2>Add to my lists</h2>
-      <%= form_with url: post_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a list"
-          %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= form_with url: post_path, method: :get, html: {class: "d-flex", data: {search_lists_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                  value: params[:query],
+                  class: "form-control",
+                  placeholder: "Find a list",
+                  data: {
+                    search_lists_target: "input",
+                    action:"keyup->search-lists#update"
+                  } %>
       <% end %>
-
-      <% @searched_lists.each do |list| %>
-        <div class="post-list-results">
-            <div class="list-name">
-              <p><%= list.name %></p>
-            </div>
-            <div class="add-list-button">
-              <%= simple_form_for([@listpost]) do |f| %>
-                  <%= f.hidden_field :list_id, value: list.id %>
-                  <%= f.hidden_field :post_id, value: @post.id %>
-                  <%= f.submit 'Add', class: "btn btn-primary" %>
-                <% end %>
-            </div>
-        </div>
-      <% end %>
+    <%= render "posts/my_lists", searched_lists: @searched_lists %>
   </div>
-
 </div>
