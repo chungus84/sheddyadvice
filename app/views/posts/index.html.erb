@@ -1,21 +1,30 @@
-<div class="container">
-  <h1>All posts</h1>
-  <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search for a post"
-      %>
-      <%= submit_tag "search", class: "btn btn-primary" %>
-    <% end %>
-    <ul>
-      <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
-          <li>
-            <p><%= post.title %></p>
-          </li>
-        <% end %>
-        <p><%= post.body %></p>
+<div class="py-5 text-center container-fluid banner-search bg-green">
+  <div class="row py-lg-5">
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <h2>Shed the cost of living: join the</h2>
+    <h2>Sheddy community and Do It Yourself</h2>
+    <p><%= form_with url: posts_path, method: :get, class: "d-flex search-field" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a post"
+        %>
+        <%= submit_tag "search", class: "btn btn-primary" %>
+    <% end %></p>
+  </div>
+
+  </div>
+
+</div>
+<div class="py-5 text-center container">
+  <ul>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <li>
+          <p><%= post.title %></p>
+        </li>
       <% end %>
-    </ul>
+      <p><%= post.body %></p>
+    <% end %>
+  </ul>
 </div>
