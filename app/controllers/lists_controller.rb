@@ -14,6 +14,10 @@ class ListsController < ApplicationController
     else
       @searched_posts = Post.all
     end
+    respond_to do |format|
+      format.html
+      format.text { render partial: "lists/my_posts", locals: {searched_posts: @searched_posts}, formats: [:html] }
+    end
   end
 
   def new
