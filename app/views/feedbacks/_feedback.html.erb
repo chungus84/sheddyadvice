@@ -1,5 +1,19 @@
-<div class="container">
-  <p>Rating: <%= feedback.rating %></p>
-  <p>Comment: <%= feedback.comment %></p>
-  <%# <%= link_to 'Edit', edit_post_feedback_path(post), class: "btn btn-primary"%>
+<div class="review">
+  <div class="review-card">
+    <div class="left-review">
+      <p>Rating: <%= feedback.rating %></p>
+    </div>
+    <div class="middle-review grouped">
+      <p>by: <b><%= feedback.user.email %></b></p>
+    </div>
+    <div class="right-review grouped">
+      <p>on <%= feedback.created_at.strftime("%d %B")%></p>
+    </div>
+    <%# <%= link_to 'Edit', edit_post_feedback_path(post), class: "btn btn-primary"%>
+  </div>
+  <% if feedback.comment.present? %>
+    <div class="bottom-comment">
+      <p><%= feedback.comment %></p>
+    </div>
+  <% end %>
 </div>
