@@ -1,21 +1,29 @@
-<div class="container">
-  <h1>All posts</h1>
-  <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Search for a post"
-      %>
-      <%= submit_tag "search", class: "btn btn-primary" %>
-    <% end %>
-    <ul>
+<div class="container text-center">
+   <div class="row">
+      <div class="col">
+         <h1>Join our community</h1>
+         <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
+         <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for a post"
+            %>
+         <%= submit_tag "search", class: "btn btn-primary" %>
+         <% end %>
+      </div>
+   </div>
+   <div class="card-container">
       <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
-          <li>
-            <p><%= post.title %></p>
-          </li>
-        <% end %>
-        <p><%= post.body %></p>
+      <%= link_to post_path(post) do %>
+      <div class="card">
+         <div class="card-body">
+            <span class="card-author"><% post.user_id%></span>
+            <h2 class="card-title"><%= post.title %></h2>
+            <span class="card-description"><%= post.body %></span>
+         </div>
+         <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
+         <% end %>
+      </div>
       <% end %>
-    </ul>
+   </div>
 </div>
