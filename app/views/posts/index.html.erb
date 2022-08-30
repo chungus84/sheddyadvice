@@ -1,5 +1,7 @@
-<div class="container text-center">
-   <div class="row">
+
+<%= render "shared/banner_search" %>
+  <div class="container text-center">
+    <div class="row">
       <div class="col">
          <h1>Join our community</h1>
          <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
@@ -26,4 +28,5 @@
       </div>
       <% end %>
    </div>
+
 </div>
