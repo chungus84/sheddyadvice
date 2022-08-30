@@ -1,0 +1,64 @@
+$titles-font : 'Hammersmith One';
+$font-small : 'Hind';
+$mustard: #F3A440;
+$black: #000000;
+$grey: #717171;
+$white: #FFFFFF;
+$spacer: 8px;
+
+// .card-body {
+//   display: inline-block;
+//   // justify-content: center;
+//   font-size: 20px;
+//   padding: 8px;
+//   margin: 8px;
+//   box-shadow: 5px 5px 8px rgba(0,0,0,0.2);
+// }
+
+
+.card-container {
+  display: inline-block;
+  margin: 25px auto 0;
+  position: relative;
+  // width: 692px;
+}
+
+.card {
+  display: grid;
+  background-color: #fff;
+  padding: 8px;
+  position: relative;
+  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
+}
+
+.card-body {
+  display: inline-block;
+  // float: left;
+  width: 310px;
+}
+
+.card-author {
+  font: $font-small;
+  color: $grey;
+  display: block;
+  font-size: 12px;
+  letter-spacing: .5px;
+  margin: 15px 0 0;
+  text-transform: uppercase;
+}
+
+.card-title {
+  color: $black;
+  font-family: $titles-font;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  margin: 10px 0;
+}
+
+.card-description {
+  display: inline-block;
+  font-weight: 300;
+  line-height: 22px;
+  margin: 10px 0;
+}

@@ -1,53 +1,30 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to posts_path, class: "navbar-brand" do %>
-          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-          <% end %>
-      <p>Home</p>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Posts", posts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Lists", lists_path, class: "nav-link" %>
-          </li>
-      <%# do we need messages tab on the navbar? also fix the ActionController::UrlGenerationError in Chatrooms#show error>
-          <li class="nav-item">
-            <%= link_to "Messages", chatroom_messages_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Add Post", new_post_path, class: "nav-link" %>
-          </li>
-           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.username %></a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-        </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Posts", posts_path, class: "nav-link" %>
-          </li>
-          <%= link_to new_user_session_path do %>
-            <li class="nav-item main-btn">
-            <i class="fa-solid fa-user"></i>
-            <p>Login</p>
-            </li>
-            <% end  %>
-          <%= link_to new_user_registration_path do %>
-            <li class="nav-item main-btn">
-            <i class="fa-solid fa-user"></i>
-            <p>Register</p>
-          </li>
-                      <% end  %>
-
-        <% end %>
-      </ul>
-    </div>
+<div class="navbar navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-me-between py-3 mb4 border-bottom">
+  <div class="d-flex align-items-center col-md-2 mb-2 mb-md-0 text-dark navbar-brand">
+    <%= image_tag 'shed3 2' %>
   </div>
+    <ul class="nav col-12 col-md-auto col-sm-auto mb-2 justify-content-center mb-md-0">
+    <li><%= image_tag 'house-icon' %></li>
+    <li><%= image_tag 'bathroom-icon' %></li>
+    <li><%= image_tag 'kitchen-icon' %></li>
+    <li><%= image_tag 'garden-icon' %></li>
+  </ul>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto">
+      <% if user_signed_in? %>
+        <li><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+      <% else %>
+        <li><%= link_to "Sign-In", new_user_session_path, class: "dropdown-item" %></li>
+        <li><%= link_to "Add Post", new_user_registration_path, class: "dropdown-item" %></li>
+      <% end %>
+
+      </ul>
+  </div>
+
 </div>
