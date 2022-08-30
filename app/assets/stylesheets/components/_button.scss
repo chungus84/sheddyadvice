@@ -1,0 +1,29 @@
+.main-btn {
+  display: flex;
+  align-items:center;
+  background-color: $clickable-coral;
+  color: $background-white;
+  padding: 12px 32px;
+  border-radius: 16px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  margin-left: 16px;
+  justify-content: center;
+
+  &:hover {
+    background-color: $secondary-orange;
+    color: $background-white;
+  }
+
+  &:active {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.main-btn p {
+ margin: 0 0 0 16px;
+}
+
+.form {
+  margin-left:0;
+  width: 100%;
+}
