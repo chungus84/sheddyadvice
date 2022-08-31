@@ -14,10 +14,14 @@ class ListpostsController < ApplicationController
     # @list = List.find(params[:id])
     @listpost = Listpost.new(listpost_params)
     # @listpost.list = @list
-    if @listpost.save
-      redirect_to list_path(@list)
-    else
-      # redirect_to post_path(@post)
+    respond_to do |format|
+      if @listpost.save
+        format.html { redirect_to list_path(@list) }
+        format.json
+      else
+        format.html { render "lists/show", status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 

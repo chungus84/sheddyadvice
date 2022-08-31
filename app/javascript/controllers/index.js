@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddPostToListController from "./add_post_to_list_controller"
+application.register("add-post-to-list", AddPostToListController)
+
 import AddReviewInListController from "./add_review_in_list_controller"
 application.register("add-review-in-list", AddReviewInListController)
 
