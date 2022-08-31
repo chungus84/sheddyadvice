@@ -8,7 +8,7 @@ export default class extends Controller {
   //   // console.log("Added")
   //   // console.log(this.reviewsTarget)
   //   // console.log(this.formTarget)
-  // }
+  // F
 
   send(event) {
     event.preventDefault()

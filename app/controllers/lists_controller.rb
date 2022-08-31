@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.text { render partial: "lists/my_posts", locals: {searched_posts: @searched_posts}, formats: [:html] }
+      format.text { render partial: "lists/posts", locals: {searched_posts: @searched_posts}, formats: [:html] }
     end
   end
 

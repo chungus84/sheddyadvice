@@ -1,11 +1,13 @@
 <div class="search-results" data-search-posts-target="list">
-  <% @searched_posts.each do |post| %>
-    <div class="search-post-results">
-      <div class="post-title">
+  <% searched_posts.each do |post| %>
+    <div class="search-post-results" data-add-post-to-list-target="results">
+      <div class="post-title" data-add-post-to-list-target="posts">
         <p><%= post.title %></p>
       </div>
       <div class="post-add-button">
-        <%= simple_form_for([@listpost]) do |f| %>
+        <%= simple_form_for([@listpost],
+        data: {add_post_to_list_target: "form",
+        action: "submit->add-post-to-list#send"}) do |f| %>
           <%= f.hidden_field :post_id, value: post.id %>
           <%= f.hidden_field :list_id, value: @list.id %>
           <%= f.submit 'Add', class: "btn btn-primary" %>

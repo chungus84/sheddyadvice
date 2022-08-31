@@ -3,27 +3,29 @@
   <p><%= link_to "Edit List title", edit_list_path(@list) %></p>
   <p><%= link_to "Delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?"} %></p>
 
-  <div class="listposts">
-    <% @list.listposts.each do |listpost| %>
-    <div class="card-post">
-      <p><%= listpost.post.title %></p>
+  <div class="all-lists" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
+
+    <div class="listposts">
+      <% @list.listposts.each do |listpost| %>
+        <div class="card-post">
+          <%= render "lists/added_posts", listpost: listpost %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <div class="search-posts" data-controller="search-posts">
-    <h1>Add a Post to your List </h1>
-    <%= form_with url: list_path, method: :get, html: {class: "d-flex", data: {search_posts_target: "form"}} do |f| %>
-        <%= f.text_field :query,
-                value: params[:query],
-                class: "form-control",
-                placeholder: "Find a post",
-                data: {
-                  search_posts_target: "input",
-                  action:"keyup->search-posts#update"
-                } %>
-    <% end %>
-    <%= render "lists/my_posts", searched_posts: @searched_posts %>
+    <div class="search-posts" data-controller="search-posts">
+      <h1>Add a Post to your List </h1>
+      <%= form_with url: list_path, method: :get, html: {class: "d-flex", data: {search_posts_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                  value: params[:query],
+                  class: "form-control",
+                  placeholder: "Find a post",
+                  data: {
+                    search_posts_target: "input",
+                    action:"keyup->search-posts#update"
+                  } %>
+      <% end %>
+      <%= render "lists/posts", searched_posts: @searched_posts, listpost: @listpost %>
+    </div>
   </div>
-
 </div>
