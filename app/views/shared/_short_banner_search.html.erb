@@ -1,0 +1,18 @@
+<div class="py-1 text-center container-fluid banner-search">
+  <div class="row py-lg-1">
+  <div class="col-lg-6 col-md-8 mx-auto">
+
+      <p><%= form_with url: posts_path, method: :get, class: "d-flex search-field" do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a post"
+        %>
+        <%= submit_tag "search", class: "btn search-button" %>
+      <% end %></p>
+    </div>
+
+  </div>
+
+</div>
+<%= render "shared/navbar" %>

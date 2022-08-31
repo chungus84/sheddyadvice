@@ -9,8 +9,8 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 50%;
+.navbar-brand > a > img {
+  width: 80%;
 }
 
 .nav > li > img {
@@ -21,9 +21,7 @@
   text-align: right;
 }
 
-.nav-logo {
-  width: 40%;
-}
+
 
 a {
   text-decoration: none;
