@@ -83,3 +83,7 @@ end
 
 # pg search
 gem "pg_search"
+
+# Cloudinary
+gem "cloudinary"
+
