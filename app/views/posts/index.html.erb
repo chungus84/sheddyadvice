@@ -23,7 +23,7 @@
             <h2 class="card-title"><%= post.title %></h2>
             <span class="card-description"><%= post.body %></span>
          </div>
-         <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
+          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "card-media" %>
          <% end %>
       <%# </div> %>
       <% end %>

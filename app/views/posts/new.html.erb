@@ -3,6 +3,8 @@
   <%= simple_form_for(@post) do |f| %>
     <%= f.input :title, placeholder: "Enter a title"%>
     <%= f.input :body, placeholder: "upload your instructions"%>
+     <%= f.input :photo, as: :file %>
+     <%= f.input :video, as: :file %>
     <%= f.button :submit, 'Create', class: "btn btn-primary" %>
   <% end %>
 </div>
