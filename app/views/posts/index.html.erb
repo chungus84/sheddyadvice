@@ -8,7 +8,6 @@
    <div class="card-container">
       <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "card" do %>
-      <div class="card">
          <div class="card-body">
 
             <h2 class="card-title"><%= post.title %></h2>
@@ -17,7 +16,6 @@
          </div>
         <%# <%= cl_image_tag post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
          <% end %>
-      </div>
       <% end %>
    </div>
 </div>

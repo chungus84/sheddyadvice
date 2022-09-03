@@ -23,11 +23,11 @@
     <i class="fa-solid fa-ellipsis edit-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
     <div class="post-menu d-none" data-post-dropdown-target="menuBody">
       <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
-        <i class="fa-solid fa-pen fa-xs mx-2"></i>
+        <i class="fa-solid fa-pen fa-xs mx-2 py-2"></i>
           <p> Edit post</p>
       </button>
         <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-solid fa-trash mx-2"></i>
+          <i class="fa-solid fa-trash mx-2 py-2"></i>
           <p>Delete post </p>
         <% end %>
    </div>
