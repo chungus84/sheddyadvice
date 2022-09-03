@@ -3,7 +3,7 @@
     <div data-edit-fields-target="post">
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
-      <%# <% end %> 
+      <%# <% end %>
       <% if @post.video.attached? %>
         <%= cl_video_tag @post.video.key, height: 300, width: 400, crop: :fill, controls: '' %>
       <% end %>
@@ -34,3 +34,4 @@
    </div>
   </div>
 </div>
+<%= render "shared/user_card" %>

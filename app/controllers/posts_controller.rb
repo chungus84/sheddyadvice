@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @listpost = Listpost.new
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
     if params[:query].present?
