@@ -1,10 +1,25 @@
-<div class="add-review">
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="add-review">
   <%= simple_form_for([post, feedback],
     data: {add_review_in_list_target: "form",
     action: "submit->add-review-in-list#send"
     }) do |f| %>
       <%= f.input :rating, placeholder: "Enter a rating"%>
       <%= f.input :comment %>
-      <%= f.submit 'Add Review', class: "btn btn-primary" %>
-  <% end %>
+</div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Add Review', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

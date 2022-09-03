@@ -72,6 +72,13 @@ $spacer: 8px;
   width: 50%;
 }
 
+
+.user-card-body {
+  background-color: $secondary-orange;
+  padding: 14px;
+  border-radius: 8px;
+  height: 200px;
+
 .user-card-container {
   display: inline-block;
   width: 200px;
@@ -80,14 +87,7 @@ $spacer: 8px;
   border-radius: 4px;
   margin: 16px 0;
 
-}
 
-.user-card-body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-}
 
 .user-card-body > span {
   padding-left: 10px;
