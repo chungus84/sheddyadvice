@@ -31,7 +31,6 @@ puts "Populating the database, buckle up"
     post = Post.new(
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
-
       category: ["In the Bathroom", "House Maintanance", "In the kitchen", "in the Garden"].sample,
       user_id: user.id
     )
