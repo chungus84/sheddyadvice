@@ -19,11 +19,12 @@
       <%= link_to post_path(post), class: "card" do %>
       <%# <div class="card"> %>
          <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
+
             <h2 class="card-title"><%= post.title %></h2>
             <span class="card-description"><%= post.body %></span>
+            <span class="card-author">Created by: <%= post.user.email%></span>
          </div>
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "card-media" %>
+          <%# <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "card-media" %>
          <% end %>
       <%# </div> %>
       <% end %>
