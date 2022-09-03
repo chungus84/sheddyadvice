@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row">
+    <div class="user-card-body col-8">
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-bordered", alt: "avatar-bordered" %>
+        </div>
+        <div class="col-3">
+          <span>by <%= @post.user.email %></span>
+        </div>
+        <div class="col-5 button-list">
+          <div class="main-btn">
+            Send user a message
+          </div>
+          <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Leave a review
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

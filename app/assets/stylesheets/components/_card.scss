@@ -18,7 +18,7 @@ $spacer: 8px;
 
 .card-container {
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: auto;
   // margin: 25px auto 0;
   // position: relative;
   // width: 692px;
@@ -70,6 +70,27 @@ $spacer: 8px;
 
 .card-media {
   width: 50%;
+}
+
+
+.user-card-body {
+  background-color: $secondary-orange;
+  padding: 14px;
+  border-radius: 8px;
+  height: 200px;
+
+.user-card-container {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  background-color: $mustard;
+  border-radius: 4px;
+  margin: 16px 0;
+
+
+
+.user-card-body > span {
+  padding-left: 10px;
 }
 
 @media screen and (max-width: 750px) {

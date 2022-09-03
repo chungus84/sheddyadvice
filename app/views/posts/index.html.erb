@@ -1,5 +1,4 @@
 
-<%# <%= render "shared/short_banner_search" %>
   <div class="container text-center">
     <div class="row">
       <div class="col">
@@ -9,15 +8,16 @@
    <div class="card-container">
       <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "card" do %>
-      <%# <div class="card"> %>
+      <div class="card">
          <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
+
             <h2 class="card-title"><%= post.title %></h2>
             <span class="card-description"><%= post.body %></span>
+            <span class="card-author">Created by: <%= post.user.email%></span>
          </div>
         <%# <%= cl_image_tag post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
          <% end %>
-      <%# </div> %>
+      </div>
       <% end %>
    </div>
 </div>

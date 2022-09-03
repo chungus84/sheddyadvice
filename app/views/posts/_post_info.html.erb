@@ -1,12 +1,11 @@
 <div class="row pb-5"  data-edit-fields-target="info">
-  <div class="col-4">
+  <div class="col-8">
     <div data-edit-fields-target="post">
+         <h1 class=""><%= @post.title %></h1>
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
-      <%# <% end %> 
-      <% if @post.video.attached? %>
-        <%= cl_video_tag @post.video.key, height: 300, width: 400, crop: :fill, controls: '' %>
-      <% end %>
+      <%# <% end %>
+        <%= cl_video_tag("DIYVideoDemo", height: 300, width: 400, crop: :fill, controls: '') %>
       <h1 class=""><%= @post.title %></h1>
       <p class=""><%= @post.body %></p>
     </div>
@@ -16,21 +15,22 @@
               }} do |f| %>
         <%= f.input :title, placeholder: "#{@post.title}" %>
         <%= f.input :body, placeholder: "#{@post.body}" %>
-        <%= f.button :submit %>
+        <%= f.input :video, placeholder: "#{@post.video}" %>
+        <%= f.button :submit, class: "main-btn" %>
       <% end %>
   </div>
   <div class="col-2" data-controller="post-dropdown">
-    <i class="fa-solid fa-ellipsis" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
+    <i class="fa-solid fa-ellipsis edit-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
     <div class="post-menu d-none" data-post-dropdown-target="menuBody">
-      <button style="border:0; background:none;" class="d-flex">
-      <p> Edit post</p>
-        <i class="fa-solid fa-pen fa-xs ml-2" data-edit-fields-target="button" data-action="click->edit-fields#displayForm"></i>
+      <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
+        <i class="fa-solid fa-pen fa-xs mx-2"></i>
+          <p> Edit post</p>
       </button>
-      <div class="d-flex">
-        <%= link_to post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash mx-2"></i>
           <p>Delete post </p>
-          <i class="fa-solid fa-trash"></i>
         <% end %>
    </div>
   </div>
 </div>
+<%= render "shared/user_card" %>
