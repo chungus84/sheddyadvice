@@ -27,7 +27,7 @@ puts "Populating the database, buckle up"
     post = Post.create!(
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
-      # adds images for the post,
+      # add categories to posts - hoeshold, garden, bathroom etc.
       image: Faker::LoremFlickr.image(size: "320x240", search_terms: ['hobby', 'diy'], match_all: true),
       user_id: user.id
     )
