@@ -10,8 +10,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= render "shared/short_banner_search" %>
+<body>
+
+
+  <%= render "shared/short_banner_search" %>
+
     <%= yield %>
-  </body>
+</body>
 </html>

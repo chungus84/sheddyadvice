@@ -1,3 +1,4 @@
+
 .main-btn {
   display: flex;
   align-items:center;
@@ -26,4 +27,11 @@
 .form {
   margin-left:0;
   width: 100%;
+}
+
+.user-card-body .button-list {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

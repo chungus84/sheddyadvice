@@ -2,18 +2,19 @@ class PostsController < ApplicationController
 
   def index
     if params[:query].present?
-      @posts = Post.search_by_title_and_body(params[:query])
+      @posts = Post.includes(:user).search_by_title_and_body(params[:query])
     else
-      @posts = Post.all
+      @posts = Post.includes(:user).all
     end
 
   end
 
   def show
     @listpost = Listpost.new
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
+    @chatroom = Chatroom.new
     if params[:query].present?
       @searched_lists = List.where(user_id: current_user).search_by_name(params[:query])
     else

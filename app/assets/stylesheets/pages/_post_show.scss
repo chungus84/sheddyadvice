@@ -12,3 +12,39 @@
 .search-lists {
   margin-top: 16px;
 }
+
+.edit-toggle {
+  z-index: 2;
+  background-color: $background-white;
+ padding: 16px;
+  text-align: center;
+  margin-top: 16px;
+
+    &:hover {
+
+      background-color: $clickable-coral;
+      border-radius: 50%;
+      color: $background-white;
+  }
+}
+
+.post-menu {
+  background-color: $background-white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.post-menu p {
+  margin: 0;
+}
+
+.video-container {
+  background-color: $primary-green;
+  padding: 20px;
+  border-radius: 8px;
+}
