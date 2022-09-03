@@ -129,3 +129,19 @@ color: $secondary-orange
   background-color: $background-white;
   border-radius: 8px;
 }
+
+.menu-item {
+  color: $text-grey;
+
+&:hover {
+  color: $clickable-coral;
+}
+}
+
+.menu-item i {
+  color: $secondary-orange;
+
+  &:hover {
+    color: $clickable-coral
+  }
+}

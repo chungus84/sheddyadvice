@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   displayMenu () {
-    this.menuBodyTarget.classList.remove("d-none")
+    this.menuBodyTarget.classList.toggle("d-none")
   }
 
 }
