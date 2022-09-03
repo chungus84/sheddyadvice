@@ -26,7 +26,7 @@ puts "Populating the database, buckle up"
 
   2.times do
     file = URI.open("https://www.familyhandyman.com/wp-content/uploads/2018/02/FH17JAU_580_54_001.jpg?fit=696,696")
-    upload_video = URI.open("https://www.youtube.com/watch?v=fS1gycJnWJM")
+    # upload_video = URI.open("https://res.cloudinary.com/dtgtbjkq6/video/upload/v1662220802/development/j1_we2dtb.mp4")
     post = Post.new(
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
@@ -34,7 +34,7 @@ puts "Populating the database, buckle up"
       user_id: user.id
     )
     post.photo.attach(io: file, filename: "seed.png", content_type: "image/png")
-    post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
+    # post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
     post.save!
   end
   puts "I've just shared some great tips how to be good at DIY #{user}"

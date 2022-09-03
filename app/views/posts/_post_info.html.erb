@@ -3,10 +3,8 @@
     <div data-edit-fields-target="post">
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
-      <%# <% end %> 
-      <% if @post.video.attached? %>
-        <%= cl_video_tag @post.video.key, height: 300, width: 400, crop: :fill, controls: '' %>
-      <% end %>
+      <%# <% end %>
+        <%= cl_video_tag("DIYVideoDemo", height: 300, width: 400, crop: :fill, controls: '') %>
       <h1 class=""><%= @post.title %></h1>
       <p class=""><%= @post.body %></p>
     </div>
