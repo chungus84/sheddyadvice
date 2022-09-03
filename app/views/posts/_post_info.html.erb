@@ -13,6 +13,7 @@
         <%= f.button :submit %>
       <% end %>
   </div>
+
   <div class="col-2" data-controller="post-dropdown">
     <i class="fa-solid fa-ellipsis" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
     <div class="post-menu d-none" data-post-dropdown-target="menuBody">
@@ -28,3 +29,4 @@
    </div>
   </div>
 </div>
+<%= render "shared/user_card" %>

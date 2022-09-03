@@ -18,12 +18,13 @@
       <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "card" do %>
       <%# <div class="card"> %>
+         <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
          <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
             <h2 class="card-title"><%= post.title %></h2>
             <span class="card-description"><%= post.body %></span>
+            <span class="card-author">created by: <%= post.user.email %></span>
          </div>
-         <img src="https://s15.postimg.cc/temvv7u4r/recipe.jpg" alt="" class="card-media" />
+
          <% end %>
       <%# </div> %>
       <% end %>

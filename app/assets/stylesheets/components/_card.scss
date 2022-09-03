@@ -18,7 +18,7 @@ $spacer: 8px;
 
 .card-container {
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: auto;
   // margin: 25px auto 0;
   // position: relative;
   // width: 692px;
@@ -40,6 +40,10 @@ $spacer: 8px;
   display: inline-block;
   // float: left;
   width: 50%;
+}
+
+.card > img {
+  height: 200px;
 }
 
 .card-author {
@@ -69,8 +73,9 @@ $spacer: 8px;
 }
 
 .card-media {
-  width: 50%;
+  width: 33%;
 }
+
 
 @media screen and (max-width: 750px) {
   .card-container {
