@@ -2,7 +2,7 @@
   <h2>Add a new post</h2>
   <%= simple_form_for(@post) do |f| %>
     <%= f.input :title, placeholder: "Enter a title"%>
-    <%= f.input :body, placeholder: "upload your instructions"%>
+    <%= f.input :body, placeholder: "Upload your instructions"%>
      <%= f.input :photo, as: :file %>
      <%= f.input :video, as: :file %>
     <%= f.button :submit, 'Create', class: "btn btn-primary" %>
