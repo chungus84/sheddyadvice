@@ -19,14 +19,42 @@
   <h2 class="headline">Top Rated</h2>
   <% @top_rated_posts = Post.top_rated %>
     <% @top_rated_posts.each do |post| %>
-      <li><div class="card-body">
+    <%= link_to post_path(post), class: "card" do %>
+      <div class="card-body">
             <span class="card-author"><% post.user_id%></span>
             <h2 class="card-title"><%= post.title %></h2>
          </div>
-        </li>
+         <% end %>
       <hr>
 <% end %>
 </div>
 
+<div class="trending-posts">
+  <h2 class="headline">Trending</h2>
+  <% @trending_posts = Post.trending %>
+    <% @trending_posts.each do |post| %>
+    <%= link_to post_path(post), class: "card" do %>
+      <div class="card-body">
+            <span class="card-author"><% post.user_id%></span>
+            <h2 class="card-title"><%= post.title %></h2>
+         </div>
+      <% end %>
+      <hr>
+<% end %>
+</div>
+
+<div class="recent-posts">
+  <h2 class="headline">Recent Posts</h2>
+  <% @recent_posts = Post.recent %>
+    <% @recent_posts.each do |post| %>
+    <%= link_to post_path(post), class: "card" do %>
+      <div class="card-body">
+            <span class="card-author"><% post.user_id%></span>
+            <h2 class="card-title"><%= post.title %></h2>
+         </div>
+      <% end %>
+      <hr>
+<% end %>
+</div>
   </body>
 </html>
