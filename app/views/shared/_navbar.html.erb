@@ -1,32 +1,33 @@
-<div class="navbar navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-me-between py-3 mb4 border-bottom">
-  <div class="d-flex align-items-center col-md-2 mb-2 mb-md-0 text-dark navbar-brand">
-    <%= link_to root_path do  %>
-      <%= image_tag 'shed3 2' %>
-    <% end %>
-  </div>
-    <ul class="nav col-12 col-md-auto col-sm-auto mb-2 justify-content-center mb-md-0">
-    <li><%= image_tag 'house-icon' %></li>
-    <li><%= image_tag 'bathroom-icon' %></li>
-    <li><%= image_tag 'kitchen-icon' %></li>
-    <li><%= image_tag 'garden-icon' %></li>
-  </ul>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-      <% if user_signed_in? %>
-        <li><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
-        <li><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
-        <li><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
-      <% else %>
-        <li><%= link_to "Sign-In", new_user_session_path, class: "dropdown-item" %></li>
-        <li><%= link_to "Add Post", new_user_registration_path, class: "dropdown-item" %></li>
+<div class="d-flex justify-content-center py-3 mb4 border-bottom">
+  <div class="row align-items-center">
+    <div class="col-2 mb-2 mb-md-0 text-dark navbar-brand">
+      <%= link_to root_path do  %>
+        <%= image_tag 'shed3 2' %>
       <% end %>
-
-      </ul>
+    </div>
+      <ul class="nav col-9 d-flex mb-2 justify-content-center mb-md-0">
+        <li><%= image_tag 'house-icon' %></li>
+        <li><%= image_tag 'bathroom-icon' %></li>
+        <li><%= image_tag 'kitchen-icon' %></li>
+        <li><%= image_tag 'garden-icon' %></li>
+    </ul>
+    <div class="col-1" >
+          <div class="nav-item dropdown">
+            <%= image_tag "hex", class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <ul class="nav-items">
+                <% if user_signed_in? %>
+                <li><i class="fa-solid fa-user"></i><%= link_to "My Posts", posts_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+                <% else %>
+                <li><i class="fa-solid fa-user-plus"></i><%= link_to "Sign-In", new_user_session_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-upload"></i><%= link_to "Add Post", new_user_registration_path, class: "dropdown-item" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+    </div>
   </div>
-
 </div>
