@@ -17,15 +17,19 @@ $spacer: 8px;
 
 
 .card-container {
-  display: inline-block;
-  margin: 25px auto 0;
-  position: relative;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  // margin: 25px auto 0;
+  // position: relative;
   // width: 692px;
+  column-gap: 20px;
+  row-gap: 20px;
+
 }
 
 .card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   background-color: #fff;
   padding: 8px;
   position: relative;
@@ -35,7 +39,7 @@ $spacer: 8px;
 .card-body {
   display: inline-block;
   // float: left;
-  width: 310px;
+  width: 50%;
 }
 
 .card-author {
@@ -62,4 +66,20 @@ $spacer: 8px;
   font-weight: 300;
   line-height: 22px;
   margin: 10px 0;
+}
+
+.card-media {
+  width: 50%;
+}
+
+@media screen and (max-width: 750px) {
+  .card-container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    grid-template-columns: auto;
+  }
 }
