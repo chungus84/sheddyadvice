@@ -4,14 +4,6 @@
     <div class="row">
       <div class="col">
          <h1>Join our community</h1>
-         <%= form_with url: posts_path, method: :get, class: "d-flex" do %>
-         <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search for a post"
-            %>
-         <%= submit_tag "search", class: "btn btn-primary" %>
-         <% end %>
       </div>
    </div>
    <div class="card-container">
@@ -23,10 +15,9 @@
             <h2 class="card-title"><%= post.title %></h2>
             <span class="card-description"><%= post.body %></span>
          </div>
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill, class: "card-media" %>
+        <%# <%= cl_image_tag post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %> %>
          <% end %>
       <%# </div> %>
       <% end %>
    </div>
-
 </div>
