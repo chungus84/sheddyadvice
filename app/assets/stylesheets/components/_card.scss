@@ -24,7 +24,8 @@ $spacer: 8px;
 }
 
 .card {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   background-color: #fff;
   padding: 8px;
   position: relative;

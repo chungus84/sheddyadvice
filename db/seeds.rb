@@ -11,6 +11,7 @@ require 'open-uri'
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
+List.destroy_all
 User.destroy_all
 Post.delete_all
 
@@ -24,13 +25,17 @@ puts "Populating the database, buckle up"
   puts "I'm #{user.email} and I love SheddyAdvice!"
 
   2.times do
-    post = Post.create!(
+    file = URI.open("https://www.familyhandyman.com/wp-content/uploads/2018/02/FH17JAU_580_54_001.jpg?fit=696,696")
+    upload_video = URI.open("https://www.youtube.com/watch?v=fS1gycJnWJM")
+    post = Post.new(
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
       # adds images for the post,
-      image: Faker::LoremFlickr.image(size: "320x240", search_terms: ['hobby', 'diy'], match_all: true),
       user_id: user.id
     )
+    post.photo.attach(io: file, filename: "seed.png", content_type: "image/png")
+    post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
+    post.save!
   end
   puts "I've just shared some great tips how to be good at DIY #{user}"
 end

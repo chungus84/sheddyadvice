@@ -1,6 +1,12 @@
 <div class="row pb-5"  data-edit-fields-target="info">
   <div class="col-4">
     <div data-edit-fields-target="post">
+      <%# <% if @post.photo.attached? %>
+        <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
+      <%# <% end %> 
+      <% if @post.video.attached? %>
+        <%= cl_video_tag @post.video.key, height: 300, width: 400, crop: :fill, controls: '' %>
+      <% end %>
       <h1 class=""><%= @post.title %></h1>
       <p class=""><%= @post.body %></p>
     </div>
