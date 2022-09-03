@@ -20,7 +20,8 @@ puts "Populating the database, buckle up"
 20.times do
   user = User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    username: Faker::Internet.user_name(separators: %w(. _))
   )
   puts "I'm #{user.email} and I love SheddyAdvice!"
 
@@ -30,12 +31,22 @@ puts "Populating the database, buckle up"
     post = Post.new(
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
-      # adds images for the post,
+
+      category: ["In the Bathroom", "House Maintanance", "In the kitchen", "in the Garden"].sample
       user_id: user.id
     )
     post.photo.attach(io: file, filename: "seed.png", content_type: "image/png")
     post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
     post.save!
+
+    5.times do
+      feedback = Feedback.create!(
+        comment: Faker::Lorem.paragraph(sentence_count: 1),
+        rating: rand(1..5),
+        user_id: user.id,
+        post_id: post.id
+      )
+    end
   end
   puts "I've just shared some great tips how to be good at DIY #{user}"
 end
