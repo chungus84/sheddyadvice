@@ -64,9 +64,16 @@ class PostsController < ApplicationController
     redirect_to posts_path, status: :see_other
   end
 
+  def trending
+    # @posts = Post.order("COALESCE(impressions_count, 0) DESC").limit(200)
+  end
+
+  def recent
+    @posts = Post.last(3)
+  end
+
 private
   def post_params
     params.require(:post).permit(:title, :body, :photo, :video)
   end
-
 end

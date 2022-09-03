@@ -15,5 +15,18 @@
   <body>
     <%= render "shared/banner_search" %>
 
+<div class="top-rated">
+  <h2 class="headline">Top Rated</h2>
+  <% @top_rated_posts = Post.top_rated %>
+    <% @top_rated_posts.each do |post| %>
+      <li><div class="card-body">
+            <span class="card-author"><% post.user_id%></span>
+            <h2 class="card-title"><%= post.title %></h2>
+         </div>
+        </li>
+      <hr>
+<% end %>
+</div>
+
   </body>
 </html>
