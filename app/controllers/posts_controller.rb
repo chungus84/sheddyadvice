@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
+    @chatroom = Chatroom.new
     if params[:query].present?
       @searched_lists = List.where(user_id: current_user).search_by_name(params[:query])
     else
