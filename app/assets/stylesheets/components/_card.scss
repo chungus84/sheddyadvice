@@ -72,19 +72,11 @@ $spacer: 8px;
   width: 50%;
 }
 
-.user-card-container {
-  display: flex;
-  flex-direction: row;
-  width: 200px;
-  height: 100px;
-  background-color: $mustard;
-  border-radius: 4px;
-
-}
-
 .user-card-body {
-  display: inline-block;
-  padding: 8px;
+  background-color: $secondary-orange;
+  padding: 14px;
+  border-radius: 8px;
+  height: 200px;
 }
 
 @media screen and (max-width: 750px) {

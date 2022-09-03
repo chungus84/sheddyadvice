@@ -32,7 +32,7 @@ puts "Populating the database, buckle up"
       title: Faker::Hobby.activity,
       body: Faker::Lorem.paragraph(sentence_count: 2),
 
-      category: ["In the Bathroom", "House Maintanance", "In the kitchen", "in the Garden"].sample
+      category: ["In the Bathroom", "House Maintanance", "In the kitchen", "in the Garden"].sample,
       user_id: user.id
     )
     post.photo.attach(io: file, filename: "seed.png", content_type: "image/png")

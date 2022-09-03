@@ -1,8 +1,8 @@
 
 <div class="container" data-controller="edit-fields">
-
-  <%= render "post_info" %>
-
+  <div class="row">
+    <%= render "post_info" %>
+  </div>
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="afterbegin">
     <h3>Reviews</h3>
     <%= render "feedbacks/form", post: @post, feedback: @feedback %>
