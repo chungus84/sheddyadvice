@@ -19,15 +19,22 @@ class Post < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-    def self.top_rated
-      @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)").last(3)
-      # @post = Post.top(3)
-      # @posts = db.execute("select p.id , avg(f.rating) as rating from posts p
-      # inner join feedbacks f
-      # on p.id = f.post_id
-      # group by p.id
-      # order by rating desc
-      # limit 3")
-    end
+  def self.top_rated
+    @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)").last(3)
+    # @post = Post.top(3)
+    # @posts = db.execute("select p.id , avg(f.rating) as rating from posts p
+    # inner join feedbacks f
+    # on p.id = f.post_id
+    # group by p.id
+    # order by rating desc
+    # limit 3")
+  end
 
+  def self.recent
+    @posts = Post.last(3)
+  end
+
+  def self.trending
+    @posts = Post.offset(rand(Post.count)).first(3)
+  end
 end
