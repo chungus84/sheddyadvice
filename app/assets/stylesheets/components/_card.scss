@@ -73,18 +73,24 @@ $spacer: 8px;
 }
 
 .user-card-container {
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
   width: 200px;
   height: 100px;
   background-color: $mustard;
   border-radius: 4px;
+  margin: 16px 0;
 
 }
 
 .user-card-body {
-  display: inline-block;
-  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.user-card-body > span {
+  padding-left: 10px;
 }
 
 @media screen and (max-width: 750px) {
