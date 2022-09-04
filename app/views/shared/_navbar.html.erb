@@ -27,7 +27,7 @@
               <ul class="nav-items">
                 <% if user_signed_in? %>
                 <li><i class="fa-solid fa-user"></i><%= link_to "My Posts", posts_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-circle-plus"></i><%= link_to "git aAdd Post", new_post_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
                 <% else %>
