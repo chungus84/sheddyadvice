@@ -34,8 +34,8 @@ a {
 //toggle menu button
 
 
-#nav-icon3 {
-  width: 70%;
+.nav-icon3 {
+  width: 60px;
   height: 45px;
   position: relative;
   margin: 50px auto;
@@ -48,17 +48,18 @@ a {
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
+  display: flex;
+
 }
 
- #nav-icon3 span{
+ .nav-icon3 span{
   display: block;
   position: absolute;
-  height: 9px;
-  width: 70%;
-  background: $background-white;
+  height: 8px;
+  width: 80%;
+  background: $clickable-coral;
   border-radius: 9px;
   opacity: 1;
-  left: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -70,25 +71,29 @@ a {
 }
 
 
-#nav-icon3 span:nth-child(1) {
+.nav-icon3 span:nth-child(1) {
   top: 0px;
 }
 
-#nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
+.nav-icon3 span:nth-child(2){
+    top: 18px;
+}
+
+#nav-icon3 span:nth-child(3) {
   top: 18px;
 }
 
-#nav-icon3 span:nth-child(4) {
+.nav-icon3 span:nth-child(4) {
   top: 36px;
 }
 
-#nav-icon3.open span:nth-child(1) {
+.nav-icon3.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
 
-#nav-icon3.open span:nth-child(2) {
+.nav-icon3.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -96,13 +101,19 @@ a {
 }
 
 #nav-icon3.open span:nth-child(3) {
+  top: 18px;
+}
+
+
+.nav-icon3.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  top: 18px;
 }
 
-#nav-icon3.open span:nth-child(4) {
+.nav-icon3.open span:nth-child(4) {
   top: 18px;
   width: 0%;
   left: 50%;
@@ -144,4 +155,12 @@ color: $secondary-orange
   &:hover {
     color: $clickable-coral
   }
+}
+
+.dropdown {
+  position:relative;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }
