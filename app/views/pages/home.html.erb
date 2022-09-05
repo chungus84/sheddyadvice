@@ -1,60 +1,93 @@
-
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Sheddyadvice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <html>
+    <head>
+      <title>Sheddyadvice</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    </head>
 
   <body>
     <%= render "shared/banner_search" %>
+    <div class="container p-5 home-intro-section">
+      <div class="intro-text pt-5">
+        <h2>Join our community</h2>
+        <i class="fa-solid fa-arrow-right m-2"></i>
+      </div>
+      <div class="d-flex justify-content-center p-5">
+        <%=  link_to posts_path, class: "main-btn"  do %>
+          <%= icon("fa-solid", "magnifying-glass") %>
+          <span class="mx-2">Explore tutorials</span>
+        <% end %>
+        <%=  link_to new_post_url, class: "main-btn"  do %>
+          <%= icon("fa-solid", "graduation-cap") %>
+          <span class="mx-2">Share experties</span>
+        <% end %>
+      </div>
+    </div>
 
-<div class="top-rated">
-  <h2 class="headline">Top Rated</h2>
-  <% @top_rated_posts = Post.top_rated %>
-    <% @top_rated_posts.each do |post| %>
-    <%= link_to post_path(post), class: "card" do %>
-      <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
-            <h2 class="card-title"><%= post.title %></h2>
-         </div>
-         <% end %>
-      <hr>
-<% end %>
-</div>
+    <div class="orange-background">
+      <div class="paintbrush">
+        <div class="container">
+          <h2 class="headline pt-5 background-white">Top Rated</h2>
+          <div class="grid p-5">
+            <% @top_rated_posts = Post.top_rated %>
+            <% @top_rated_posts.each do |post| %>
+              <%= link_to post_path(post), class: "card" do %>
+                <div class="card-body">
+                  <span class="card-author"><%= post.user.username %></span>
+                  <h2 class="card-title"><%= post.title %></h2>
+                  <span class="card-description"><%= post.body %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="trending-posts">
-  <h2 class="headline">Trending</h2>
-  <% @trending_posts = Post.trending %>
-    <% @trending_posts.each do |post| %>
-    <%= link_to post_path(post), class: "card" do %>
-      <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
-            <h2 class="card-title"><%= post.title %></h2>
-         </div>
-      <% end %>
-      <hr>
-<% end %>
-</div>
-
-<div class="recent-posts">
-  <h2 class="headline">Recent Posts</h2>
-  <% @recent_posts = Post.recent %>
-    <% @recent_posts.each do |post| %>
-    <%= link_to post_path(post), class: "card" do %>
-      <div class="card-body">
-            <span class="card-author"><% post.user_id%></span>
-            <h2 class="card-title"><%= post.title %></h2>
-         </div>
-      <% end %>
-      <hr>
-<% end %>
-</div>
+    <div class="container">
+      <h2 class="headline pt-5 primary-green">Trending</h2>
+      <div class="spanner">
+        <div class="container">
+        <div class="grid p-5">
+          <% @trending_posts = Post.trending %>
+          <% @trending_posts.each do |post| %>
+            <%= link_to post_path(post), class: "card" do %>
+              <div class="card-body">
+                <span class="card-author"><%= post.user.username %></span>
+                <h2 class="card-title"><%= post.title %></h2>
+                <span class="card-description"><%= post.body %></span>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orange-background">
+      <div class="container">
+        <div class="hammer">
+        <h2 class="headline pt-5 background-white">Recent Posts</h2>
+          <div class="container">
+            <div class="grid p-5">
+              <% @recent_posts = Post.recent %>
+              <% @recent_posts.each do |post| %>
+                <%= link_to post_path(post), class: "card" do %>
+                  <div class="card-body">
+                    <span class="card-author"><%= post.user.username %></span>
+                    <h2 class="card-title"><%= post.title %></h2>
+                    <span class="card-description"><%= post.body %></span>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

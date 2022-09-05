@@ -1,42 +1,44 @@
 
-<div class="d-flex justify-content-center py-3 mb4 border-bottom">
-  <div class="row align-items-center">
-    <div class="col-2 mb-2 mb-md-0 text-dark navbar-brand">
-      <%= link_to root_path do  %>
-        <%= image_tag 'shed3 2' %>
-      <% end %>
-    </div>
-      <ul class="nav col-9 d-flex mb-2 justify-content-center mb-md-0">
-        <li><%= image_tag 'house-icon' %></li>
-        <li><%= image_tag 'bathroom-icon' %></li>
-        <li><%= image_tag 'kitchen-icon' %></li>
-        <li><%= image_tag 'garden-icon' %></li>
-    </ul>
-    <div class="col-1" >
-          <div class="nav-item dropdown" data-controller="menu-dropdown">
-            <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-          <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
-            <% end %>
-                        <% end %>
+<div class="container">
+  <div class="d-flex justify-content-center py-3 mb4 border-bottom">
+    <div class="row align-items-center">
+      <div class="col-2 mb-2 mb-md-0 text-dark navbar-brand">
+        <%= link_to root_path do  %>
+          <%= image_tag 'shed3 2' %>
+        <% end %>
+      </div>
+        <ul class="nav col-9 d-flex mb-2 justify-content-center mb-md-0">
+          <li><%= image_tag 'house-icon' %></li>
+          <li><%= image_tag 'bathroom-icon' %></li>
+          <li><%= image_tag 'kitchen-icon' %></li>
+          <li><%= image_tag 'garden-icon' %></li>
+      </ul>
+      <div class="col-1" >
+            <div class="nav-item dropdown" data-controller="menu-dropdown">
+              <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+            <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+              <% end %>
+                          <% end %>
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <ul class="nav-items">
-                <% if user_signed_in? %>
-                <li><i class="fa-solid fa-user"></i><%= link_to "My Posts", posts_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-circle-plus"></i><%= link_to "git aAdd Post", new_post_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
-                <% else %>
-                <li><i class="fa-solid fa-right-to-bracket"></i><%= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-upload"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
-                <% end %>
-              </ul>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <ul class="nav-items">
+                  <% if user_signed_in? %>
+                  <li><i class="fa-solid fa-user"></i><%= link_to "My Posts", posts_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-circle-plus"></i><%= link_to "git aAdd Post", new_post_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+                  <% else %>
+                  <li><i class="fa-solid fa-right-to-bracket"></i><%= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-upload"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
-          </div>
+      </div>
     </div>
   </div>
 </div>

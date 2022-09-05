@@ -1,1 +1,44 @@
 // Specific CSS for your home-page
+.orange-background {
+  background-color: $secondary-orange
+}
+
+
+.paintbrush {
+  background-image: url('paintybrush');
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  position: relative;
+  overflow: hidden;
+  background-size:initial;
+
+}
+
+.spanner {
+  background-image: url('spanner');
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  position: relative;
+  overflow: hidden;
+  background-size:initial;
+}
+
+.hammer {
+  background-image: url('hammer');
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  position: relative;
+  overflow: hidden;
+  background-size:initial;
+}
+
+.home-intro-section {
+  justify-content: center;
+}
+
+
+.intro-text {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
