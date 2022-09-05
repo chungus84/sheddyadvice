@@ -72,6 +72,23 @@ $spacer: 8px;
   width: 50%;
 }
 
+.home-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.small-card {
+  background-color: #fff;
+  padding: 8px;
+  position: relative;
+  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
+
+}
+.small-card-body > img{
+  height: 200px;
+  width: 350px;
+}
 
 .user-card-body {
   background-color: $secondary-orange;
