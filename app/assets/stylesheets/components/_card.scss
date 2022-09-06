@@ -30,7 +30,7 @@ $spacer: 8px;
 .card {
   display: flex;
   flex-direction: row;
-  background-color: #fff;
+  background-color: $background-white;
   padding: 8px;
   position: relative;
   box-shadow: 0 0 5px rgba(75, 75, 75, .07);
@@ -44,7 +44,7 @@ $spacer: 8px;
 
 .card-author {
   font: $font-small;
-  color: $grey;
+  color: $text-grey;
   display: block;
   font-size: 12px;
   letter-spacing: .5px;
@@ -53,7 +53,7 @@ $spacer: 8px;
 }
 
 .card-title {
-  color: $black;
+  color: $text-grey;
   font-family: $titles-font;
   font-size: 24px;
   font-weight: 300;
@@ -79,7 +79,7 @@ $spacer: 8px;
 }
 
 .small-card {
-  background-color: #fff;
+  background-color: $background-white;
   padding: 8px;
   position: relative;
   box-shadow: 0 0 5px rgba(75, 75, 75, .07);
