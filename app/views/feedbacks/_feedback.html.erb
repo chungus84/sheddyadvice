@@ -1,7 +1,9 @@
 <div class="review">
   <div class="review-card">
     <div class="left-review">
-      <p>Rating: <%= feedback.rating %></p>
+      <p>Rating: <% feedback.rating.times do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %></p>
     </div>
     <div class="middle-review grouped">
       <p>by: <b><%= feedback.user.username %></b></p>
