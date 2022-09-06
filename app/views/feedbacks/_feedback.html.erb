@@ -1,21 +1,33 @@
 <div class="review">
   <div class="review-card">
-    <div class="left-review">
-      <p>Rating: <% feedback.rating.times do %>
-        <i class="fa-solid fa-star"></i>
-      <% end %></p>
+    <div class="avatar-circle">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-small-circle", alt: "avatar-bordered" %>
+    </div>
+    <div class="review-body">
+      <div class="review-username">
+        <h4><b><%= feedback.user.username %></b></h4>
+      </div>
+      <div class="review-rating">
+        <p>Rating: <% feedback.rating.times do %>
+          <i class="fa-solid fa-star"></i>
+        <% end %></p>
+      </div>
+      <div class="review-comment">
+        <% if feedback.comment.present? %>
+          <div class="bottom-comment">
+            <p><%= feedback.comment %></p>
+          </div>
+        <% end %>
+      </div>
+
     </div>
     <div class="middle-review grouped">
-      <p>by: <b><%= feedback.user.username %></b></p>
+
     </div>
     <div class="right-review grouped">
       <p>on <%= feedback.created_at.strftime("%d %B")%></p>
     </div>
     <%# <%= link_to 'Edit', edit_post_feedback_path(post), class: "btn btn-primary"%>
   </div>
-  <% if feedback.comment.present? %>
-    <div class="bottom-comment">
-      <p><%= feedback.comment %></p>
-    </div>
-  <% end %>
+
 </div>
