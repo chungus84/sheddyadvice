@@ -5,8 +5,8 @@
   </div>
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="afterbegin">
     <h3>Reviews</h3>
-    <%# <%= render "feedbacks/form", post: @post, feedback: @feedback %> %>
-    <%# <%= render "feedbacks/form"%> %>
+    <%= render "feedbacks/form", post: @post, feedback: @feedback %>
+    <%# <%= render "feedbacks/form"%>
     <div class="all-reviews" data-add-review-in-list-target="reviews">
       <% @feedbacks.each do |feedback| %>
         <%= render "feedbacks/feedback", feedback: feedback %>
