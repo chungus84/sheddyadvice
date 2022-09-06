@@ -20,6 +20,17 @@
   border: white 1px solid;
 }
 
+.avatar-small-circle {
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  width: 60px;
+}
+
 .user-card-body .avatar-bordered {
   height: 40%;
+}
+
+.avatar-circle {
+  align-self: center;
 }
