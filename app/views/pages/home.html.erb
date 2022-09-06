@@ -15,59 +15,80 @@
   <body>
     <%= render "shared/banner_search" %>
 
-<div class="container">
-  <div class="top-rated">
-    <h2 class="headline">Top Rated</h2>
-    <div class="home-cards">
-      <% @top_rated_posts = Post.top_rated %>
-        <% @top_rated_posts.each do |post| %>
-        <%= link_to post_path(post), class: "small-card" do %>
-          <div class="small-card-body">
-                <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                <span class="card-author"><% post.user_id%></span>
-                <h2 class="card-title"><%= post.title %></h2>
-             </div>
-             <% end %>
-          <hr>
-    <% end %>
+    <div class="container p-5 home-intro-section">
+      <div class="intro-text pt-5">
+        <h2>Join our community</h2>
+        <i class="fa-solid fa-arrow-right m-2"></i>
+      </div>
+      <div class="d-flex justify-content-center p-5">
+        <%=  link_to posts_path, class: "main-btn"  do %>
+          <%= icon("fa-solid", "magnifying-glass") %>
+          <span class="mx-2">Explore tutorials</span>
+        <% end %>
+        <%=  link_to new_post_url, class: "main-btn"  do %>
+          <%= icon("fa-solid", "graduation-cap") %>
+          <span class="mx-2">Share experties</span>
+        <% end %>
+      </div>
     </div>
-  </div>
 
+<div class="orange-background p-5">
+  <div class="container">
+      <div class="paintbrush">
+        <h2 class="headline pt-5 background-white">Top Rated</h2>
+        <div class="home-cards p5">
+            <% @top_rated_posts = Post.top_rated %>
+            <% @top_rated_posts.each do |post| %>
+                <%= link_to post_path(post), class: "small-card" do %>
+                  <div class="small-card-body">
+                    <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                    <span class="card-author"><% post.user_id%></span>
+                    <h2 class="card-title"><%= post.title %></h2>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="trending-posts">
-    <h2 class="headline">Trending</h2>
-    <div class="home-cards">
-      <% @trending_posts = Post.trending %>
-          <% @trending_posts.each do |post| %>
+<div class="background-white p-5">
+  <div class="container">
+    <div class="spanner">
+      <h2 class="headline pt-5 primary-green">Trending</h2>
+      <div class="home-cards p5">
+        <% @trending_posts = Post.trending %>
+        <% @trending_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-                  <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                  <span class="card-author"><% post.user_id%></span>
-                  <h2 class="card-title"><%= post.title %></h2>
-               </div>
-            <% end %>
-            <hr>
-      <% end %>
+              <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+              <span class="card-author"><% post.user_id%></span>
+              <h2 class="card-title"><%= post.title %></h2>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
+</div>
 
-  <div class="recent-posts">
-    <h2 class="headline">Recent Posts</h2>
-    <div class="home-cards">
-      <% @recent_posts = Post.recent %>
-          <% @recent_posts.each do |post| %>
+<div class="orange-background p-5">
+  <div class="container">
+    <div class="hammer">
+      <h2 class="headline pt-5 background-white">Recent Posts</h2>
+      <div class="home-cards">
+        <% @recent_posts = Post.recent %>
+        <% @recent_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-                  <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                  <span class="card-author"><% post.user_id%></span>
-                  <h2 class="card-title"><%= post.title %></h2>
-               </div>
-            <% end %>
-            <hr>
-      <% end %>
+              <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+              <span class="card-author"><% post.user_id%></span>
+              <h2 class="card-title"><%= post.title %></h2>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-
   </div>
 </div>
 
