@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
 
   def create
     if user_signed_in?
-      @post = Post.find(params[:post_id])
+      @post = Post.find(params[:id])
       @feedback = Feedback.new(feedback_params)
       @feedback.post = @post
       @feedback.user = current_user

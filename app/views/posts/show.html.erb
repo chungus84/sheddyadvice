@@ -5,6 +5,10 @@
   </div>
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="afterbegin">
     <h3>Reviews</h3>
+
+    <%= render "feedbacks/form", post: @post, feedback: @feedback %>
+    <%# <%= render "feedbacks/form"%>
+
     <% (rating_score = @feedbacks.sum {|num| (num.rating.to_f)} / @feedbacks.length).round(2) %>
       <% if rating_score % 1 == 0 %>
         <p>Current Rating: <% rating_score.to_i.times do %>
@@ -16,6 +20,7 @@
         <% end %><i class="fa-solid fa-star-half"></i></p>
       <% end %>
     <%# <%= render "feedbacks/form", post: @post, feedback: @feedback %>
+
     <div class="all-reviews" data-add-review-in-list-target="reviews">
       <% @feedbacks.each do |feedback| %>
         <%= render "feedbacks/feedback", feedback: feedback %>
