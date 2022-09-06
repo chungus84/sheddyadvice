@@ -8,7 +8,9 @@
     <div class="listposts">
       <% @list.listposts.each do |listpost| %>
         <div class="card-post">
-          <%= render "lists/added_posts", listpost: listpost %>
+          <div data-add-post-to-list-target="posts">
+            <%= render "lists/added_posts", listpost: listpost %>
+          </div>
         </div>
       <% end %>
     </div>

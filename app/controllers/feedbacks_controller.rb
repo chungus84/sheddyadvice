@@ -9,7 +9,6 @@ class FeedbacksController < ApplicationController
       @feedback = Feedback.new(feedback_params)
       @feedback.post = @post
       @feedback.user = current_user
-
       respond_to do | format |
       if @feedback.save
           format.html { redirect_to post_path(@post) }

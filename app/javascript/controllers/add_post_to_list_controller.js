@@ -33,7 +33,7 @@ export default class extends Controller {
         // console.log("data", data)
         if (data.inserted_item) {
           this.postsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
-          console.log("post target", this.postsTarget)
+          // console.log("post target", this.postsTarget)
           // console.log("position value ", this.positionValue)
         }
         // // this.resultsTarget.outerHTML = data.form
