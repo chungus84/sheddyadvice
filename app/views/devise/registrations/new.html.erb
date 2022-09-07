@@ -11,6 +11,10 @@
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" }%>
+          <%= f.input :username,
+                      required: true,
+                      hint: ("Please enter a username"),
+                      input_html: { autocomplete: "new-username"} %>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
