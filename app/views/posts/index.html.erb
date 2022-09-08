@@ -6,15 +6,17 @@
       </div>
    </div>
    <div class="card-container">
-      <% @posts.each do |post| %>
-      <%= link_to post_path(post), class: "card" do %>
-         <div class="card-body">
-            <h2 class="card-title"><%= post.title %></h2>
-            <span class="card-description"><%= post.body %></span>
-            <span class="card-author">Created by: <%= post.user.email%></span>
+
+   <% @posts.each do |post| %>
+      <%= link_to post_path(post) class: "card" do %>
+         <div class=“card-body”>
+         <%= cl_image_tag @posts.last.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+            <h2 class=“card-title”><%= post.title %></h2>
+            <span class=“card-description”><%= post.body %></span>
+            <span class=“card-author”>Created by: <%= post.user.email%></span>
+
          </div>
-        <%# <%= cl_image_tag post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
-         <% end %>
+   <% end %>
       <% end %>
    </div>
 </div>

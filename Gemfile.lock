@@ -120,6 +120,10 @@ GEM
     execjs (2.8.1)
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.0)
     ffi (1.15.5)
     font-awesome-sass (6.1.2)
       sassc (~> 2.0)
@@ -128,6 +132,9 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.5.11)
@@ -138,6 +145,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
+    jwt (2.5.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -152,6 +160,8 @@ GEM
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.5.4)
+    multi_json (1.15.0)
+    multi_xml (0.6.0)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -174,6 +184,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
+    oauth2 (1.4.10)
+      faraday (>= 0.17.3, < 3.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
     orm_adapter (0.5.0)
     pg (1.4.3)
     pg_search (2.3.6)
@@ -225,6 +241,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -261,6 +278,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    unsplash (2.1.0)
+      httparty (~> 0.16)
+      oauth2 (~> 1)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -310,6 +330,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  unsplash
   web-console
   webdrivers
 
