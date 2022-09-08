@@ -23,7 +23,7 @@
         <% @top_rated_posts.each do |post| %>
         <%= link_to post_path(post), class: "small-card" do %>
           <div class="small-card-body">
-                <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
                 <span class="card-author"><% post.user_id%></span>
                 <h2 class="card-title"><%= post.title %></h2>
              </div>
@@ -41,7 +41,7 @@
           <% @trending_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-                  <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                  <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
                   <span class="card-author"><% post.user_id%></span>
                   <h2 class="card-title"><%= post.title %></h2>
                </div>
@@ -59,7 +59,7 @@
           <% @recent_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-                  <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                  <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
                   <span class="card-author"><% post.user_id%></span>
                   <h2 class="card-title"><%= post.title %></h2>
                </div>

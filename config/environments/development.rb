@@ -68,3 +68,13 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+Unsplash.configure do |config|
+  config.application_access_key = "mEhT1zkzwgAMVe0CEJEweSnjjpplqq9NThanNRDk_Yo"
+  config.application_secret = "4411whLwMMP79YcAZX9O_cAKJ2ouzzZ-itz25i36LkY"
+  config.application_redirect_uri = "http://www.sheddyadvice.space/oauth/callback"
+  config.utm_source = "SheddyAdvice"
+
+  # optional:
+  # config.logger = MyCustomLogger.new
+end
