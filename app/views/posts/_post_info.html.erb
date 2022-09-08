@@ -1,12 +1,12 @@
-<div class="row pb-5"  data-edit-fields-target="info">
+<div class="pb-5"  data-controller="edit-fields">
+  <div class="row">
   <div class="col-8">
-    <div data-edit-fields-target="post">
+    <div  data-edit-field-target="info" data-edit-fields-target="post">
          <h1 class=""><%= @post.title %></h1>
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
       <%# <% end %>
         <%= cl_video_tag("DIYVideoDemo", height: 300, width: 400, crop: :fill, controls: '') %>
-      <h1 class=""><%= @post.title %></h1>
       <p class=""><%= @post.body %></p>
     </div>
       <%= simple_form_for @post, html: {class: "d-none", data: {
@@ -15,11 +15,13 @@
               }} do |f| %>
         <%= f.input :title, placeholder: "#{@post.title}" %>
         <%= f.input :body, placeholder: "#{@post.body}" %>
+        <%= f.input :image, placeholder: "#{@post.image}" %>
         <%= f.input :video, placeholder: "#{@post.video}" %>
+        <%# <%= f.input :video, placeholder: "#{@post.video}" %>
         <%= f.button :submit, class: "main-btn" %>
       <% end %>
   </div>
-  <div class="col-2" data-controller="post-dropdown">
+<div class="col-2" data-controller="post-dropdown">
     <i class="fa-solid fa-ellipsis edit-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
     <div class="post-menu d-none" data-post-dropdown-target="menuBody">
       <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
@@ -33,4 +35,4 @@
    </div>
   </div>
 </div>
-<%= render "shared/user_card" %>
+</div>

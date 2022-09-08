@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets=["hamburger" ]
 
   connect() {
-    console.log('HIYAAAA')
   }
 
   reveal() {
