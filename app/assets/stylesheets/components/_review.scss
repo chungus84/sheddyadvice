@@ -1,24 +1,35 @@
 .review-card {
   display: flex;
+  flex-direction: row;
   font-size: 14px;
+}
+
+.reviews {
+  margin-top: 32px;
 }
 
 .review {
   border-bottom: 0.5px solid rgb(225, 225, 225);
+  margin-top: 24px;
 }
 
-.left-review {
-  margin-right: 8px;
+.review-body {
+  margin-left: 24px;
+  flex-grow: 2;
 }
 
-.middle-review {
-  margin-right: 8px;
-}
+// .left-review {
+//   margin-right: 8px;
+// }
 
-.right-review {
-  font-weight: 100;
-}
+// .middle-review {
+//   margin-right: 8px;
+// }
 
-.bottom-comment {
-  font-size: 15px;
-}
+// .right-review {
+//   font-weight: 100;
+// }
+
+// .bottom-comment {
+//   font-size: 15px;
+// }

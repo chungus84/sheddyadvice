@@ -1,3 +1,16 @@
-<div data-add-post-to-list-target="posts">
-  <p><%= listpost.post.title %></p>
+<%# <div data-add-post-to-list-target="posts"> %>
+<%# </div> %>
+<div class="home-cards">
+  <%= link_to post_path(listpost.post), class: "small-card" do %>
+    <div class="small-card-body">
+      <% if listpost.post.image.present? %>
+        <%= cl_image_path listpost.post.image %>
+        <% else %>
+        <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+      <% end %>
+      <span class="card-author"><% listpost.post.user_id%></span>
+      <h2 class="card-title"><%= listpost.post.title %></h2>
+    </div>
+    <hr>
+  <% end %>
 </div>

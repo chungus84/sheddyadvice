@@ -6,6 +6,7 @@
       </div>
    </div>
    <div class="card-container">
+
    <% @posts.each do |post| %>
       <%= link_to post_path(post) class: "card" do %>
          <div class=“card-body”>
@@ -13,6 +14,7 @@
             <h2 class=“card-title”><%= post.title %></h2>
             <span class=“card-description”><%= post.body %></span>
             <span class=“card-author”>Created by: <%= post.user.email%></span>
+
          </div>
    <% end %>
       <% end %>

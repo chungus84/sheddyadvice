@@ -5,11 +5,10 @@ class FeedbacksController < ApplicationController
 
   def create
     if user_signed_in?
-      @post = Post.find(params[:post_id])
+      @post = Post.find(params[:id])
       @feedback = Feedback.new(feedback_params)
       @feedback.post = @post
       @feedback.user = current_user
-
       respond_to do | format |
       if @feedback.save
           format.html { redirect_to post_path(@post) }
