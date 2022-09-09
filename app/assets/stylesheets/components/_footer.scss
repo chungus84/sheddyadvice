@@ -1,0 +1,46 @@
+.footer p, h1, h2, span {
+  color: white;
+}
+
+.footer img {
+  width: 200px;
+}
+
+.footer .fa-envelope {
+  color: $background-white;
+  font-size: 32px;
+}
+
+.footer .form-control {
+  width: 60%;
+}
+
+.form-control {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+}
+
+.form-control {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+
+}
+
+.search-button {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radiUS: 8px !important;
+}
+
+.footer .search-field {
+  padding-top: 8px;
+}
+
+.social-icons {
+  color: $background-white;
+  font-size: 32px;
+}
+
+.social-icons i {
+  margin-left: 16px;
+  margin-right: 6px;
+}

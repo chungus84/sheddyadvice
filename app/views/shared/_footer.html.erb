@@ -1,0 +1,31 @@
+<div class="background-green footer p-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <%= image_tag "sheddy-logo" %>
+      </div>
+      <div class="col-5">
+        <div class="d-flex align-items-center">
+          <i class="fa-regular fa-envelope me-2"></i>
+          <span>Sheddy inspiration straight to your inbox</span>
+        </div>
+        <p><%= form_with url: posts_path, method: :get, class: "d-flex search-field" do %>
+          <%= text_field_tag :query,
+          params[:email],
+          class: "form-control",
+          placeholder: "joe@joebloggs.com"
+          %>
+          <%= submit_tag "sign-up", class: "btn search-button" %>
+        <% end %></p>
+      </div>
+      <div class="col-3">
+      <div class="d-flex social-icons flex-row-reverse">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-tiktok"></i>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
