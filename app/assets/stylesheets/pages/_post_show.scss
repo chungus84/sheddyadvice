@@ -26,6 +26,10 @@
       border-radius: 50%;
       color: $background-white;
   }
+
+  &:active {
+    background-color: $secondary-orange;
+  }
 }
 
 .show-dropdown {

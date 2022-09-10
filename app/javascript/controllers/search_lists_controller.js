@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="search-lists"
 export default class extends Controller {
-  static targets = ["form", "input", "list", "searchbar", "dropdownlist"]
+  static targets = ["form", "input", "list", "searchbar", "dropdownlist, default"]
 
   connect() {
     // console.log(this.formTarget.action);
@@ -35,5 +35,6 @@ export default class extends Controller {
   show() {
     this.dropdownlistTargets.forEach((target) => {
       target.classList.remove("d-none");
-  })}
+    })
+    }
 }
