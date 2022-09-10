@@ -1,0 +1,18 @@
+<div class="container d-none show-dropdown list-dropdown position-absolute" data-post-dropdown-target="listDropdown">
+  <span>Add to favourites</span>
+    <div class="list-list">
+    <ul>
+      <% @lists.each do |list| %>
+      <%=link_to list_path(list) do %>
+        <li><i class="fa-solid fa-plus"></i><%=link_to list.name, list_path(list) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+    <span>Create a new favourites list</span>
+  <%# <%= simple_form_for @list do |f| %>
+    <%# <%= f.input :name, placeholder: "Enter your tasklist name"%>
+    <%# <%= f.submit class: "btn btn-primary" %>
+  <%# <% end %>
+</div>

@@ -1,0 +1,18 @@
+.list-list li{
+  list-style-type: none;
+  text-decoration:none;
+  border-bottom: 1px $text-grey inset;
+  padding: 20px 0;
+}
+
+.list-list a {
+  color: $text-grey;
+}
+
+.list-list i {
+padding: 11px 13px 12px 13px;
+border-radius: 32px;
+  background-color: $clickable-coral;
+  color:white;
+  margin-right: 20px;
+}
