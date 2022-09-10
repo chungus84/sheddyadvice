@@ -1,13 +1,24 @@
 <div class="row pb-5"  data-edit-fields-target="info">
   <div class="col-8">
     <div data-edit-fields-target="post">
-         <h1 class=""><%= @post.title %></h1>
-      <%# <% if @post.photo.attached? %>
-        <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
-      <%# <% end %>
+      <h1 class=""><%= @post.title %></h1>
+      <% if @post.video.attached? %>
         <%= cl_video_tag("DIYVideoDemo", height: 500, width: 900, crop: :fill, controls: '') %>
-      <p class=""><%= @post.body %></p>
-    </div>
+        <% else @post.image.attached? %>
+        <%= cl_picture_tag("DIYVideoDemo", height: 500, width: 900, crop: :fill, controls: '') %>
+        <% end %>
+      <div class="instructions mt-5" data-controller="instructions-dropdown">
+      <% if @post.body.length >= 100 %>
+        <div class="d-flex align-items-center" data-action="click->instructions-dropdown#reveal" >
+          <h2>Read instructions</h2>
+          <i class="fa-solid fa-plus toggle-button ms-5" data-instructions-dropdown-target="toggle"></i>
+        </div>
+        <div class="dropdown p-3 d-none" data-instructions-dropdown-target="dropdown">
+          <p class=""><%= @post.body %></p>
+        </div>
+        <% else %>
+          <%= @post.body %>
+        <% end %>
     <%= simple_form_for @post, html: {class: "d-none", data: {
             edit_fields_target: "form",
             action: "submit->edit-fields#update"
@@ -18,21 +29,24 @@
       <%= f.button :submit, class: "main-btn" %>
     <% end %>
   </div>
-
-  <div class="col-2" data-controller="post-dropdown">
-      <% if current_user === @post.user %>
-        <i class="fa-solid fa-ellipsis edit-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
-        <div class="post-menu d-none" data-post-dropdown-target="menuBody">
-          <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
-            <i class="fa-solid fa-pen fa-xs mx-2 py-2"></i>
-              <p> Edit post</p>
-          </button>
-            <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash mx-2 py-2"></i>
-              <p>Delete post </p>
-            <% end %>
-        </div>
-    <% end %>
+  </div>
+  </div>
+  <div class="col-2 position-relative" data-controller="post-dropdown">
+    <div class="d-flex align-items-center justify-content-end">
+      <i class="fa-solid fa-heart-circle-plus icon-toggle" data-post-dropdown-target="addIcon" data-action="click->post-dropdown#displayLists"></i>
+      <%= render "lists/list_index" %>
+      <i class="fa-solid fa-ellipsis icon-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
+    </div>
+    <div class="show-dropdown d-none" data-post-dropdown-target="menuBody">
+      <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
+        <i class="fa-solid fa-pen fa-xs mx-2 py-2"></i>
+        <p> Edit post</p>
+      </button>
+      <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash mx-2 py-2"></i>
+        <p>Delete post </p>
+      <% end %>
+    </div>
   </div>
 
 

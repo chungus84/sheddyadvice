@@ -1,21 +1,22 @@
+
 <div class="container lists">
 
   <div class="my-lists">
     <h1>My Lists</h1>
     <ul>
       <% @lists.each do |list| %>
-        <li>
+        <%= link_to list_path(list) do %>
           <div class="list-card">
             <div class="left-list">
-              <h3><%=link_to list.name, list_path(list) %></h3>
+              <h3><%= list.name %></h3>
               <p><%= list.posts.count%> Posts</p>
-              <p><%= link_to "Edit list", edit_list_path(list) %></p>
+              <%# <p><%= link_to "Edit list", edit_list_path(list) %>
             </div>
             <div class="right-list">
               <p>Created: <%= list.created_at.strftime("%d %B")%></p>
             </div>
           </div>
-        </li>
+        <% end %>
       <% end %>
     </ul>
   </div>

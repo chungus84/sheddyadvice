@@ -17,6 +17,7 @@
     color: $background-white;
   }
 
+
   &:active {
     box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
   }
@@ -43,4 +44,33 @@
     background-color: $secondary-orange;
     color: $background-white;
   }
+}
+
+.toggle-button {
+  padding: 12px 13px 13px 13px;
+  font-size: 16px;
+  border-radius: 32px;
+  background-color: $clickable-coral;
+  color:white;
+  margin-right: 20px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+
+  &:hover {
+    background-color: $secondary-orange;
+    padding: 13px 14px 14px 14px;
+  }
+}
+
+.rotate {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }

@@ -26,4 +26,9 @@ export default class extends Controller {
   // scroll to the bottom of the messages
   this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
+
+  disconnect() {
+    console.log("Unsubscribed from the chatroom")
+    this.channel.unsubscribe()
+  }
 }
