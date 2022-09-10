@@ -37,3 +37,10 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+.search-button {
+  &:hover {
+    background-color: $secondary-orange;
+    color: $background-white;
+  }
+}
