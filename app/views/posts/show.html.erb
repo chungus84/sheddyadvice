@@ -31,22 +31,4 @@
       <% end %>
     </div>
   </div>
-  <div class="search-lists" data-controller="search-lists">
-    <h2>Add to my lists</h2>
-    <% if @searched_lists.empty? %>
-        <%= link_to 'Create new List', lists_path %>
-      <% else %>
-        <%= form_with url: post_path, method: :get, html: {class: "d-flex", data: {search_lists_target: "form searchbar"}} do |f| %>
-              <%= f.text_field :query,
-                      value: params[:query],
-                      class: "form-control",
-                      placeholder: "Find a list",
-                      data: {
-                        search_lists_target: "input",
-                        action: "keyup->search-lists#update click->search-lists#show",
-                      } %>
-          <% end %>
-        <%= render "posts/my_lists", searched_lists: @searched_lists %>
-    <% end %>
-  </div>
 </div>

@@ -18,28 +18,16 @@
           <% end %>
             <%= render "posts/my_lists", searched_lists: @searched_lists %>
         <% end %>
+      <%= link_to lists_path do %>
+          <i class="fa-solid fa-plus"></i>
+          <span>Create new list</span>
+      <% end %>
     </div>
-  <div class="default-list" data-search-lists-target="default">
-    <ul>
-      <% @lists.each do |list| %>
-      <li>
-        <%= simple_form_for([@listpost]) do |f| %>
-            <%= f.hidden_field :list_id, value: list.id %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-            <%= button_tag type:'submit' do %>
-              <i class="fa-solid fa-heart-circle-plus"></i>
-              <span><%=list.name %></span>
-            <% end %>
-          <% end %>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-    <%= link_to lists_path do %>
-        <i class="fa-solid fa-plus"></i>
-        <span>Create new list</span>
-    <% end %>
 
-  </div>
+    </div>
+
+
+
+
 
 </div>
