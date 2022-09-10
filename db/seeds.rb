@@ -12,6 +12,7 @@ require 'open-uri'
 
 puts "Cleaning database..."
 List.destroy_all
+Feedback.destroy_all
 User.destroy_all
 Post.delete_all
 

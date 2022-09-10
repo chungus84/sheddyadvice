@@ -4,7 +4,7 @@
   <%= link_to post_path(listpost.post), class: "small-card" do %>
     <div class="small-card-body">
       <% if listpost.post.image.present? %>
-        <%= cl_image_path listpost.post.image %>
+        <%= cl_image_tag listpost.post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
         <% else %>
         <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
       <% end %>

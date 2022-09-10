@@ -4,12 +4,15 @@
     <%= render "post_info" %>
   </div>
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="afterbegin">
-    <h3>Reviews</h3>
+    <% if @post.feedbacks.present? %>
+      <h3>Reviews</h3>
+    <% end %>
     <%= render "feedbacks/form", post: @post, feedback: @feedback %>
     <%# <%= render "feedbacks/form", post: @post, feedback: @feedback %>
     <%# <%= render "feedbacks/form"%>
 
-    <% (rating_score = @feedbacks.sum {|num| (num.rating.to_f)} / @feedbacks.length).round(2) %>
+    <% if @post.feedbacks.present? %>
+      <% (rating_score = @feedbacks.sum {|num| (num.rating.to_f)} / @feedbacks.length).round(2) %>
       <% if rating_score % 1 == 0 %>
         <p>Current Rating: <% rating_score.to_i.times do %>
           <i class="fa-solid fa-star"></i>
@@ -19,6 +22,7 @@
           <i class="fa-solid fa-star"></i>
         <% end %><i class="fa-solid fa-star-half"></i></p>
       <% end %>
+    <% end %>
     <%# <%= render "feedbacks/form", post: @post, feedback: @feedback %>
 
     <div class="all-reviews" data-add-review-in-list-target="reviews">
