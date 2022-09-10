@@ -5,7 +5,7 @@
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
       <%# <% end %>
-        <%= cl_video_tag("DIYVideoDemo", height: 500, width: 900, crop: :fill, controls: '') %>
+        <%# <%= cl_video_tag("DIYVideoDemo", height: 500, width: 900, crop: :fill, controls: '') %> %>
       <p class=""><%= @post.body %></p>
     </div>
     <%= simple_form_for @post, html: {class: "d-none", data: {
