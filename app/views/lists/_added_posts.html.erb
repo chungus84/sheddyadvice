@@ -10,7 +10,7 @@
           <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
         <% end %>
         <h2 class="card-title"><%= listpost.post.title %></h2>
-        <h3 class="card-author">Created by<%= listpost.post.user.username %></h3>
+        <h3 class="card-author">By <%= listpost.post.user.username %></h3>
       </div>
       <hr>
     <% end %>
