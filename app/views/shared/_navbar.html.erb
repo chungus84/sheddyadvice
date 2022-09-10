@@ -8,10 +8,18 @@
       <% end %>
     </div>
       <ul class="nav col-9 d-flex mb-2 justify-content-center mb-md-0">
-        <li><%= image_tag('house-icon.png') %></li>
-        <li><%= image_tag('bathroom-icon.png') %></li>
-        <li><%= image_tag('kitchen-icon.png') %></li>
-        <li><%= image_tag('garden-icon.png') %></li>
+        <%= link_to house_posts_path do  %>
+          <li><%= image_tag('house-icon.png') %></li>
+        <% end %>
+        <%= link_to bathroom_posts_path do %>
+          <li><%= image_tag('bathroom-icon.png') %></li>
+        <% end %>
+        <%= link_to kitchen_posts_path do %>
+          <li><%= image_tag('kitchen-icon.png') %></li>
+        <% end %>
+        <%= link_to garden_posts_path do %>
+          <li><%= image_tag('garden-icon.png') %></li>
+        <% end %>
 
     </ul>
     <div class="col-1" >
@@ -28,7 +36,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <ul class="nav-items">
                 <% if user_signed_in? %>
-                <li><i class="fa-solid fa-user"></i><%= link_to "My Posts", posts_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-user"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
