@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 4px;
   margin-top: 2px;
+  background-color: transparent;
 }
 
 .add-review {
@@ -16,7 +17,7 @@
 .icon-toggle{
   z-index: 2;
   background-color: $background-white;
- padding: 16px;
+  padding: 16px;
   text-align: center;
   margin-top: 16px;
 
@@ -58,4 +59,8 @@
 .list-dropdown {
   width: 300px;
   top:60px;
+}
+
+.post-button {
+  background-color: transparent;
 }

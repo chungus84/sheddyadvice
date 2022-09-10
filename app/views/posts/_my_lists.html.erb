@@ -1,14 +1,14 @@
-<div class="my-lists" data-search-lists-target="list">
-    <% @searched_lists.each do |list| %>
-      <div class="post-list-results d-none" data-search-lists-target="dropdownlist">
-        <div class="list-name">
-          <p><%= list.name %></p>
-        </div>
+<div class="my-lists default-list" data-search-lists-target="list">
+    <% searched_lists.each do |list| %>
+      <div class="post-list-results" data-search-lists-target="dropdownlist">
         <div class="add-list-button">
           <%= simple_form_for([@listpost]) do |f| %>
-            <%= f.hidden_field :list_id, value: list.id %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-            <%= f.submit 'Add', class: "btn btn-primary" %>
+                  <%= f.hidden_field :list_id, value: list.id %>
+                  <%= f.hidden_field :post_id, value: @post.id %>
+                  <%= button_tag type: 'submit', class: "post-button" do %>
+                    <i class="fa-solid fa-heart-circle-plus"></i>
+                    <span><%=list.name %></span>
+                  <% end %>
           <% end %>
         </div>
       </div>
