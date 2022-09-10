@@ -1,0 +1,45 @@
+<div class="container d-none show-dropdown list-dropdown position-absolute" data-post-dropdown-target="listDropdown">
+  <span>Add to favourites</span>
+  <div class="list-list">
+    <div class="search-lists background-orange p-2 rounded" data-controller="search-lists">
+      <% if @searched_lists.empty? %>
+          <%= link_to 'Create new List', lists_path %>
+        <% else %>
+          <%= form_with url: post_path, method: :get, html: {class: "d-flex", data: {search_lists_target: "form searchbar"}} do |f| %>
+          <i class="fa-solid fa-magnifying-glass search"></i>
+            <%= f.text_field :query,
+                value: params[:query],
+                class: "form-control",
+                placeholder: "Find a list",
+                data: {
+                  search_lists_target: "input",
+                  action: "keyup->search-lists#update click->search-lists#show",
+                } %>
+          <% end %>
+            <%= render "posts/my_lists", searched_lists: @searched_lists %>
+        <% end %>
+    </div>
+  <div class="default-list" data-search-lists-target="default">
+    <ul>
+      <% @lists.each do |list| %>
+      <li>
+        <%= simple_form_for([@listpost]) do |f| %>
+            <%= f.hidden_field :list_id, value: list.id %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= button_tag type:'submit' do %>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+              <span><%=list.name %></span>
+            <% end %>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+    <%= link_to lists_path do %>
+        <i class="fa-solid fa-plus"></i>
+        <span>Create new list</span>
+    <% end %>
+
+  </div>
+
+</div>

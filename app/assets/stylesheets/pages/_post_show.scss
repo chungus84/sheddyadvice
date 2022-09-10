@@ -13,7 +13,7 @@
   margin-top: 16px;
 }
 
-.edit-toggle {
+.icon-toggle{
   z-index: 2;
   background-color: $background-white;
  padding: 16px;
@@ -26,12 +26,18 @@
       border-radius: 50%;
       color: $background-white;
   }
+
+  &:active {
+    background-color: $secondary-orange;
+  }
 }
 
-.post-menu {
+.show-dropdown {
   background-color: $background-white;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+  display: block;
+  z-index:6;
 }
 
 .menu-item {
@@ -47,4 +53,9 @@
   background-color: $primary-green;
   padding: 20px;
   border-radius: 8px;
+}
+
+.list-dropdown {
+  width: 300px;
+  top:60px;
 }

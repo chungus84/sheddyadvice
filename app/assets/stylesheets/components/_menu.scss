@@ -1,0 +1,41 @@
+.list-list li{
+  list-style-type: none;
+  text-decoration:none;
+  border-bottom: 1px $text-grey inset;
+  padding: 8px 0;
+}
+
+.list-list a {
+  color: $text-grey;
+}
+
+.list-list i {
+padding: 12px 13px 13px 13px;
+font-size: 12px;
+border-radius: 32px;
+  background-color: $clickable-coral;
+  color:white;
+  margin-right: 20px;
+
+  &:hover {
+    background-color: $secondary-orange;
+    padding: 12px 15px 13px 14px;
+
+  }
+}
+
+
+.list-list button {
+  border: none;
+  background-color: $background-white;
+}
+
+.list-dropdown {
+  background-color: $background-white;
+  padding: 16px;
+}
+
+i.search {
+  background-color: rgba(0,0,0,0);
+  font-size: 16px;
+}

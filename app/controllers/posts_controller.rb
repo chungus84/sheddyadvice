@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @lists = List.all
     @listpost = Listpost.new
     @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
