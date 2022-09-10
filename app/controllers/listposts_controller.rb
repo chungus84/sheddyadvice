@@ -19,7 +19,7 @@ class ListpostsController < ApplicationController
         format.html { redirect_to list_path(@list) }
         format.json
       else
-        format.html { render "lists/show", status: :unprocessable_entity }
+        format.html { redirect_to post_path(@list), status: :unprocessable_entity }
         format.json
       end
     end
