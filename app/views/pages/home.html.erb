@@ -41,8 +41,8 @@
             <% @top_rated_posts.each do |post| %>
                 <%= link_to post_path(post), class: "small-card" do %>
                   <div class="small-card-body">
-                    <% if post.image.present?  %>
-                      <%= cl_image_tag post.image.key,  html: { crop: :fill}, class: "card-media" %>
+                    <% if post.photo.present?  %>
+                      <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
                     <% else %>
                       <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
                     <% end %>
@@ -82,8 +82,8 @@
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
 
-              <% if post.image.present? %>
-                  <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
+              <% if post.photo.present? %>
+                  <%= cl_image_tag post.photo.key,  html: {crop: :fill}, class: "card-media" %>
               <% else %>
                   <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
               <% end %>
@@ -123,12 +123,11 @@
         <% @recent_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-              <% if post.image.present?%>
-                      <%= cl_image_tag post.image.key,  html: { crop: :fill}, class: "card-media" %>
-                    <% else %>
-                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                    <% end %>
-
+              <% if post.photo.present?%>
+                <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
+              <% else %>
+                <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+              <% end %>
               <h2 class="card-title"><%= post.title %></h2>
               <span class="card-author">created by: <%= User.find(post.user_id).username %> </span>
               <% feedback_rating = Feedback.average_rating(post) %>
