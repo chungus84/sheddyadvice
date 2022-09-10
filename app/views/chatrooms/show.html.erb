@@ -11,11 +11,9 @@
   <% end %>
 </div>
 
-  <%= simple_form_for [@chatroom, @message],
-  html: {
-    class: "d-flex",
-    data: {
-      action: "turbo:submit-end->chatroom-subscription#resetForm"}} do |f|
+  <%= simple_form_for [@post, @chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm"},
+   class: "d-flex" } do |f|
 %>
   <%= f.input :content,
     label: false,
