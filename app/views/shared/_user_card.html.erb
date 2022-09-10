@@ -11,7 +11,15 @@
         </div>
         <div class="col-5 button-list">
           <div class="main-btn">
-            Send user a message
+            <% if @chatroom %>
+            <%# link_to button needs styling %>
+              <%= link_to "Send User a Message", post_chatroom_path(@post, @chatroom) %>
+            <% else %>
+             <%= simple_form_for [@post, @new_chatroom] do |f| %>
+             <%# need to style simple form button %>
+              <%= f.submit "Send User a Message" %>
+             <% end %>
+            <% end %>
           </div>
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Leave a review

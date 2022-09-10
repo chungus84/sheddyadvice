@@ -9,9 +9,16 @@ Rails.application.routes.draw do
       get :top_rated
       get :recent
       get :trending
+      get :house
+      get :bathroom
+      get :kitchen
+      get :garden
     end
     member do
       resources :feedbacks
+    end
+    resources :chatrooms, only: [:show, :create] do
+      resources :messages, only: :create
     end
   end
 
@@ -19,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :lists
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
+  # resources :chatrooms, only: :show do
+  #   resources :messages, only: :create
+  # end
 end

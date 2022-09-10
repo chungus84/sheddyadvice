@@ -51,7 +51,7 @@ puts "Populating the database, buckle up"
   puts "I've just shared some great tips how to be good at DIY #{user}"
 end
 
-5.times do
+100.times do
   Feedback.create!(
     comment: Faker::Lorem.paragraph(sentence_count: 1),
     rating: rand(1..5),

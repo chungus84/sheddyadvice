@@ -15,7 +15,9 @@ class PostsController < ApplicationController
     @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
     @feedbacks = Feedback.where(post_id: @post.id)
-    @chatroom = Chatroom.new
+    @new_chatroom = Chatroom.new
+    @chatrooms = Chatroom.where(post_id: params[:id])
+    @chatroom = @chatrooms.find { |chatroom| chatroom.user == current_user }
     if params[:query].present?
       @searched_lists = List.where(user_id: current_user).search_by_name(params[:query])
     else
@@ -66,7 +68,26 @@ class PostsController < ApplicationController
     redirect_to posts_path, status: :see_other
   end
 
-private
+
+  def house
+    @posts = Post.where(category: "House Maintanance")
+  end
+
+  def bathroom
+    @posts = Post.where(category: "In the Bathroom")
+  end
+
+  def kitchen
+    @posts = Post.where(category: "In the Kitchen")
+  end
+
+  def garden
+    @posts = Post.where(category: "In the Garden")
+  end
+
+
+  private
+
   def post_params
     params.require(:post).permit(:title, :body, :photo, :video)
   end
