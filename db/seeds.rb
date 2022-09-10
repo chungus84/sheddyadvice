@@ -12,31 +12,38 @@ require 'open-uri'
 
 puts "Cleaning database..."
 List.destroy_all
+Feedback.destroy_all
 User.destroy_all
 Post.delete_all
 
 puts "Populating the database, buckle up"
 
-20.times do
+3.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     username: Faker::Internet.user_name(separators: %w(. _))
   )
-  puts "I'm #{user.email} and I love SheddyAdvice!"
+  puts "I'm #{user.username} and I love SheddyAdvice!"
 
   2.times do
-    file = URI.open("https://www.familyhandyman.com/wp-content/uploads/2018/02/FH17JAU_580_54_001.jpg?fit=696,696")
     # upload_video = URI.open("https://res.cloudinary.com/dtgtbjkq6/video/upload/v1662220802/development/j1_we2dtb.mp4")
     post = Post.new(
+      # image: Unsplash::Photo.search(search_results),
       title: Faker::Hobby.activity,
+      image: nil,
       body: Faker::Lorem.paragraph(sentence_count: 2),
       category: ["In the Bathroom", "House Maintanance", "In the kitchen", "in the Garden"].sample,
       user_id: user.id
     )
-    post.photo.attach(io: file, filename: "seed.png", content_type: "image/png")
+    search_results = Unsplash::Photo.search(post.title)
+    url = search_results.empty? ? "https://cdn.lifehack.org/wp-content/uploads/2013/01/Bundt-Bird-Feeder.jpg" : search_results.first.dig(:urls).regular
+    filename = File.basename(URI.parse(url).path)
+    file = URI.open(url)
+    post.image.attach(io: file, filename: filename, content_type: "image/png")
     # post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
     post.save!
+    p post
 
     5.times do
       feedback = Feedback.create!(
