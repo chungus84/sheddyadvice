@@ -43,8 +43,19 @@
                   <div class="small-card-body">
                     <%# <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
                     <%= cl_image_tag post.image.key,  html: { crop: :fill}, class: "card-media" %>
-                    <span class="card-author"><% post.user_id%></span>
                     <h2 class="card-title"><%= post.title %></h2>
+                    <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
+                    <% feedback_rating = Feedback.average_rating(post) %>
+                      <% if feedback_rating % 1 == 0 %>
+                        <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                          <i class="fa-solid fa-star"></i>
+                        <% end %> </span>
+                      <% else %>
+                        <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                          <i class="fa-solid fa-star"></i>
+                        <% end %><i class="fa-solid fa-star-half"></i></span>
+                      <% end %>
+
                 </div>
               <% end %>
             <% end %>
@@ -62,9 +73,20 @@
         <% @trending_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-              <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
-              <span class="card-author"><% post.user_id%></span>
+              <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
               <h2 class="card-title"><%= post.title %></h2>
+              <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
+              <% feedback_rating = Feedback.average_rating(post) %>
+              <% if feedback_rating % 1 == 0 %>
+                <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %> </span>
+              <% else %>
+                <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %><i class="fa-solid fa-star-half"></i></span>
+              <% end %>
+
             </div>
           <% end %>
         <% end %>
@@ -82,9 +104,21 @@
         <% @recent_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-              <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
-              <span class="card-author"><% post.user_id%></span>
+              <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
               <h2 class="card-title"><%= post.title %></h2>
+              <span class="card-author">created by: <%= User.find(post.user_id).username %> </span>
+
+              <% feedback_rating = Feedback.average_rating(post) %>
+              <% if feedback_rating % 1 == 0 %>
+                <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %> </span>
+              <% else %>
+                <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %><i class="fa-solid fa-star-half"></i></span>
+              <% end %>
+
             </div>
           <% end %>
         <% end %>
