@@ -46,6 +46,7 @@
                     <% else %>
                       <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
                     <% end %>
+                    <%# <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
                     <span class="card-author"><% post.user_id%></span>
                     <h2 class="card-title"><%= post.title %></h2>
                 </div>
@@ -103,6 +104,6 @@
     </div>
   </div>
 </div>
-
+<%= render "shared/footer" %>
   </body>
 </html>
