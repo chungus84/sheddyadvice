@@ -55,6 +55,7 @@ $spacer: 8px;
   text-transform: uppercase;
 }
 
+
 .card-title {
   color: $text-grey;
   font-family: $titles-font;
@@ -96,6 +97,15 @@ $spacer: 8px;
   height: 200px;
   object-fit: cover;
   object-position: center;
+}
+
+.small-card-body > h2 {
+  text-align: center;
+}
+
+.small-card-body > .card-rating {
+  text-decoration: none;
+  color: $text-grey;
 }
 
 .user-card-body {
