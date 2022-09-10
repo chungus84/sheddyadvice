@@ -5,7 +5,7 @@
       <%# <% if @post.photo.attached? %>
         <%# <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill%>
       <%# <% end %>
-        <%= cl_video_tag("DIYVideoDemo", height: 300, width: 400, crop: :fill, controls: '') %>
+        <%= cl_video_tag("DIYVideoDemo", height: 500, width: 900, crop: :fill, controls: '') %>
       <p class=""><%= @post.body %></p>
     </div>
     <%= simple_form_for @post, html: {class: "d-none", data: {
@@ -20,7 +20,7 @@
   </div>
 
   <div class="col-2" data-controller="post-dropdown">
-      <% if @post.user = current_user %>
+      <% if current_user === @post.user %>
         <i class="fa-solid fa-ellipsis edit-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
         <div class="post-menu d-none" data-post-dropdown-target="menuBody">
           <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
