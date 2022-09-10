@@ -10,14 +10,14 @@
    <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "card" do %>
         <% if post.image.present? %>
-            <%= cl_image_tag post.image.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+            <%= cl_image_tag post.image.key, html: {crop: :fill}, class: "card-media" %>
         <% else %>
           <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
         <% end %>
         <div class=“card-body”>
             <h2 class=“card-title”><%= post.title %></h2>
             <span class=“card-description”><%= post.body %></span>
-            <span class=“card-author”>Created by: <%= post.user.email%></span>
+            <span class=“card-author”>Created by: <%= post.user.username%></span>
         </div>
       <% end %>
     <% end %>
