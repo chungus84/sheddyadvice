@@ -9,8 +9,8 @@
 
    <% @posts.each do |post| %>
       <%= link_to post_path(post), class: "large-card" do %>
-        <% if post.image.present? %>
-            <%= cl_image_tag post.image.key, html: {crop: :fill}, class: "card-media" %>
+        <% if post.photo.present? %>
+            <%= cl_image_tag post.photo.key, html: {crop: :fill}, class: "card-media" %>
         <% else %>
           <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
         <% end %>

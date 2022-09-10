@@ -43,7 +43,7 @@ puts "Populating the database, buckle up"
     url = search_results.empty? ? "https://cdn.lifehack.org/wp-content/uploads/2013/01/Bundt-Bird-Feeder.jpg" : search_results.first.dig(:urls).regular
     filename = File.basename(URI.parse(url).path)
     file = URI.open(url)
-    post.image.attach(io: file, filename: filename, content_type: "image/png")
+    post.photo.attach(io: file, filename: filename, content_type: "image/png")
     # come back later to finish the video seed
     # post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
     post.save!
