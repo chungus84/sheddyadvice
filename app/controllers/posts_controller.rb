@@ -68,6 +68,24 @@ class PostsController < ApplicationController
     redirect_to posts_path, status: :see_other
   end
 
+
+  def house
+    @posts = Post.where(category: "House Maintanance")
+  end
+
+  def bathroom
+    @posts = Post.where(category: "In the Bathroom")
+  end
+
+  def kitchen
+    @posts = Post.where(category: "In the Kitchen")
+  end
+
+  def garden
+    @posts = Post.where(category: "In the Garden")
+  end
+
+
   private
 
   def post_params
