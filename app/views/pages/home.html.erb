@@ -41,8 +41,17 @@
             <% @top_rated_posts.each do |post| %>
                 <%= link_to post_path(post), class: "small-card" do %>
                   <div class="small-card-body">
+                    <% if post.image.present? %>
+                      <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+                    <% else %>
+                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                    <% end %>
                     <%# <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+<<<<<<< HEAD
                     <%= cl_image_tag post.image.key,  html: { crop: :fill}, class: "card-media" %>
+=======
+                    <span class="card-author"><% post.user_id%></span>
+>>>>>>> master
                     <h2 class="card-title"><%= post.title %></h2>
                     <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
                     <% feedback_rating = Feedback.average_rating(post) %>
@@ -73,7 +82,13 @@
         <% @trending_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
-              <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
+
+              <% if post.image.present? %>
+                  <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
+              <% else %>
+                  <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+              <% end %>
+
               <h2 class="card-title"><%= post.title %></h2>
               <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
               <% feedback_rating = Feedback.average_rating(post) %>
@@ -104,7 +119,16 @@
         <% @recent_posts.each do |post| %>
           <%= link_to post_path(post), class: "small-card" do %>
             <div class="small-card-body">
+<<<<<<< HEAD
               <%= cl_image_tag post.image.key,  html: {crop: :fill}, class: "card-media" %>
+=======
+              <% if post.image.present? %>
+                      <%= cl_image_tag post.image.key,  html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+                    <% else %>
+                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                    <% end %>
+              <span class="card-author"><% post.user_id%></span>
+>>>>>>> master
               <h2 class="card-title"><%= post.title %></h2>
               <span class="card-author">created by: <%= User.find(post.user_id).username %> </span>
 
