@@ -49,13 +49,20 @@
   margin: 0;
 }
 
-.video-container {
-  background-color: $primary-green;
-  padding: 20px;
-  border-radius: 8px;
-}
 
 .list-dropdown {
   width: 300px;
   top:60px;
+}
+
+.instructions .dropdown {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: green 2px solid;
+
+}
+
+
+.instructions {
+  width: 100%;
 }
