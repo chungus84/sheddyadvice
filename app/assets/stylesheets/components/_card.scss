@@ -27,23 +27,21 @@ $spacer: 8px;
 
 }
 
-.card {
+.large-card {
   display: flex;
   flex-direction: row;
   background-color: $background-white;
+  // background-color: orange;
   padding: 8px;
   position: relative;
   box-shadow: 0 0 5px rgba(75, 75, 75, .07);
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  // float: left;
-  justify-content: center;
+.large-card-body {
   flex-grow: 2;
-
 }
+
+
 
 .card-author {
   font: $font-small;
@@ -70,14 +68,23 @@ $spacer: 8px;
   font-weight: 300;
   line-height: 22px;
   margin: 10px 0;
+  color: $text-grey;
 }
 
-.card > img {
+.card-date {
+  color: $text-grey;
+}
+
+.large-card > img {
   height: 200px;
   width: 300px;
   object-fit: cover;
   object-position: center;
 }
+ .large-card-body > .card-rating {
+  text-decoration: none;
+  color: $text-grey;
+ }
 
 .home-cards {
   display: flex;

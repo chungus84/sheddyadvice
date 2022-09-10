@@ -1,0 +1,24 @@
+.list-card {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgb(225, 225, 225);
+  vertical-align: middle;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 8px;
+  padding: 8px;
+  text-decoration: none;
+  color: $text-grey;
+
+}
+
+.list-card:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.right-list {
+  vertical-align: middle;
+  display: inline-block;
+}

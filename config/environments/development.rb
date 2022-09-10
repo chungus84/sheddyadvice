@@ -70,8 +70,8 @@ Rails.application.configure do
 end
 
 Unsplash.configure do |config|
-  config.application_access_key = "mEhT1zkzwgAMVe0CEJEweSnjjpplqq9NThanNRDk_Yo"
-  config.application_secret = "4411whLwMMP79YcAZX9O_cAKJ2ouzzZ-itz25i36LkY"
+  config.application_access_key = "_PS1cAPMD0aIsX5keo1bEYQHHOSBaGbS4MELMuEKZa8"
+  config.application_secret = "-qzvTJqOrO3gmsVCXFkSb8kS8mqcRu9U17rdXGxOQOA"
   config.application_redirect_uri = "http://www.sheddyadvice.space/oauth/callback"
   config.utm_source = "SheddyAdvice"
 

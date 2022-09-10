@@ -16,7 +16,7 @@ class FeedbacksController < ApplicationController
         else
           format.html { render "posts/show", status: :unprocessable_entity }
           format.json
-        end
+      end
       end
     end
   end
