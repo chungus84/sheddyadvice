@@ -1,6 +1,21 @@
-.search-post-results {
+.listposts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-grow: 1;
+}
+
+// .listposts-container {
+//   // display: flex;
+//   background-color: red;
+//   // justify-content: space-between;
+//   // align-items: center;
+// }
+
+.top-of-list {
   display: flex;
   justify-content: space-between;
-  padding: 4px;
-  margin-top: 2px;
+}
+
+.search-posts {
+  width: 600px ;
 }
