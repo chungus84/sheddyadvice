@@ -1,32 +1,32 @@
 
 <div class="container">
   <div class="row">
-    <div class="user-card-body col-8">
-      <div class="row">
-        <div class="col-4">
+    <div class="col-8">
+      <div class="user-card-body d-flex align-items-center">
+        <div class="user-card-avatar">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
-        <div class="col-3">
-          <span>by <%= @post.user.email %></span>
+        <div class="">
+          <span>by</span>
+           <h3><%= @post.user.username %></h3>
         </div>
-        <div class="col-5 button-list">
-          <div class="main-btn">
+        <div class="button-list">
             <% if @chatroom %>
-            <%# link_to button needs styling %>
-              <%= link_to "Send User a Message", post_chatroom_path(@post, @chatroom) %>
+              <%= link_to "Send user a Message", post_chatroom_path(@post, @chatroom), class: "main-btn" do %>
+                  <i class="fa-regular fa-messages"></i>
+                  <span>Sender User a message"</span>
+            <% end %>
             <% else %>
              <%= simple_form_for [@post, @new_chatroom] do |f| %>
-             <%# need to style simple form button %>
-              <%= f.submit "Send User a Message" %>
+                <%=  f.submit "Send user a Message", class: "main-btn"%>
              <% end %>
             <% end %>
-          </div>
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Leave a review
+          </div>
           </div>
         </div>
       </div>
 
     </div>
-  </div>
 </div>
