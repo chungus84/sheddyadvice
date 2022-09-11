@@ -34,7 +34,7 @@ $spacer: 8px;
   // background-color: orange;
   padding: 8px;
   position: relative;
-  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .large-card-body {
@@ -44,7 +44,7 @@ $spacer: 8px;
 
 
 .card-author {
-  font: $font-small;
+  font-family: $font-small;
   color: $text-grey;
   display: block;
   font-size: 12px;
@@ -93,24 +93,33 @@ $spacer: 8px;
 }
 
 .small-card {
+  width:33%;
+  height: 360px;
+  margin: 20px;
   background-color: $background-white;
   padding: 8px;
   position: relative;
-  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 
 }
 .small-card-body > img{
-  width: 300px;
+  width: 100%;
   height: 200px;
   object-fit: cover;
   object-position: center;
 }
 
-.small-card-body > h2 {
-  text-align: center;
+.card-details {
+  position: absolute;
+  bottom: 8px;
 }
 
-.small-card-body > .card-rating {
+.small-card-body > h2 {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.card-details > .card-rating {
   text-decoration: none;
   color: $text-grey;
 }
