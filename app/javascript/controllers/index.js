@@ -25,6 +25,9 @@ application.register("instructions-dropdown", InstructionsDropdownController)
 import MenuDropdownController from "./menu_dropdown_controller"
 application.register("menu-dropdown", MenuDropdownController)
 
+import NutsRotateController from "./nuts_rotate_controller"
+application.register("nuts-rotate", NutsRotateController)
+
 import PostDropdownController from "./post_dropdown_controller"
 application.register("post-dropdown", PostDropdownController)
 
