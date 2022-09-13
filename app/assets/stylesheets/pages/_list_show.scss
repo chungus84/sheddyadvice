@@ -1,6 +1,6 @@
 .listposts-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   flex-grow: 1;
 }
 
@@ -17,5 +17,27 @@
 }
 
 .search-posts {
-  width: 600px ;
+  width: 600px;
+  margin-left: 16px;
+}
+
+.edit-delete-list {
+  display: flex;
+}
+
+.list-post-photo {
+  margin-right: 8px;
+}
+
+.list-post-details {
+  align-items: center;
+  vertical-align: middle;
+}
+
+.search-post-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 4px;
 }

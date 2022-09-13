@@ -1,6 +1,32 @@
 .search-post-results {
   display: flex;
   justify-content: space-between;
-  padding: 4px;
+  // padding: 4px;
   margin-top: 2px;
+  background-color: white;
+  align-items: center;
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+.search-post-results:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.post-title {
+  display: flex;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: $text-grey;
+}
+
+.list-post-avatar-bordered {
+  // border-radius: 100%;
+  border: white 1px solid;
+  height: 60px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 4px;
 }
