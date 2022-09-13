@@ -2,7 +2,7 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
-  <h1>#<%= @chatroom.name %></h1>
+  <h1>Your message history with <%= @post.user.username %></h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
 
