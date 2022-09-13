@@ -2,7 +2,15 @@
   <% searched_posts.each do |post| %>
     <div class="search-post-results" data-add-post-to-list-target="results">
       <div class="post-title">
-        <p><%= post.title %></p>
+        <div class="list-post-photo">
+          <%= cl_image_tag post.photo.key, class: "list-post-avatar-bordered" %>
+        </div>
+        <div class="list-post-details">
+          <%= link_to post_path(post)do %>
+            <b><%= post.title %></b>
+            <p>By: <%= post.user.username %></p>
+          <% end %>
+        </div>
       </div>
       <div class="post-add-button">
         <%= simple_form_for([@listpost],
@@ -11,7 +19,7 @@
         action: "submit->add-post-to-list#send"}) do |f| %>
           <%= f.hidden_field :post_id, value: post.id %>
           <%= f.hidden_field :list_id, value: @list.id %>
-          <%= f.submit 'Add', class: "btn btn-primary" %>
+          <%= f.submit '+', class: "fa-solid toggle-button" %>
         <% end %>
       </div>
     </div>
