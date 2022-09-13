@@ -17,14 +17,34 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+
+      .message-9 {
+        font-family: $font-small;
+      }
   }
 
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+    width: 50%;
 
     .form-group {
       margin-bottom: 0;
+
+    }
+
+    .btn {
+      display: flex;
+      align-items:center;
+      background-color: $clickable-coral;
+      color: $background-white;
+      padding: 12px 32px;
+      border-radius: 16px;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+      margin-left: 16px;
+      justify-content: center;
+      border: none;
+      max-width: 250px;
     }
   }
 }
