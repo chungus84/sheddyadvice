@@ -3,7 +3,7 @@
   <div class="list-list">
     <div class="search-lists background-orange p-2 rounded" data-controller="search-lists">
       <% if @searched_lists.empty? %>
-          <%= link_to 'Create new List', lists_path %>
+          <%# <%= link_to 'Create new List', lists_path %>
         <% else %>
           <%= form_with url: post_path, method: :get, html: {class: "d-flex", data: {search_lists_target: "form searchbar"}} do |f| %>
           <i class="fa-solid fa-magnifying-glass search"></i>
