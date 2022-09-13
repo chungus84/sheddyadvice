@@ -1,4 +1,9 @@
 <div class="search-results" data-search-posts-target="list">
+  <div class="headline-missing">
+    <% if params[:query].nil? %>
+      <h4>Recent Posts</h4>
+    <% end %>
+  </div>
   <% searched_posts.each do |post| %>
     <div class="search-post-results" data-add-post-to-list-target="results">
       <div class="post-title">
