@@ -26,8 +26,10 @@ puts "Populating the database, buckle up"
     username: Faker::Internet.user_name(separators: %w(. _))
   )
   puts "I'm #{user.username}, my id is #{user.id}, my email is #{user.email} and I love SheddyAdvice!"
+  puts "I've just shared some great tips how to be good at DIY #{user}"
+end
 
-    csv_text = File.read(Rails.root.join('lib', 'seeds', 'sheddyadvice_post_seeds.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'sheddyadvice_post_seeds.csv'))
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
     # upload_video = URI.open("https://res.cloudinary.com/dtgtbjkq6/video/upload/v1662220802/development/j1_we2dtb.mp4")
@@ -48,8 +50,6 @@ puts "Populating the database, buckle up"
     # post.video.attach(io: upload_video, filename: "video_seed.mp4", content_type: "video/mp4")
     post.save!
   end
-  puts "I've just shared some great tips how to be good at DIY #{user}"
-end
 
 100.times do
   Feedback.create!(
