@@ -91,3 +91,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+
+Unsplash.configure do |config|
+  config.application_access_key = "_PS1cAPMD0aIsX5keo1bEYQHHOSBaGbS4MELMuEKZa8"
+  config.application_secret = "-qzvTJqOrO3gmsVCXFkSb8kS8mqcRu9U17rdXGxOQOA"
+  config.application_redirect_uri = "http://www.sheddyadvice.space/oauth/callback"
+  config.utm_source = "SheddyAdvice"
+
+  # optional:
+  # config.logger = MyCustomLogger.new
+end
