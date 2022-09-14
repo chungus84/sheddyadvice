@@ -1,5 +1,5 @@
 meta_product_name: "SheddyAdvice"
 meta_title: "SheddyAdvice - Shed the cost of living with us!"
 meta_description: "Offers valuable low cost practical advice that can help ease the economic burden"
-meta_image: "sheddy-logo.png" # should exist in `app/assets/images/`
+meta_image: "sheddy-cover.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
