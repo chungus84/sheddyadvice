@@ -1,14 +1,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-7">
       <div class="user-card-body d-flex align-items-center">
         <div class="user-card-avatar">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
-        <div class="">
-          <span>by</span>
-           <h3><%= @post.user.username %></h3>
+        <div class="text-greybackground-white">
+        <i class="fa-solid fa-user"></i>
+          <span><%= @post.user.username %></span>
         </div>
         <div class="button-list">
             <% if @chatroom %>
