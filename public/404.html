@@ -20,18 +20,15 @@
 
     }
 
-    .search-field {
+    .message-container {
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      justify-items: center;
       padding-top: 50px;
     }
 
-    .mute-text {
-      color: white;
-    }
 
-    .search-button {
-      background-color: #F26052;
-      color: white;
-    }
 
   </style>
 </head>
@@ -39,9 +36,15 @@
 <body>
   <div class="py-1 text-center container-fluid banner-search ">
     <div class="row">
-      <img class="banner-logo" src="/images/sheddy-logo.png" alt="">
+      <a href="home.html.erb"><img class="banner-logo" src="/images/sheddy-logo.png" alt=""></a>
     </div>
 
+  </div>
+  <div class="container">
+    <div class="message-container">
+      <img src="/images/404.png" alt="">
+      <h1>The page you were looking for does not exists</h1>
+    </div>
   </div>
 </body>
 </html>
