@@ -6,4 +6,5 @@ class PagesController < ApplicationController
   def view
     render layout: false
   end
+
 end
