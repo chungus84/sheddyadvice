@@ -50,6 +50,7 @@ class PostsController < ApplicationController
 
   def create
     if user_signed_in?
+      # @category = Category.new(caregory_params)
       @post = Post.new(post_params)
       @post.user = current_user
       if @post.save

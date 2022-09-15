@@ -1,6 +1,7 @@
 <div class="review">
   <div class="review-card">
     <div class="avatar-circle">
+
       <% if feedback.user.photo.present? %>
         <%= cl_image_tag feedback.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered" %>
       <% else %>
