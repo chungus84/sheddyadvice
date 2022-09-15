@@ -1,0 +1,14 @@
+.form-container {
+  box-shadow:  3px 3px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.form-check .form-check-input {
+  float: none;
+  margin-right: 16px;
+}
+
+.form-label {
+  color: $text-grey;
+}

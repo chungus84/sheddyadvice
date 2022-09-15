@@ -11,6 +11,7 @@
   justify-content: center;
   border: none;
   max-width: 250px;
+  min-width: 250px;
 
   &:hover {
     background-color: $secondary-orange;
@@ -73,4 +74,13 @@
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+.remove-link {
+  color: $text-grey;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-orange;
+  }
 }
