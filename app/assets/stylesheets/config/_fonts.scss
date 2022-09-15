@@ -7,10 +7,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Hind:wght@300&display=swap');
 
 // Define fonts for body and headers
+* {
+  font-family: "Hind", "Helvetica", "sans-serif";
+}
+
 $body-font: "Hind", "Helvetica", "sans-serif";
 $headers-font: "Sarabun", "Helvetica", "sans-serif";
-$titles-font : 'Hammersmith One';
-$font-small : 'Hind';
+$titles-font : "Sarabun", "Helvetica", "sans-serif";
+$font-small : "Hind", "Helvetica", "sans-serif";
 
 
 // To use a font file (.woff) uncomment following lines
