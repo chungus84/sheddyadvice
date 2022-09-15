@@ -4,7 +4,11 @@
   >
   <div class="message-details">
     <div class="message-profile-photo">
-      <%= cl_image_tag @post.user.photo.key, class: "message-profile-user", alt: "avatar-bordered" %>
+      <% if @post.user.photo.present? %>
+        <%= cl_image_tag @post.user.photo.key, class: "message-profile-user", alt: "avatar-bordered" %>
+        <% else %>
+          <%= image_tag 'Meeseeks.png', class: "message-profile-user", alt: "avatar-bordered" %>
+        <% end %>
     </div>
     <div class="message-header">
       <h1>Your message history with <%= @post.user.username %></h1>
