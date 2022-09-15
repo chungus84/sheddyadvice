@@ -35,7 +35,9 @@
     <div class="d-flex align-items-center justify-content-end">
       <i class="fa-solid fa-heart-circle-plus icon-toggle" data-post-dropdown-target="addIcon" data-action="click->post-dropdown#displayLists"></i>
       <%= render "lists/list_index" %>
-      <i class="fa-solid fa-ellipsis icon-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
+      <% if current_user === @post.user %>
+       <i class="fa-solid fa-ellipsis icon-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
+      <% end %>
     </div>
     <div class="show-dropdown d-none py-2" data-post-dropdown-target="menuBody">
         <div class="d-flex">
@@ -52,7 +54,5 @@
       </div>
     </div>
   </div>
-
-
 </div>
 <%= render "shared/user_card" %>
