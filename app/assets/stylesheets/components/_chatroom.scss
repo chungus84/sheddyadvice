@@ -48,3 +48,21 @@
     }
   }
 }
+
+.message-details {
+  display: flex;
+}
+
+.message-profile-photo img {
+  height: 75px;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+// .message-profile-user {
+//   height: 8px;
+// }
+
+// .message-header {
+//   background-color: red;
+// }
