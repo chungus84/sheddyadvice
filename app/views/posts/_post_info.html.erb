@@ -37,15 +37,19 @@
       <%= render "lists/list_index" %>
       <i class="fa-solid fa-ellipsis icon-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
     </div>
-    <div class="show-dropdown d-none" data-post-dropdown-target="menuBody">
-      <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
-        <i class="fa-solid fa-pen fa-xs mx-2 py-2"></i>
-        <p> Edit post</p>
-      </button>
-      <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-solid fa-trash mx-2 py-2"></i>
-        <p>Delete post </p>
-      <% end %>
+    <div class="show-dropdown d-none py-2" data-post-dropdown-target="menuBody">
+        <div class="d-flex">
+        <button style="border:0; background:none;" class="d-flex menu-item" data-edit-fields-target="button" data-action="click->edit-fields#displayForm">
+          <i class="fa-solid fa-pen fa-xs mx-2 py-2"></i>
+          <span> Edit post</span>
+        </button>
+      </div>
+      <div class="d-flex">
+        <%= link_to post_path(@post), class:"menu-item", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash mx-2 py-2"></i>
+          <span>Delete post </span>
+        <% end %>
+      </div>
     </div>
   </div>
 
