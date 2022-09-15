@@ -12,6 +12,8 @@ require 'csv'
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning database..."
+Message.destroy_all
+Chatroom.destroy_all
 List.destroy_all
 Feedback.destroy_all
 User.destroy_all
@@ -25,6 +27,9 @@ puts "Populating the database, buckle up"
     password: Faker::Internet.password,
     username: Faker::Internet.user_name(separators: %w(. _))
   )
+  user_photo = URI.open("https://kitt.lewagon.com/placeholder/users/random")
+  user.photo.attach(io: user_photo, filename: "nes.png", content_type: "image/png")
+  user.save!
   puts "I'm #{user.username}, my id is #{user.id}, my email is #{user.email} and I love SheddyAdvice!"
   puts "I've just shared some great tips how to be good at DIY #{user}"
 end

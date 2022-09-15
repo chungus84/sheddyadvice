@@ -4,7 +4,7 @@
     <div class="col-7">
       <div class="user-card-body d-flex align-items-center">
         <div class="user-card-avatar">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-bordered", alt: "avatar-bordered" %>
+          <%= cl_image_tag @post.user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
         <div class="text-greybackground-white">
         <i class="fa-solid fa-user"></i>
