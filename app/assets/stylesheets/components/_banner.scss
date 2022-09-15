@@ -10,12 +10,12 @@
 }
 
 .mute-text {
-  color: white;
+  color: $background-white
 }
 
 .search-button {
   background-color: #F26052;
-  color: white;
+  color: $background-white;
 }
 
 .collections i {
@@ -27,4 +27,9 @@
 .collections h3 {
   margin: 0;
   color: $text-grey;
+}
+
+.lead {
+  font-size: 38px;
+  text-shadow: 3px 3px 3px rgba(31, 55, 34, 0.5);
 }

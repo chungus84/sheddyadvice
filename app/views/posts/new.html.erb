@@ -1,11 +1,23 @@
-<div class="container">
-  <h2>Add a new post</h2>
-  <%= simple_form_for(@post) do |f| %>
-    <%= f.input :title, placeholder: "Enter a title"%>
-    <%= f.input :body, placeholder: "Upload your instructions"%>
+<div class="background-orange p-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="container form-container b-background-white p-4">
+          <h2 class="text-grey mb-4">Add a new post</h2>
+            <%= simple_form_for(@post) do |f| %>
+              <%= f.input :title, placeholder: "Enter a title"%>
+              <%= f.input :body, placeholder: "Upload your instructions"%>
+              <%= f.input :photo, as: :file %>
+              <%= f.input :video, as: :file %>
+               <div class="d-flex flex-column align-items-center">
 
-     <%= f.input :photo, as: :file %>
-     <%= f.input :video, as: :file %>
-    <%= f.button :submit, 'Create', class: "main-btn" %>
-  <% end %>
+              <div class="form-actions">
+              <%= f.button :submit, 'Create', class: "main-btn my-4 " %>
+            <% end %>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
