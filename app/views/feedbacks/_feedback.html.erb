@@ -1,7 +1,7 @@
 <div class="review">
   <div class="review-card">
     <div class="avatar-circle">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-small-circle", alt: "avatar-bordered" %>
+      <%= cl_image_tag feedback.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered" %>
     </div>
     <div class="review-body">
       <div class="review-username">
