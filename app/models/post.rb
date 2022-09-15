@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   acts_as_votable
 
   belongs_to :user
+
   has_many :feedbacks, dependent: :destroy
   has_many :listposts, dependent: :destroy
   has_many :lists, through: :listposts, dependent: :destroy
@@ -11,6 +12,7 @@ class Post < ApplicationRecord
   # validates :title, uniqueness: true
   validates :body, length: { minimum: 20 }
   validates_presence_of :user
+  # validates_presence_of :category
   has_one_attached :photo
   has_one_attached :video
   include PgSearch::Model
