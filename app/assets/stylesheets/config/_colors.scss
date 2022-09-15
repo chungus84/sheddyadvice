@@ -34,10 +34,18 @@ $text-grey: #514B47;
   color: $background-white;
 }
 
+.text-grey {
+  color: $text-grey;
+}
+
 .background-green {
   background-color: $primary-green;
 }
 
 .background-orange {
   background-color:$secondary-orange
+}
+
+.b-background-white {
+  background-color: $background-white;
 }
