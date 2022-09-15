@@ -8,13 +8,6 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :chatrooms, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_one_attached :avatar
+  has_one_attached :photo
 
-  def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize: "150x150").processed
-    else
-      '/default_profile.jpg'
-    end
-  end
 end

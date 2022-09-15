@@ -4,7 +4,11 @@
     <div class="col-7">
       <div class="user-card-body d-flex align-items-center">
         <div class="user-card-avatar">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-bordered", alt: "avatar-bordered" %>
+          <% if @post.user.photo.present? %>
+            <%= cl_image_tag @post.user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
+          <% else %>
+            <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+          <% end %>
         </div>
         <div class="text-greybackground-white">
         <i class="fa-solid fa-user"></i>
@@ -12,13 +16,13 @@
         </div>
         <div class="button-list">
             <% if @chatroom %>
-              <%= link_to "Send user a Message", post_chatroom_path(@post, @chatroom), class: "main-btn" do %>
+              <%= link_to post_chatroom_path(@post, @chatroom), class: "main-btn" do %>
                   <i class="fa-regular fa-messages"></i>
-                  <span>Sender User a message"</span>
+                  <span>Send User a message</span>
             <% end %>
             <% else %>
              <%= simple_form_for [@post, @new_chatroom] do |f| %>
-                <%=  f.submit "Send user a Message", class: "main-btn"%>
+                <%=  f.submit "Send User a Message", class: "main-btn"%>
              <% end %>
             <% end %>
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

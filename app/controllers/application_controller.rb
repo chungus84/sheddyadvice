@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    # for the avatar, can delete lines "avatar" if not working
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :avatar, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation, :photo])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :username, :email, :password, :remember_me])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :avatar, :password, :password_confirmation, :current_password])
 
