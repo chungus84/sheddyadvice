@@ -3,9 +3,11 @@
     <div data-edit-fields-target="post">
       <h1 class=""><%= @post.title %></h1>
       <% if @post.video.attached? %>
-        <%= cl_video_tag(@post.video.key, height: 500, width: 900, crop: :fill, controls: '') %>
-        <% else @post.photo.attached? %>
-        <%= cl_image_tag(@post.photo.key, height: 500, width: 900, crop: :fill, controls: '') %>
+          <%= cl_video_tag(@post.video.key, height: 500, width: 900, crop: :fill, controls: '') %>
+        <% elsif @post.photo.attached? %>
+          <%= cl_image_tag(@post.photo.key, height: 500, width: 900, crop: :fill, controls: '') %>
+        <% else %>
+          <p>Nothing</p>
         <% end %>
       <div class="instructions mt-5" data-controller="instructions-dropdown">
       <% if @post.body.length >= 100 %>
@@ -19,18 +21,11 @@
         <% else %>
           <%= @post.body %>
         <% end %>
-    <%= simple_form_for @post, html: {class: "d-none", data: {
-            edit_fields_target: "form",
-            action: "submit->edit-fields#update"
-                }} do |f| %>
-      <%= f.input :title, placeholder: "#{@post.title}" %>
-      <%= f.input :body, placeholder: "#{@post.body}" %>
-      <%= f.input :video, placeholder: "#{@post.video}" %>
-      <%= f.button :submit, class: "main-btn" %>
-    <% end %>
+
   </div>
   </div>
   </div>
+
   <div class="col-2 position-relative" data-controller="post-dropdown">
     <div class="d-flex align-items-center justify-content-end">
       <i class="fa-solid fa-heart-circle-plus icon-toggle" data-post-dropdown-target="addIcon" data-action="click->post-dropdown#displayLists"></i>
@@ -53,6 +48,17 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="col-8">
+    <%= simple_form_for @post, html: {class: "d-none", data: {
+            edit_fields_target: "form",
+            action: "submit->edit-fields#update"
+                }} do |f| %>
+      <%= f.input :title, placeholder: "#{@post.title}" %>
+      <%= f.input :body, placeholder: "#{@post.body}" %>
+      <%= f.input :video, placeholder: "#{@post.video}" %>
+      <%= f.button :submit, class: "main-btn" %>
+    <% end %>
   </div>
 </div>
 <%= render "shared/user_card" %>
