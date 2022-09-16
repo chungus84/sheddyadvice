@@ -15,8 +15,8 @@
           <span><%= @post.user.username %></span>
         </div>
         <div class="button-list">
-            <% if @post.chatroom_ids.present? %>
-              <%= link_to post_chatroom_path(@chatroom), class: "main-btn" do %>
+            <% if @chatroom.present? %>
+              <%= link_to post_chatroom_path(@post, @chatroom), class: "main-btn" do %>
                   <i class="fa-regular fa-messages"></i>
                   <span>Send User a message</span>
               <% end %>
