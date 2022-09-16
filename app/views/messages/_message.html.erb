@@ -1,4 +1,5 @@
 <div id="message-<%= message.id %>">
+  <% unless Post.find(params[:post_id]).user_id == message.user_id %>
   <div class="message-cards post-user">
     <% if message.user.photo.present? %>
       <%= cl_image_tag message.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered"  %>
@@ -14,4 +15,21 @@
     </div>
 
   </div>
+  <% else %>
+    <div class="message-cards post-creator">
+
+      <div class="message-card-body">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+      <% if message.user.photo.present? %>
+        <%= cl_image_tag message.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered"  %>
+      <% else %>
+        <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

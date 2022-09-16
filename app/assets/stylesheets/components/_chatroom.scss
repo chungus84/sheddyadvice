@@ -1,7 +1,7 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(70vh - 75px);
+  height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,6 +17,8 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    width: 80%;
+    align-self: center;
 
       .message-9 {
         font-family: $font-small;
@@ -26,7 +28,7 @@
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
-    width: 50%;
+
 
     .form-group {
       margin-bottom: 0;
@@ -67,27 +69,28 @@
 }
 
 .message-cards > img {
-  margin-right: 16px;
+  margin: 0 16px;
 }
 
 .message-card-body {
-  padding-left: 24px;
+  padding: 0 24px;
   align-self: center;
-  width: 50%;
+  width: 80%;
   border-radius: 8px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   color: $background-white;
+  opacity: 80%;
 }
 
 .post-user .message-card-body {
   background-color: $primary-green;
 }
 
-.message-cards .post-creator {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 8px;
 
+
+.post-creator .message-card-body {
+  background-color: $secondary-orange;
+  text-align: right;
 }
 
 // .message-profile-user {
