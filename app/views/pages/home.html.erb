@@ -15,10 +15,10 @@
   <body>
     <%= render "shared/banner_search" %>
     <div class="container p-5 home-intro-section">
-      <div class="nuts" data-controller="nuts-rotate" data-action="scroll->nuts-rotate#rotate">
-        <%= image_tag 'nut.svg' , data: {edit_fields_target:"nut1"} %>
-        <%= image_tag 'nut.svg', data: {edit_fields_target:"nut2"} %>
-        <%= image_tag 'nut.svg', data: {edit_fields_target:"nut3"} %>
+      <div class="nuts" data-controller="nuts-rotate" data-action="scroll@window->nuts-rotate#rotate">
+        <%= image_tag 'nut.svg' , data: {nuts_rotate_target:"nutOne"} %>
+        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutTwo"}  %>
+        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutThree"}  %>
       </div>
       <div class="intro-text pt-5">
         <h2>Join our community</h2>

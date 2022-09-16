@@ -2,20 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="nuts-rotate"
 export default class extends Controller {
-  static targets=["nut1", "nut2", "nut3"]
+  static targets=["nutOne", "nutTwo", "nutThree"]
   connect() {
+    console.log("BOOM")
   }
 
   rotate() {
-    if (window.scrollY >= 100) {
-    this.nut1Target.classList.add('rotate')
-    this.nut2Target.classList.add('rotate')
-    this.nut3Target.classList.add('rotate')
-  } else {
-    this.nut1Target.classList.remove('rotate')
-    this.nut2Target.classList.remove('rotate')
-    this.nut3Target.classList.remove('rotate')
-  }
+    this.nutOneTarget.style.transform = "rotate("+ (window.pageYOffset/16) + "deg)"
+    this.nutTwoTarget.style.transform = "rotate("+ (window.pageYOffset/8) + "deg)"
+    this.nutThreeTarget.style.transform = "rotate("+ (window.pageYOffset/2) + "deg)"
 
-  }
+    };
 }
