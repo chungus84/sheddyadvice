@@ -1,7 +1,17 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+  <div class="message-cards post-user">
+    <% if message.user.photo.present? %>
+      <%= cl_image_tag message.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered"  %>
+    <% else %>
+      <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+    <% end %>
+    <div class="message-card-body">
+      <small>
+        <strong><%= message.user.username %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
+      <p><%= message.content %></p>
+    </div>
+
+  </div>
 </div>
