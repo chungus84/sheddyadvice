@@ -1,29 +1,37 @@
-
-<div class="d-flex justify-content-center py-3 mb4 border-bottom b-background-white">
-  <div class="row align-items-center">
-    <div class="col-2 mb-2 mb-md-0 text-dark navbar-brand">
-
+<div class="b-background-white shadow-sm">
+  <div class="row f-flex align-items-center">
+    <div class="logo col-lg-2 p-4">
       <%= link_to root_path do  %>
         <%= image_tag("sheddy-advice-logo.svg") %>
       <% end %>
     </div>
-      <ul class="nav col-9 d-flex mb-2 justify-content-center mb-md-0">
-        <%= link_to house_posts_path do  %>
-          <li><%= image_tag('house-icon.png') %></li>
-        <% end %>
-        <%= link_to bathroom_posts_path do %>
-          <li><%= image_tag('bathroom-icon.png') %></li>
-        <% end %>
-        <%= link_to kitchen_posts_path do %>
-          <li><%= image_tag('kitchen-icon.png') %></li>
-        <% end %>
-        <%= link_to garden_posts_path do %>
-          <li><%= image_tag('garden-icon.png') %></li>
-        <% end %>
-
-    </ul>
-    <div class="col-1" >
-          <div class="nav-item dropdown" data-controller="menu-dropdown">
+    <div class="collections col-lg-9">
+      <ul class="nav d-flex justify-content-around">
+           <%= link_to house_posts_path do  %>
+            <li class="d-flex align-items-center">
+              <i class="fa-solid fa-house p-2"></i>
+            <h2>House maintenance</h2></li>
+          <% end %>
+                  <%= link_to bathroom_posts_path do %>
+            <li class="d-flex align-items-center">
+              <i class="fa-solid fa-sink p-2"></i>
+              <h2>In the bathroom</h2>
+            </li>
+          <% end %>
+          <%= link_to kitchen_posts_path do %>
+            <li class="d-flex align-items-center">
+            <i class="fa-solid fa-kitchen-set p-2"></i>
+            <h2>In the kitchen</h2></li>
+          <% end %>
+          <%= link_to garden_posts_path do %>
+            <li class="d-flex align-items-center">
+            <i class="fa-solid fa-worm p-2"></i>
+            <h2>In the garden</h2></li>
+          <% end %>
+      </ul>
+    </div>
+    <div class="col-lg-1 d-flex align-items-right">
+    <div class="nav-item dropdown" data-controller="menu-dropdown">
             <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
           <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>
               <%= content_tag :span %>
@@ -47,6 +55,6 @@
               </ul>
             </div>
           </div>
-    </div>
+        </div>
   </div>
 </div>
