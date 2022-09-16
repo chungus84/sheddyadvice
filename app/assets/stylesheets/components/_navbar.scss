@@ -1,13 +1,4 @@
-.navbar-lewagon {
-  justify-content: space-between;
 
-  background: #FFFFFF;
-
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
 .navbar-brand > a > img {
   width: 80%;
@@ -166,4 +157,19 @@ color: $secondary-orange
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.nav i {
+  color: $primary-green;
+  font-size: 32px;
+}
+
+.nav h2 {
+  color: $text-grey;
+  font-size: 0.8em;
+  margin:0;
+}
+
+.nav *:hover{
+  color: $clickable-coral;
 }
