@@ -11,7 +11,11 @@
         <% end %>
     </div>
     <div class="message-header">
-      <h1>Your message history with <%= @post.user.username %></h1>
+      <% if current_user == @post.user %>
+        <h1>Your message history with <%= @chatroom.user.username %></h1>
+      <% else %>
+        <h1>Your message history with <%= @post.user.username %></h1>
+      <% end %>
     </div>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
