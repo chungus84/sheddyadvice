@@ -34,6 +34,11 @@
   <body>
     <%= render "shared/banner_search" %>
     <div class="container p-5 home-intro-section">
+      <div class="nuts" data-controller="nuts-rotate" data-action="scroll@window->nuts-rotate#rotate">
+        <%= image_tag 'nut.svg' , data: {nuts_rotate_target:"nutOne"} %>
+        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutTwo"}  %>
+        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutThree"}  %>
+      </div>
       <div class="intro-text pt-5">
         <h2>Join our community</h2>
         <i class="fa-solid fa-arrow-right m-2"></i>
@@ -92,7 +97,7 @@
         </div>
       </div>
 
-    <div class="background-white p-5">
+    <div class="b-background-white p-5">
       <div class="container">
         <div class="spanner">
           <h2 class="headline pt-5 primary-green">Trending</h2>

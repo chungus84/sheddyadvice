@@ -49,3 +49,81 @@
 
 .container .home {
 margin: 0;}
+
+.nuts :nth-child(1) {
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  transform: rotate(8deg);
+  position: fixed;
+  width: 48px;
+  top: 100px;
+  left: 96px;
+  z-index: -50;
+
+}
+
+.nuts :nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: fixed;
+  width: 80px;
+  top: 160px;
+  z-index: -50;
+}
+
+.nuts :nth-child(3) {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  position: fixed;
+  width: 120px;
+  top: 240px;
+  left: 20px;
+  z-index: -50;
+}
+
+.nuts {
+  display: flex;
+  flex-direction:column;
+}
+
+
+.nuts :nth-child(1).rotate {
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  transform: rotate(8deg);
+  position: fixed;
+  width: 48px;
+  top: 100px;
+  left: 96px;
+  z-index: -50;
+
+}
+
+.nuts :nth-child(2).rotate {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: fixed;
+  width: 80px;
+  top: 160px;
+  z-index: -50;
+}
+
+.nuts :nth-child(3).rotate {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  position: fixed;
+  width: 120px;
+  top: 240px;
+  left: 20px;
+  z-index: -50;
+}
