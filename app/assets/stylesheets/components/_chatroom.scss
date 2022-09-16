@@ -1,7 +1,7 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(80vh - 75px);
+  height: calc(70vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,6 +57,37 @@
   height: 75px;
   border-radius: 50%;
   margin-top: 8px;
+}
+
+.message-cards {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+
+}
+
+.message-cards > img {
+  margin-right: 16px;
+}
+
+.message-card-body {
+  padding-left: 24px;
+  align-self: center;
+  width: 50%;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  color: $background-white;
+}
+
+.post-user .message-card-body {
+  background-color: $primary-green;
+}
+
+.message-cards .post-creator {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+
 }
 
 // .message-profile-user {
