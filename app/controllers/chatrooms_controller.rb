@@ -11,7 +11,6 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    # @post = Post.find(params[:id])
     @chatroom = Chatroom.new(chatroom_params)
     # @chatroom.sender_id = current_user.id
     # raise
