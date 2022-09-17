@@ -4,8 +4,8 @@
     <div class="col-lg-6 col-md-6 col-sm-12 b-background-white mb-5" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
       <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
         <div class="bookmark-details d-flex align-items-center">
-          <i class="fa-solid fa-bookmark pe-3"></i>
-          <h1><%= @list.name %></h1>
+          <i class="fa-solid fa-bookmark pe-3 text-grey"></i>
+          <h1 class="text-grey"><%= @list.name %></h1>
         </div>
         <div class="edit-delete-list d-flex">
           <div class="edit-list px-2">
@@ -34,7 +34,7 @@
 </div>
         <div class="search-posts" data-controller="search-posts">
           <div class="search-post-container mt-5">
-            <h3>Add to List </h3>
+            <h3 class="text-grey">Add to List </h3>
             <%= form_with url: list_path, method: :get, html: {class: "d-flex", data: {search_posts_target: "form"}} do |f| %>
                 <%= f.text_field :query,
                         value: params[:query],
