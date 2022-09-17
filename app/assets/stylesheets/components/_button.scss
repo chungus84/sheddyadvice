@@ -75,3 +75,26 @@
     color: $secondary-orange;
   }
 }
+
+.icon-btn {
+  background-color: $clickable-coral;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+}
+
+.icon-btn i {
+  color: $background-white;
+}
+
+.post-add-button .toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  margin-bottom: 16px;
+}
