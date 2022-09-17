@@ -8,23 +8,27 @@ export default class extends Controller {
 
 
   connect() {
-    // console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+    console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
+    // console.log(this.messagesTarget)
+    // console.log(this.chatroomIdValue)
 
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      // { received: data => console.log(data) }
-      // { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data) },
+      // { received: (data) => console.log(data) }
+      // { received: (data) => this.messagesTarget.insertAdjacentHTML("beforeend", data) },
       { received: (data) => {this.#insertMessageAndScrollDown(data)} }
     )
-}
+  }
+
   resetForm(event) {
     event.target.reset()
   }
 
-#insertMessageAndScrollDown(data) {
-  this.messagesTarget.insertAdjacentHTML("beforeend", data)
-  // scroll to the bottom of the messages
-  this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  #insertMessageAndScrollDown(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    // console.log(this.messagesTarget.insertAdjacentHTML("beforeend", data))
+    // scroll to the bottom of the messages
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   disconnect() {
