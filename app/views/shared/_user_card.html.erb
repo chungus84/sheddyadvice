@@ -16,13 +16,17 @@
         </div>
         <div class="button-list">
 
-              <%= simple_form_for([@chatroom]) do |f| %>
-                  <% if user_signed_in? %>
-                    <%= f.hidden_field :sender_id, value: current_user.id %>
-                  <% end %>
-                    <%= f.hidden_field :receiver_id, value: @post.user.id %>
-                    <%= f.submit 'Send message', class: "main-btn" %>
+          <% if @existingchatroom.present? %>
+            <%= link_to 'Send message', chatroom_path(@existingchatroom), class: "main-btn" %>
+          <% else %>
+            <%= simple_form_for([@newchatroom]) do |f| %>
+              <% if user_signed_in? %>
+                <%= f.hidden_field :sender_id, value: current_user.id %>
               <% end %>
+                <%= f.hidden_field :receiver_id, value: @post.user.id %>
+                <%= f.submit 'Send message', class: "main-btn" %>
+            <% end %>
+          <% end %>
 
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Leave a review
