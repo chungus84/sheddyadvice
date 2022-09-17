@@ -47,6 +47,7 @@
                 <li><i class="fa-solid fa-user"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-heart"></i><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
                 <% else %>
                 <li><i class="fa-solid fa-right-to-bracket"></i><%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %></li>

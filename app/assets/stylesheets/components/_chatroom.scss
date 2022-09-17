@@ -100,3 +100,12 @@
 // .message-header {
 //   background-color: red;
 // }
+
+.chatroom-card-overall {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}

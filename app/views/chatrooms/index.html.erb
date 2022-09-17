@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Chats</h1>
+  <% @chatrooms.each do | chatroom | %>
+    <div class="chatroom-card">
+      <% if chatroom.messages.present? %>
+        <%= link_to chatroom_path(chatroom) do %>
+          <div class="chatroom-card-overall">
+            <div class="chatroom-card-details">
+              <% if chatroom.receiver.photo.present? %>
+                <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar-small-circle", alt: "avatar-bordered" %>
+              <% else %>
+                <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+              <% end %>
+              <p><%= chatroom.receiver.username %></p>
+            </div>
+            <div class="chatroom-card-other">
+              <p>Previous Messages: <%= chatroom.messages.count %></p>
+              <p>Last message: <%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
