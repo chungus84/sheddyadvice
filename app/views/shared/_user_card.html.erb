@@ -11,26 +11,24 @@
           <% end %>
         </div>
         <div class="text-greybackground-white">
-        <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user"></i>
           <span><%= @post.user.username %></span>
         </div>
         <div class="button-list">
-            <% if @chatroom %>
-              <%= link_to post_chatroom_path(@post, @chatroom), class: "main-btn" do %>
-                  <i class="fa-regular fa-messages"></i>
-                  <span>Send User a message</span>
-            <% end %>
-            <% else %>
-             <%= simple_form_for [@post, @new_chatroom] do |f| %>
-                <%=  f.submit "Send User a Message", class: "main-btn"%>
-             <% end %>
-            <% end %>
+            <%# <%= link_to chatroom_path, class: "main-btn" do %>
+              <%# <i class="fa-regular fa-messages"></i> %>
+              <%# <span>Send User a message</span> %>
+              <%= simple_form_for([@chatroom]) do |f| %>
+                  <%= f.hidden_field :sender_id, value: current_user.id %>
+                  <%= f.hidden_field :receiver_id, value: @post.user.id %>
+                  <%= f.submit 'Send message', class: "main-btn" %>
+              <% end %>
+            <%# <% end %>
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Leave a review
           </div>
-          </div>
         </div>
       </div>
-
     </div>
+  </div>
 </div>
