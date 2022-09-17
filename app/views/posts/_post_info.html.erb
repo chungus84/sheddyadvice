@@ -1,7 +1,7 @@
 <div class="row pb-5"  data-edit-fields-target="info">
   <div class="col-8">
     <div data-edit-fields-target="post">
-      <h1 class=""><%= @post.title %></h1>
+      <h1 class="py-3 text-grey"><%= @post.title %></h1>
       <% if @post.video.attached? %>
           <%= cl_video_tag(@post.video.key, height: 500, width: 900, crop: :fill, controls: '') %>
         <% elsif @post.photo.attached? %>
@@ -11,9 +11,9 @@
         <% end %>
       <div class="instructions mt-5" data-controller="instructions-dropdown">
       <% if @post.body.length >= 100 %>
-        <div class="d-flex align-items-center" data-action="click->instructions-dropdown#reveal" >
+        <div class="d-flex align-items-center pb-4" data-action="click->instructions-dropdown#reveal" >
           <h2>Read instructions</h2>
-          <i class="fa-solid fa-circle-info toggle-button ms-5" data-instructions-dropdown-target="toggle"></i>
+          <i class="fa-solid fa-circle-info toggle-button ms-5 text-grey" data-instructions-dropdown-target="toggle"></i>
         </div>
         <div class="dropdown p-3 d-none" data-instructions-dropdown-target="dropdown">
           <p class=""><%= @post.body %></p>
@@ -28,7 +28,7 @@
 
   <div class="col-2 position-relative" data-controller="post-dropdown">
     <div class="d-flex align-items-center justify-content-end">
-      <i class="fa-solid fa-heart-circle-plus icon-toggle" data-post-dropdown-target="addIcon" data-action="click->post-dropdown#displayLists"></i>
+      <i class="fa-solid fa-heart-circle-plus icon-toggle text-grey" data-post-dropdown-target="addIcon" data-action="click->post-dropdown#displayLists"></i>
         <%= render "lists/list_index" %>
       <% if current_user === @post.user %>
        <i class="fa-solid fa-ellipsis icon-toggle" data-post-dropdown-target="menu" data-action="click->post-dropdown#displayMenu"></i>
@@ -58,7 +58,7 @@
       <%= f.input :body, placeholder: "#{@post.body}" %>
       <%= f.input :video, placeholder: "#{@post.video}" %>
       <%= f.input :photo, placeholder: "#{@post.photo}" %>
-      <%= f.input :category, placeholder: "#{@post.category}" %>
+      <%# <%= f.input :category, placeholder: "#{@post.category}" %> %>
       <%= f.button :submit, class: "main-btn" %>
     <% end %>
   </div>
