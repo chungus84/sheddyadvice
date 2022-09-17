@@ -34,6 +34,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @chatroom = Chatroom.new
     @post = Post.find(params[:id])
     @post.update(post_params)
 

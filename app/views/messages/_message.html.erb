@@ -1,5 +1,5 @@
 <div id="message-<%= message.id %>">
-  <% unless Post.find(params[:post_id]).user_id == message.user_id %>
+  <% unless Chatroom.find(params[:id]).sender_id == message.user_id %>
   <div class="message-cards post-user">
     <% if message.user.photo.present? %>
       <%= cl_image_tag message.user.photo.key, class: "avatar-small-circle", alt: "avatar-bordered"  %>
