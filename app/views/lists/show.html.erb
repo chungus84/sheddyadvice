@@ -1,14 +1,14 @@
 <div class="background-orange">
 <div class="container pt-3">
   <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-6 col-sm-12 b-background-white" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
+    <div class="col-lg-6 col-md-6 col-sm-12 b-background-white mb-5" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
       <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
         <div class="bookmark-details d-flex align-items-center">
           <i class="fa-solid fa-bookmark pe-3"></i>
           <h1><%= @list.name %></h1>
         </div>
         <div class="edit-delete-list d-flex">
-          <div class="edit-list">
+          <div class="edit-list px-2">
             <div class="icon-btn">
               <%= link_to edit_list_path(@list) do %>
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -33,7 +33,7 @@
         </div>
 </div>
         <div class="search-posts" data-controller="search-posts">
-          <div class="search-post-container">
+          <div class="search-post-container mt-5">
             <h3>Add to List </h3>
             <%= form_with url: list_path, method: :get, html: {class: "d-flex", data: {search_posts_target: "form"}} do |f| %>
                 <%= f.text_field :query,
