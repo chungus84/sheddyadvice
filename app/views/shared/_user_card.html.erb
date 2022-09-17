@@ -16,15 +16,13 @@
         </div>
         <div class="button-list">
 
-            <%# <%= link_to chatroom_path, class: "main-btn" do %>
-              <%# <i class="fa-regular fa-messages"></i> %>
-              <%# <span>Send User a message</span> %>
               <%= simple_form_for([@chatroom]) do |f| %>
-                  <%= f.hidden_field :sender_id, value: current_user.id %>
-                  <%= f.hidden_field :receiver_id, value: @post.user.id %>
-                  <%= f.submit 'Send message', class: "main-btn" %>
+                  <% if user_signed_in? %>
+                    <%= f.hidden_field :sender_id, value: current_user.id %>
+                  <% end %>
+                    <%= f.hidden_field :receiver_id, value: @post.user.id %>
+                    <%= f.submit 'Send message', class: "main-btn" %>
               <% end %>
-            <%# <% end %>
 
           <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Leave a review
