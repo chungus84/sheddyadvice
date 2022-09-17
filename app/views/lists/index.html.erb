@@ -1,33 +1,38 @@
 
-<div class="container lists">
-
-  <div class="my-lists">
-    <h1>My Lists</h1>
-    <ul>
-      <% @lists.each do |list| %>
-        <%= link_to list_path(list) do %>
-          <div class="list-card">
-            <div class="left-list">
-              <h3><%= list.name %></h3>
-              <p><%= list.posts.count%> Posts</p>
-              <%# <p><%= link_to "Edit list", edit_list_path(list) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 mt-3 background-orange rounded px-4 pb-4">
+    <div class="d-flex align-items-center">
+        <i class="fa-solid fa-bookmark background-white pe-3"></i>
+        <h2 class="my-5 background-white m-0">My Bookmarks</h2>
+      </div>
+      <ul>
+        <% @lists.each do |list| %>
+          <%= link_to list_path(list) do %>
+            <div class="list-card position-relative">
+              <div class="left-list">
+                <i class="fa-solid fa-bookmark clickable-coral"></i>
+                <h3 class="mb-4"><%= list.name %></h3>
+                  <%= pluralize(list.posts.count, 'post')%>
+                <%# <p><%= link_to "Edit list", edit_list_path(list) %>
+              </div>
+              <div class="position-absolute list-card-date">
+                <p>Created: <%= list.created_at.strftime("%d %B")%></p>
+              </div>
             </div>
-            <div class="right-list">
-              <p>Created: <%= list.created_at.strftime("%d %B")%></p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
+      </ul>
+    </div>
+
+    <div class=" col-lg-6 col-md-6 col-sm-12 px-5 mt-3">
+      <h2 class="my-5">Add a new bookmark</h2>
+      <%= simple_form_for @list do |f| %>
+        <%= f.input :name, placeholder: "Enter your bookmark name"%>
+        <%= f.submit 'Create bookmark', class: "main-btn mx-auto mt-5" %>
       <% end %>
-    </ul>
+    </div>
+
+
   </div>
-
-  <div class="list-add">
-    <h1>Add a new list</h1>
-    <%= simple_form_for @list do |f| %>
-      <%= f.input :name, placeholder: "Enter your List name"%>
-      <%= f.submit class: "main-btn" %>
-    <% end %>
-  </div>
-
-
 </div>

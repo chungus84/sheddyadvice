@@ -6,19 +6,23 @@
   border-bottom: 0.5px solid rgb(225, 225, 225);
   vertical-align: middle;
   align-items: center;
-  background-color: white;
-  margin-bottom: 8px;
-  padding: 8px;
+  background-color: $background-white;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
   text-decoration: none;
   color: $text-grey;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
 
 }
 
 .list-card:hover {
   background-color: rgb(240, 240, 240);
+  box-shadow:none
 }
 
-.right-list {
-  vertical-align: middle;
-  display: inline-block;
+.list-card-date {
+  right: 10px;
+  bottom: 2px;
 }

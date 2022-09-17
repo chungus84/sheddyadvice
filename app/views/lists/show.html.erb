@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="all-lists" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
-
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12" data-controller="add-post-to-list" data-add-post-to-list-position-value="afterbegin">
       <div class="list-details">
         <h1><%= @list.name %></h1>
         <div class="edit-delete-list">
@@ -12,7 +12,9 @@
           </div>
         </div>
       </div>
+      </div>
 
+<div class="col-lg-6 col-md-6 col-sm-12">
       <div class="top-of-list">
         <div class="listposts">
           <h1>Saved Posts</h1>
@@ -22,7 +24,7 @@
             <% end %>
           </div>
         </div>
-
+</div>
         <div class="search-posts" data-controller="search-posts">
           <div class="search-post-container">
             <h1>Add to List </h1>
@@ -42,6 +44,7 @@
       </div>
 
 
+  </div>
 
   </div>
 </div>
