@@ -10,9 +10,15 @@
           <%= image_tag 'Meeseeks.png', class: "message-profile-user", alt: "avatar-bordered" %>
         <% end %>
     </div>
+    <% if @chatroom.sender_id == current_user %>
+    <div class="message-header">
+      <h1>Your message history with <%= @chatroom.sender.username %></h1>
+    </div>
+    <% else %>
     <div class="message-header">
       <h1>Your message history with <%= @chatroom.receiver.username %></h1>
     </div>
+    <% end %>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>

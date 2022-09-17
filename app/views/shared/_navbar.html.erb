@@ -44,6 +44,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <ul class="nav-items">
                 <% if user_signed_in? %>
+                <li><%= current_user.username %></li>
                 <li><i class="fa-solid fa-user"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
                 <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>

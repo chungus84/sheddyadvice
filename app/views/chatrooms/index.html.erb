@@ -11,7 +11,11 @@
               <% else %>
                 <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
               <% end %>
-              <p><%= chatroom.receiver.username %></p>
+              <% if current_user.id == chatroom.sender_id %>
+                <p><%= chatroom.receiver.username %></p>
+              <% else %>
+                <p><%= chatroom.sender.username %></p>
+              <% end %>
             </div>
             <div class="chatroom-card-other">
               <p>Previous Messages: <%= chatroom.messages.count %></p>

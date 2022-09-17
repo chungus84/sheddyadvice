@@ -1,7 +1,8 @@
 class ChatroomsController < ApplicationController
 
   def index
-    @chatrooms = Chatroom.where(current_user == :sender_id && current_user == :receiver_id )
+    # @chatrooms = Chatroom.where(current_user == (:sender || :receiver))
+    @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user))
   end
 
   def show
@@ -10,18 +11,17 @@ class ChatroomsController < ApplicationController
   end
 
   def create
+    # @post = Post.find(params[:id])
     @chatroom = Chatroom.new(chatroom_params)
-
     # @chatroom.sender_id = current_user.id
     # raise
-    # @post = Post.find(params[:id])
     # @chatroom.receiver = @post.user
 
     # @chatroom.sender_id = current_user
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else
-      redirect_to post_path(@post)
+      redirect_to post_path(:id)
     end
   end
 
