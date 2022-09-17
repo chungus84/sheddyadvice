@@ -14,7 +14,9 @@ class PostsController < ApplicationController
     @listpost = Listpost.new
     @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
-    @feedbacks = Feedback.where(post_id: @post.id)
+
+    @feedbacks = Feedback.where(post_id: @post.id).sort_by(&:created_at).reverse
+    @chatroom = Chatroom.new
 
     # Chatroom Logic
     @oldchatroom = Chatroom.where(sender_id: current_user, receiver_id: @post.user) || Chatroom.where(receiver_id: current_user, sender_id: @post.user)
