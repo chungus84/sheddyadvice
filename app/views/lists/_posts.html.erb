@@ -1,31 +1,31 @@
-<div class="search-results" data-search-posts-target="list">
+<div class="search-results py-3" data-search-posts-target="list">
   <div class="headline-missing">
     <% if params[:query].nil? %>
-      <h4>Recent Posts</h4>
+      <h4>Recommended Posts:</h4>
     <% end %>
   </div>
   <% searched_posts.each do |post| %>
     <div class="search-post-results" data-add-post-to-list-target="results">
-      <div class="post-title">
-        <div class="list-post-photo">
-          <%= cl_image_tag post.photo.key, class: "list-post-avatar-bordered" %>
+      <div class="results-grid">
+        <div class="list-post-card">
+          <%= cl_image_tag post.photo.key, class: "" %>
+          <div class="post-details">
+            <%= link_to post_path(post)do %>
+              <h4><%= post.title %></h4>
+              <p>By: <%= post.user.username %></p>
+          </div>
+            <div class="post-add-button">
+              <%= simple_form_for([@listpost],
+                data: {add_post_to_list_target: "form",
+                      add_post_to_list_id_param: "#{post.id}",
+                      action: "submit->add-post-to-list#send"}) do |f| %>
+                <%= f.hidden_field :post_id, value: post.id %>
+                <%= f.hidden_field :list_id, value: @list.id %>
+                <%= f.submit '+', class: "fa-solid toggle-button" %>
+                      <% end %>
+                                  </div>
+           <% end %>
         </div>
-        <div class="list-post-details">
-          <%= link_to post_path(post)do %>
-            <b><%= post.title %></b>
-            <p>By: <%= post.user.username %></p>
-          <% end %>
-        </div>
-      </div>
-      <div class="post-add-button">
-        <%= simple_form_for([@listpost],
-        data: {add_post_to_list_target: "form",
-        add_post_to_list_id_param: "#{post.id}",
-        action: "submit->add-post-to-list#send"}) do |f| %>
-          <%= f.hidden_field :post_id, value: post.id %>
-          <%= f.hidden_field :list_id, value: @list.id %>
-          <%= f.submit '+', class: "fa-solid toggle-button" %>
-        <% end %>
       </div>
     </div>
   <% end %>
