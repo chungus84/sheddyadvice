@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @listpost = Listpost.new
     @post = Post.includes(:user).find(params[:id])
     @feedback = Feedback.new
-    @feedbacks = Feedback.where(post_id: @post.id)
+    @feedbacks = Feedback.where(post_id: @post.id).sort_by(&:created_at).reverse
     @chatroom = Chatroom.new
     # @chatroom = @chatrooms.find { |chatroom| chatroom.user == current_user }
     if params[:query].present?
