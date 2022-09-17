@@ -1,4 +1,9 @@
 class ChatroomsController < ApplicationController
+
+  def index
+    @chatrooms = Chatroom.where(current_user == :sender_id && current_user == :receiver_id )
+  end
+
   def show
     @message = Message.new
     @chatroom = Chatroom.find(params[:id])
