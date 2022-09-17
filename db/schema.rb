@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_16_165610) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,10 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_165610) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sender_id", null: false
-    t.integer "receiver_id", null: false
-    t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
-    t.index ["sender_id"], name: "index_chatrooms_on_sender_id"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -132,8 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_16_165610) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chatrooms", "users", column: "receiver_id"
-  add_foreign_key "chatrooms", "users", column: "sender_id"
   add_foreign_key "feedbacks", "posts"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "listposts", "lists"
