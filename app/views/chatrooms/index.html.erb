@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Chats</h1>
   <% @chatrooms.each do | chatroom | %>
+    <%# <% if chatroom.sender_id == current_user.id %>
+        <div class="chatroom-card">
     <div class="chatroom-card">
       <% if chatroom.messages.present? %>
         <%= link_to chatroom_path(chatroom) do %>
@@ -25,5 +27,6 @@
         <% end %>
       <% end %>
     </div>
+    <%# <% end %>
   <% end %>
 </div>
