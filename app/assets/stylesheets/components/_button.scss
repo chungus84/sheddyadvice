@@ -54,10 +54,7 @@
   background-color: $clickable-coral;
   color:white;
   margin-right: 20px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  transform: none;
   -webkit-transition: .25s ease-in-out;
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
@@ -66,14 +63,8 @@
   &:hover {
     background-color: $secondary-orange;
     padding: 13px 14px 14px 14px;
+    cursor:pointer;
   }
-}
-
-.rotate {
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
 }
 
 .remove-link {
