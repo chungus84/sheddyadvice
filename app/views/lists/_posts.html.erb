@@ -13,6 +13,7 @@
             <%= link_to post_path(post)do %>
               <h4><%= post.title %></h4>
               <p>By: <%= post.user.username %></p>
+              <% end %>
           </div>
             <div class="post-add-button">
               <%= simple_form_for([@listpost],
@@ -24,7 +25,6 @@
                 <%= f.submit '+', class: "fa-solid toggle-button" %>
                       <% end %>
                                   </div>
-           <% end %>
         </div>
       </div>
     </div>

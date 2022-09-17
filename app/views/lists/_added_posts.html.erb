@@ -1,18 +1,14 @@
 <%# <div data-add-post-to-list-target="posts"> %>
 <%# </div> %>
-<div class="container">
-  <div class="list-post-card">
-    <%= link_to post_path(listpost.post), class: "list-post-small-card" do %>
-      <div class="small-card-body">
+    <%= link_to post_path(listpost.post), class: "" do %>
+      <div class="slim-card">
+            <i class="fa-solid fa-heart clickable-coral favourite-icon"></i>
+
         <% if listpost.post.photo.present? %>
-          <%= cl_image_tag listpost.post.photo.key, html: {height: 300, width: 400, crop: :fill}, class: "card-media" %>
+          <%= cl_image_tag listpost.post.photo.key, class: "card-media" %>
           <% else %>
           <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
         <% end %>
-        <h2 class="card-title"><%= listpost.post.title %></h2>
-        <h3 class="card-author">By <%= listpost.post.user.username %></h3>
+          <h2 class="card-title"><%= listpost.post.title %></h2>
       </div>
-      <hr>
     <% end %>
-  </div>
-</div>
