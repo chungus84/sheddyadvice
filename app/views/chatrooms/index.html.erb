@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Chats</h1>
   <% @chatrooms.each do | chatroom | %>
+    <% if chatroom.sender_id == current_user.id %>
     <div class="chatroom-card">
       <% if chatroom.messages.present? %>
         <%= link_to chatroom_path(chatroom) do %>
@@ -11,7 +12,11 @@
               <% else %>
                 <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
               <% end %>
-              <p><%= chatroom.receiver.username %></p>
+              <% if current_user.id == chatroom.sender_id %>
+                <p><%= chatroom.receiver.username %></p>
+              <% else %>
+                <p><%= chatroom.sender.username %></p>
+              <% end %>
             </div>
             <div class="chatroom-card-other">
               <p>Previous Messages: <%= chatroom.messages.count %></p>
@@ -21,5 +26,6 @@
         <% end %>
       <% end %>
     </div>
+    <% end %>
   <% end %>
 </div>
