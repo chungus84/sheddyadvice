@@ -1,19 +1,28 @@
 class ChatroomsController < ApplicationController
   def show
-    @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    @post = Post.find(params[:post_id])
+    @chatroom = Chatroom.find(params[:id])
+
   end
 
   def create
-    @chatroom = Chatroom.new
-    @post = Post.find(params[:post_id])
-    @chatroom.user = current_user
-    @chatroom.post = @post
+    @chatroom = Chatroom.new(chatroom_params)
+
+    # @chatroom.sender_id = current_user.id
+    # raise
+    # @post = Post.find(params[:id])
+    # @chatroom.receiver = @post.user
+
+    # @chatroom.sender_id = current_user
     if @chatroom.save
-      redirect_to post_chatroom_path(@post, @chatroom)
+      redirect_to chatroom_path(@chatroom)
     else
       redirect_to post_path(@post)
     end
   end
+
+  def chatroom_params
+    params.require(:chatroom).permit(:receiver_id, :sender_id)
+  end
+
 end

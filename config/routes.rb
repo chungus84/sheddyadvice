@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     member do
       resources :feedbacks
     end
-    resources :chatrooms, only: [:show, :create] do
-      resources :messages, only: :create
-    end
+  end
+
+  resources :chatrooms do
+    resources :messages
   end
 
   resources :listposts

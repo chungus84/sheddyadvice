@@ -6,7 +6,6 @@ class Post < ApplicationRecord
   has_many :feedbacks, dependent: :destroy
   has_many :listposts, dependent: :destroy
   has_many :lists, through: :listposts, dependent: :destroy
-  has_many :chatrooms, dependent: :destroy
   # has_many :listposts
   validates :title, presence: true
   # validates :title, uniqueness: true
