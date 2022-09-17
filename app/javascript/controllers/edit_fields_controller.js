@@ -10,8 +10,8 @@ export default class extends Controller {
     }
 
   displayForm() {
-    this.formTarget.classList.remove('d-none')
-    this.postTarget.classList.add('d-none')
+    this.formTarget.classList.toggle('d-none')
+    this.postTarget.classList.toggle('d-none')
   }
 
   update(event) {
@@ -26,7 +26,7 @@ export default class extends Controller {
       .then((data) => {
          this.infoTarget.outerHTML = data
       })
-  //  this.buttonTarget.classList.add('d-none')
+   this.buttonTarget.classList.add('d-none')
 
   }
 }
