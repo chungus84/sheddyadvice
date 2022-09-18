@@ -2,6 +2,7 @@
 <div class="container" data-controller="edit-fields">
   <div class="row">
     <%= render "post_info" %>
+    <%= render "shared/user_card" %>
   </div>
   <div class="reviews" data-controller="add-review-in-list" data-add-review-in-list-position-value="afterbegin">
     <% if @post.feedbacks.present? %>
