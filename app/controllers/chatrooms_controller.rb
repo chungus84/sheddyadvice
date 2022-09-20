@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
 
   def index
     # @chatrooms = Chatroom.where(current_user == (:sender || :receiver))
-    @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user))
+    @chatrooms = Chatroom.where(sender: current_user).or(Chatroom.where(receiver: current_user)).sort_by(&:created_at).reverse
   end
 
   def show

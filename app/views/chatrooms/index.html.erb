@@ -1,33 +1,50 @@
-<div class="container">
+<div class="chatroom-index container">
   <h1>Chats</h1>
   <% @chatrooms.each do | chatroom | %>
     <%# <% if chatroom.sender_id == current_user.id %>
     <div class="chatroom-card">
       <% if chatroom.messages.present? %>
         <%= link_to chatroom_path(chatroom) do %>
-        <div class="container">
-          <div class="row chat-box">
-          <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="chatroom-card-overall">
-                <div class="chatroom-card-details">
-                  <% if chatroom.receiver.photo.present? %>
-                    <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar-small-circle", alt: "avatar-bordered" %>
-                  <% else %>
-                    <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
-                  <% end %>
+          <div class="chatroom-card-overall">
+            <div class="chatroom-card-details">
+              <div class="chatroom-card-profile-pic">
+                <% if chatroom.receiver.photo.present? %>
+                  <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar-small-circle", alt: "avatar-bordered" %>
+                <% else %>
+                  <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+                <% end %>
+              </div>
+              <div class="chatroom-card-username">
+
+                <div class="chatroom-card-username-name">
                   <% if current_user.id == chatroom.sender_id %>
-                    <p><%= chatroom.receiver.username %></p>
+                    <h5><%= chatroom.receiver.username %></h5>
                   <% else %>
-                    <p><%= chatroom.sender.username %></p>
+                    <h5><%= chatroom.sender.username %></h5>
                   <% end %>
                 </div>
-                <div class="chatroom-card-other">
-                  <p>Previous Messages: <%= chatroom.messages.count %></p>
-                  <p>Last message: <%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+
+                <div class="chatroom-card-username-last-message">
+
+                  <div class="chatroom-card-username-last-message-content">
+                    <% if current_user = chatroom.messages.last.user %>
+                      <p>You: <%= chatroom.messages.last.content %></p>
+                    <% else %>
+                      <p><%= chatroom.messages.last.content %></p>
+                    <% end %>
+                  </div>
+
+                  <div class="chatroom-card-username-last-message-time">
+                    <p>   <%= chatroom.messages.last.created_at.strftime("%a %b %e at %l:%M %p") %></p>
+                  </div>
+
                 </div>
               </div>
-              </div>
-          <% end %>
+            </div>
+            <div class="chatroom-card-other">
+              <p><%= chatroom.messages.count %> New Messages</p>
+            </div>
+          </div>
         <% end %>
     </div>
     </div>
