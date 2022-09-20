@@ -25,7 +25,11 @@
           <% else %>
           <div class="d-flex">
             <i class="fa-solid fa-screwdriver-wrench"></i>
-            <h3>Posts related to "<%= params[:query] %>"</h3>
+            <% if params[:query].present? %>
+              <h3>Posts related to "<%= params[:query] %>"</h3>
+            <% else %>
+              <h3>All Posts</h3>
+            <% end %>
           </div>
         <% end %>
       </div>
