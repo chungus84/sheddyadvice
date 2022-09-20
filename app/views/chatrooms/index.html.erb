@@ -19,7 +19,7 @@
                 <div class="chatroom-card-username-name">
                   <% if current_user.id == chatroom.sender_id %>
                     <h5><%= chatroom.receiver.username %></h5>
-                  <% else %>
+                    <% else %>
                     <h5><%= chatroom.sender.username %></h5>
                   <% end %>
                 </div>
@@ -29,7 +29,7 @@
                   <div class="chatroom-card-username-last-message-content">
                     <% if current_user = chatroom.messages.last.user %>
                       <p>You: <%= chatroom.messages.last.content %></p>
-                    <% else %>
+                      <% else %>
                       <p><%= chatroom.messages.last.content %></p>
                     <% end %>
                   </div>
@@ -46,9 +46,7 @@
             </div>
           </div>
         <% end %>
-    </div>
-    </div>
-    </div>
+      <% end %>
     </div>
   <% end %>
 </div>
