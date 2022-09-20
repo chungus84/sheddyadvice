@@ -13,7 +13,7 @@
       <% if @post.body.length >= 100 %>
         <div class="d-flex align-items-center pb-4" data-action="click->instructions-dropdown#reveal" >
           <h2>Read instructions</h2>
-          <i class="fa-solid fa-circle-info toggle-button ms-5 text-grey" data-instructions-dropdown-target="toggle"></i>
+          <i class="fa-solid fa-chevron-right toggle-button ms-5 text-grey" data-instructions-dropdown-target="toggle"></i>
         </div>
         <div class="dropdown p-3 d-none" data-instructions-dropdown-target="dropdown">
           <p class=""><%= @post.body %></p>

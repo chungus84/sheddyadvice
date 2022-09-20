@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   reveal (){
-
     this.dropdownTarget.classList.toggle('d-none')
     this.toggleTarget.classList.toggle('rotate')
   }
