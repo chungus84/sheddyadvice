@@ -17,10 +17,15 @@
             <i class="fa-solid fa-kitchen-set"></i>
             <h3>In the kitchen</h3>
           </div>
-        <% else %>
+        <% elsif (current_page?(garden_posts_path))%>
           <div class="d-flex">
             <i class="fa-solid fa-worm"></i>
             <h3>In the garden</h3>
+          </div>
+          <% else %>
+          <div class="d-flex">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h3>Posts related to "<%= params[:query] %>"</h3>
           </div>
         <% end %>
       </div>
