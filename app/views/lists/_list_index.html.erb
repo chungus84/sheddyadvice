@@ -19,8 +19,12 @@
             <%= render "posts/my_lists", searched_lists: @searched_lists %>
         <% end %>
       <%= link_to lists_path do %>
-          <i class="fa-solid fa-plus"></i>
-          <span>Create new list</span>
+      <div class="pt-2 border-top">
+        <div class="new-list">
+          <i class="fa-solid fa-plus me-2"></i>
+          <span>Create new bookmark</span>
+          </div>
+          </div>
       <% end %>
     </div>
 
