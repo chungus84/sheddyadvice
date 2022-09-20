@@ -15,11 +15,14 @@
           <span><%= @post.user.username %></span>
         </div>
         <div class="button-list">
-
+          <% if user_signed_in? %>
             <% if current_user.id == @post.user.id %>
               <%= link_to 'See your messages', chatrooms_path, class: "main-btn" %>
             <% elsif @existingchatroom.present? %>
               <%= link_to 'Send message', chatroom_path(@existingchatroom), class: "main-btn" %>
+              <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Leave a review
+              </div>
             <% else %>
               <%= simple_form_for(@newchatroom) do |f| %>
                 <% if user_signed_in? %>
@@ -28,12 +31,17 @@
                   <%= f.hidden_field :receiver_id, value: @post.user.id %>
                   <%= f.submit 'Send message', class: "main-btn" %>
               <% end %>
+              <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Leave a review
+              </div>
             <% end %>
+          <% else %>
+            <%= link_to 'Send message', new_user_session_path, class: "main-btn" %>
+            <%= link_to 'Leave a review', new_user_session_path, class: "main-btn" %>
+          <% end %>
 
 
-          <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              Leave a review
-          </div>
+
         </div>
       </div>
     </div>
