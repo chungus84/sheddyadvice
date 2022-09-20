@@ -105,7 +105,80 @@
   display: flex;
   justify-content: space-between;
   background-color: white;
-  padding: 8px;
+  padding: 16px;
   margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
   border-radius: 8px;
+  text-decoration: none;
+  color: $text-grey;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
+  align-items: center;
+  background-color: $background-white;
+}
+
+.chatroom-card-overall:hover {
+  background-color: rgb(240, 240, 240);
+  box-shadow: none;
+}
+
+.chatroom-card-details {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  margin: 0px;
+  align-content: center;
+}
+
+.chatroom-index {
+  background-color: $secondary-orange;
+  padding: 8px;
+  margin-top: 16px;
+  border-radius: 8px;
+}
+
+.chatroom-index h1 {
+  color: white;
+  margin-left: 8px;
+  font-family: $headers-font;
+}
+
+.chatroom-card-username{
+  margin-left: 8px;
+  vertical-align: middle;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 8px;
+  align-content: center;
+}
+
+.chatroom-card-username-last-message {
+  display: flex;
+  margin: 0;
+}
+
+.chatroom-card-username-last-message-content {
+  margin: 0;
+}
+
+.chatroom-card-username-last-message-time{
+  margin-left: 8px;
+  font-family: $font-small;
+  font-size: small;
+  margin-top: 2px;
+}
+
+.chatroom-card-other {
+  vertical-align: middle;
+  align-items: center;
+  margin-top: 8x;
+  justify-content: center;
+  font-family: $font-small;
+}
+
+.chatroom-card-other p {
+  align-items: center;
+  align-content: center;
+  margin: 0;
 }
