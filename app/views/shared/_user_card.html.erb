@@ -7,7 +7,7 @@
           <% if @post.user.photo.present? %>
             <%= cl_image_tag @post.user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
           <% else %>
-            <%= image_tag 'Meeseeks.png', class: "avatar-small-circle", alt: "avatar-bordered" %>
+            <%= image_tag 'Meeseeks.png', class: "avatar-bordered-new", alt: "avatar-bordered" %>
           <% end %>
         </div>
         <div class="text-greybackground-white">
