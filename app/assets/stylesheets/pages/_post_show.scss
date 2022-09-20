@@ -1,8 +1,7 @@
 .post-list-results {
+  color: $text-grey;
   display: flex;
   justify-content: space-between;
-  padding: 4px;
-  margin-top: 2px;
   background-color: transparent;
 }
 
@@ -20,6 +19,8 @@
   padding: 16px;
   text-align: center;
   margin-top: 16px;
+  font-size: 24px;
+  cursor: pointer;
 
     &:hover {
 
