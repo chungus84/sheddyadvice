@@ -16,12 +16,12 @@
       <% (rating_score = @feedbacks.sum {|num| (num.rating.to_f)} / @feedbacks.length).round(2) %>
       <% if rating_score % 1 == 0 %>
         <p>Current Rating: <% rating_score.to_i.times do %>
-          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star primary-green"></i>
         <% end %></p>
       <% else %>
         <p>Current Rating: <% rating_score.to_i.times do %>
-          <i class="fa-solid fa-star"></i>
-        <% end %><i class="fa-solid fa-star-half"></i></p>
+          <i class="fa-solid fa-star primary-green"></i>
+        <% end %><i class="fa-solid fa-star-half primary-green"></i></p>
       <% end %>
     <% end %>
     <%# <%= render "feedbacks/form", post: @post, feedback: @feedback %>
