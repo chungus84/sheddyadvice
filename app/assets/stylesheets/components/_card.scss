@@ -35,6 +35,11 @@ $spacer: 8px;
   padding: 8px;
   position: relative;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  }
 }
 
 .large-card-body {
@@ -100,6 +105,10 @@ $spacer: 8px;
   padding: 8px;
   position: relative;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
 
 }
 .small-card-body > img{
