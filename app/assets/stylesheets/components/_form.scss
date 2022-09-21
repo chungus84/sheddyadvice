@@ -15,6 +15,7 @@
 
 .form-control {
   color: $text-grey;
+
 }
 
 .form-container {
@@ -27,4 +28,8 @@
 
 .add-review .main-btn{
   margin: auto;
+}
+
+.search-field .form-control {
+  max-width: 50%;
 }
