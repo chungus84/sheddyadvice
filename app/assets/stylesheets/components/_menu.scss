@@ -83,3 +83,11 @@ i.search {
   color: $clickable-coral;
   font-size: 18px;
 }
+
+.dropdown-menu {
+  --bs-dropdown-min-width: 14rem;
+}
+
+.nav-items .fa-user {
+  color: $background-white;
+}
