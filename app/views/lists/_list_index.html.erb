@@ -1,12 +1,16 @@
 <div class="container d-none show-dropdown list-dropdown position-absolute" data-post-dropdown-target="listDropdown">
-  <span>Add to favourites</span>
+  <div class="d-flex align-items-center">
+  <i class="fa-solid fa-list-ul me-2 primary-green"></i>
+
+  <span class="text-grey">Add to a list</span>
+  </div>
   <div class="list-list">
     <div class="search-lists background-orange p-2 rounded" data-controller="search-lists">
       <% if @searched_lists.nil? %>
           <%= link_to 'Create new List', lists_path %>
         <% else %>
           <%= form_with url: post_path, method: :get, html: {class: "d-flex", data: {search_lists_target: "form searchbar"}} do |f| %>
-          <i class="fa-solid fa-magnifying-glass search"></i>
+          <i class="fa-solid fa-magnifying-glass search background-white"></i>
             <%= f.text_field :query,
                 value: params[:query],
                 class: "form-control",
@@ -22,7 +26,7 @@
       <div class="pt-2 border-top">
         <div class="new-list">
           <i class="fa-solid fa-plus me-2"></i>
-          <span>Create new bookmark</span>
+          <span>Create a new list</span>
           </div>
           </div>
       <% end %>

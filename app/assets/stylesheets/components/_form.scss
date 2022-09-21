@@ -15,6 +15,31 @@
 
 .form-control {
   color: $text-grey;
+
+}
+
+.footer .form-control {
+  width: 60%;
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.search-field .form-control {
+  width: 60%;
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.banner-search>.form-control {
+
 }
 
 .form-container {
@@ -27,4 +52,8 @@
 
 .add-review .main-btn{
   margin: auto;
+}
+
+.search-field .form-control {
+  max-width: 50%;
 }

@@ -2,7 +2,7 @@
 <%# </div> %>
     <%= link_to post_path(listpost.post), class: "" do %>
       <div class="slim-card">
-            <i class="fa-solid fa-heart clickable-coral favourite-icon"></i>
+            <i class="fa-solid fa-bookmark clickable-coral favourite-icon"></i>
 
         <% if listpost.post.photo.present? %>
           <%= cl_image_tag listpost.post.photo.key, class: "card-media" %>
