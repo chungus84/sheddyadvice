@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>">
+<%# <div id="message-<%= message.id %>
   <% unless Chatroom.find(@chatroom.id).sender_id == message.user_id %>
   <div class="message-cards post-user">
     <% if message.user.photo.present? %>
@@ -32,4 +32,4 @@
       <% end %>
     </div>
   <% end %>
-</div>
+<%# </div> %>
