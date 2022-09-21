@@ -1,8 +1,7 @@
 <div class="container">
-  <h1>Edit your list name</h1>
+  <h1>Edit your list</h1>
   <%= simple_form_for @list do |f| %>
     <%= f.input :name, placeholder: "Enter your tasklist name"%>
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "main-btn my-4 " %>
   <% end %>
-
 </div>

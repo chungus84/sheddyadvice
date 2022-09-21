@@ -3,7 +3,9 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   >
   <div class="message-details">
-    <div class="message-profile-photo">
+      <div class="d-flex align-items-center">
+
+    <div class="message-profile-photo pe-4">
       <% if @chatroom.receiver.photo.present? %>
         <%= cl_image_tag @chatroom.receiver.photo.key, class: "message-profile-user", alt: "avatar-bordered" %>
         <% else %>
@@ -11,14 +13,17 @@
         <% end %>
     </div>
     <% if current_user.id == @chatroom.sender_id %>
-      <div class="message-header">
-        <h1>Your message history with <%= @chatroom.receiver.username %></h1>
-      </div>
+
+    <div class="message-header">
+      <h2><%= @chatroom.receiver.username %></h2>
+    </div>
     <% else %>
-      <div class="message-header">
-        <h1>Your message history with <%= @chatroom.sender.username %></h1>
-      </div>
+    <div class="message-header">
+      <h2> <%= @chatroom.sender.username %></h1>
+    </div>
+
     <% end %>
+    </div>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>

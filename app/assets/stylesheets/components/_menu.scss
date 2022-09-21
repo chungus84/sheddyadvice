@@ -5,25 +5,34 @@
   padding: 8px 0;
 }
 
-.list-list a {
+.list-list {
   color: $text-grey;
 }
 
 .list-list i {
 padding: 12px 13px 13px 13px;
 font-size: 12px;
-border-radius: 32px;
-  background-color: $clickable-coral;
-  color:white;
-  margin-right: 20px;
+// border-radius: 32px;
+//   background-color: $clickable-coral;
+//   color:white;
+//   margin-right: 20px;
 
   &:hover {
-    background-color: $secondary-orange;
+
     padding: 12px 15px 13px 14px;
 
   }
 }
 
+
+.list-list button {
+color: $text-grey;
+
+&:hover {
+  color:white;
+  font-size: 24px;
+}
+}
 
 .list-list button {
   border: none;
@@ -37,4 +46,48 @@ border-radius: 32px;
 i.search {
   background-color: rgba(0,0,0,0);
   font-size: 16px;
+}
+
+.new-list {
+  color: $background-white;
+    & i {
+      padding: 11px 12px 11px 12px ;
+      background-color: $clickable-coral;
+      border-radius: 50%;
+      color: white;
+
+    &:hover {
+      color: white;
+      font-size: 24px;
+  }
+  }
+
+&:hover {
+  color: white;
+}
+
+& span {
+  color: $background-white;
+  font-size: 18px;
+  &:hover {
+    font-size: 18px;
+  }
+}
+}
+
+.add-list-button span{
+  color: $background-white;
+}
+
+.add-list-button i {
+  color: $clickable-coral;
+  font-size: 18px;
+}
+
+.dropdown-menu {
+  --bs-dropdown-min-width: 14rem;
+}
+
+.nav-items .fa-user {
+  color: $background-white;
 }

@@ -42,17 +42,19 @@
                         <% end %>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <ul class="nav-items">
+              <ul class="nav-items p-2">
                 <% if user_signed_in? %>
-                <li><%= current_user.username %></li>
-                <li><i class="fa-solid fa-user"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-circle-plus"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-heart"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-heart"></i><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-right-from-bracket"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+                <div class="background-green mb-2 ps-2 d-flex align-items-center">
+                  <li><i class="fa-solid fa-user background-white px-3 py-3"></i><span class="background-white">Hello, <%= current_user.username %></span></li>
+                </div>
+                <li><i class="fa-solid fa-graduation-cap ps-4"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-circle-plus ps-4"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-list-ul ps-4"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-message ps-4"></i></i><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-right-from-bracket ps-4"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
                 <% else %>
-                <li><i class="fa-solid fa-right-to-bracket"></i><%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-user-plus"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-right-to-bracket ps-4"></i><%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %></li>
+                <li><i class="fa-solid fa-user-plus ps-4"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
                 <% end %>
               </ul>
             </div>

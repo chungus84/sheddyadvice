@@ -2,13 +2,15 @@
   <div class="row py-lg-1">
   <div class="col-lg-6 col-md-8 mx-auto">
 
-      <p><%= form_with url: posts_path, method: :get, class: "d-flex search-field" do %>
+      <p><%= form_with url: posts_path, method: :get, class: "d-flex justify-content-center search-field" do %>
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Search for a post"
         %>
-        <%= submit_tag "search", class: "btn search-button" %>
+        <%= button_tag type: 'submit', class: "btn search-button", id: "register-button" do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
       <% end %></p>
     </div>
 

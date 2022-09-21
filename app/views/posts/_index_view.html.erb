@@ -51,12 +51,12 @@
             <% if post.feedback_ids.present? %>
               <% if average_rating % 1 == 0 %>
                   <span class="card-rating">Rating: <% average_rating.to_i.times do %>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star primary-green"></i>
                   <% end %> </span>
                 <% else %>
                   <span class="card-rating"> Rating: <% average_rating.to_i.times do %>
-                    <i class="fa-solid fa-star"></i>
-                  <% end %><i class="fa-solid fa-star-half"></i></span>
+                    <i class="fa-solid fa-star primary-green"></i>
+                  <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
                 <% end %>
               <% else %>
                 <span class="card-rating">Rating: Not Rated yet</span>
