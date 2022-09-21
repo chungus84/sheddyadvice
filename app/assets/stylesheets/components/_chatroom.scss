@@ -14,15 +14,17 @@
   }
 
   .messages {
-    height: 100%;
+    height: 80%;
     overflow: scroll;
     padding: 1rem;
-    width: 80%;
-    align-self: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
 
-      .message-9 {
-        font-family: $font-small;
-      }
+
+
+      // .message-9 {
+      //   font-family: $font-small;
+      // }
   }
 
   #new_message {
@@ -55,6 +57,8 @@
   display: flex;
 }
 
+
+
 .message-profile-photo img {
   height: 75px;
   border-radius: 50%;
@@ -65,7 +69,25 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
+  width: 60%;
+  justify-content: space-around;
 
+}
+
+.post-creator {
+  align-self: flex-end;
+}
+
+.post-creator > .avatar-small-circle {
+  border: rgb(229, 99, 0) 3px solid;
+}
+
+.post-user > .avatar-small-circle {
+  border: $primary-green 3px solid;
+}
+
+.post-user {
+  align-items: flex-start;
 }
 
 .message-cards > img {
@@ -78,20 +100,36 @@
   width: 80%;
   border-radius: 8px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-  color: $background-white;
   opacity: 80%;
+  color: $text-grey;
+
+
+
+
 }
 
 .post-user .message-card-body {
-  background-color: $primary-green;
+  background-color: #e6e6e6;
+  border: 3px solid $primary-green ;
+
 }
 
 
 
 .post-creator .message-card-body {
-  background-color: $secondary-orange;
+  background-color: #e6e6e6;
   text-align: right;
+  border: 3px solid rgb(229, 99, 0) ;
+
+
+
 }
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 // .message-profile-user {
 //   height: 8px;

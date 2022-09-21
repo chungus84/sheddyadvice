@@ -13,6 +13,7 @@
         <% end %>
     </div>
     <% if current_user.id == @chatroom.sender_id %>
+
     <div class="message-header">
       <h2><%= @chatroom.receiver.username %></h2>
     </div>
@@ -20,6 +21,7 @@
     <div class="message-header">
       <h2> <%= @chatroom.sender.username %></h1>
     </div>
+
     <% end %>
     </div>
   </div>
