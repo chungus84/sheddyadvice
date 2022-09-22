@@ -8,7 +8,7 @@
             <%= simple_form_for(@post) do |f| %>
               <%= f.input :title, placeholder: "Enter a title"%>
               <%= f.input :body, placeholder: "Upload your instructions"%>
-              <%# <%= f.input :category, placeholder: "Category"%> %>
+              <%= f.input :category, placeholder: "Category"%>
               <%= f.input :photo, as: :file %>
               <%= f.input :video, as: :file %>
                <div class="d-flex flex-column align-items-center">
