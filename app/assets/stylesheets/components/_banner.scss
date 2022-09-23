@@ -2,7 +2,7 @@
 
 .banner-search {
   background-image: url("https://res.cloudinary.com/dqsavtkzq/image/upload/v1662497630/banner-background_bwotd9.png");
-  background-size: contain;
+  background-size: cover;
 }
 
 .search-field {
@@ -30,6 +30,6 @@
 }
 
 .lead {
-  font-size: 38px;
+  font-size: 2em;
   text-shadow: 3px 3px 3px rgba(31, 55, 34, 0.5);
 }
