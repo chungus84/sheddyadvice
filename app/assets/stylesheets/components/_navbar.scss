@@ -176,3 +176,28 @@ color: $secondary-orange
 .nav *:hover{
   color: $clickable-coral;
 }
+
+@media only screen and (max-width: 800px) {
+.logo img {
+  padding: 0 10%;
+}
+
+.collections {
+  border-top: rgb(216, 214, 214) 2px solid;
+  padding: 5% 0;
+}
+
+.nav-icon3 {
+  top: 0px;
+  right: 0px;
+}
+
+
+.collections h2 {
+  display:none;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+}

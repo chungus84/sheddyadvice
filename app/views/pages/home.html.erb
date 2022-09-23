@@ -42,7 +42,7 @@
       <div class="intro-text pt-3 text-grey">
         <h2>Join our community:</h2>
       </div>
-      <div class="d-flex justify-content-center p-5">
+      <div class="button-container d-flex justify-content-center p-5">
         <%= link_to posts_path, class: "main-btn"  do %>
           <%= icon("fa-solid", "magnifying-glass") %>
           <span class="mx-2">Explore tutorials</span>
@@ -58,6 +58,7 @@
       <div class="container">
           <div class="paintbrush">
             <h2 class="headline pt-5 background-white">Top Rated</h2>
+            <div class="row">
             <div class="home-cards p5">
               <% @top_rated_posts = Post.top_rated %>
               <% @top_rated_posts.each do |post| %>
@@ -92,6 +93,7 @@
                   <% end %>
                 <% end %>
             </div>
+          </div>
           </div>
         </div>
       </div>

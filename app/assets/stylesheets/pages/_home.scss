@@ -61,6 +61,8 @@ margin: 0;}
   top: 100px;
   left: 40px;
   filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, 0.3));
+  z-index: -2;
+
   // z-index: -50;
 
 }
@@ -75,6 +77,8 @@ margin: 0;}
   top: 160px;
   left: 120px;
   filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, 0.3));
+  z-index: -2;
+
 
   // z-index: -50;
 }
@@ -89,6 +93,7 @@ margin: 0;}
   top: 240px;
   left: 20px;
   filter: drop-shadow( 1px 1px 2px rgba(0, 0, 0, 0.3));
+  z-index: -2;
 
   // z-index: -50;
 }
@@ -96,6 +101,7 @@ margin: 0;}
 .nuts {
   display: flex;
   flex-direction:column;
+  z-index: -2;
 }
 
 
@@ -134,3 +140,13 @@ margin: 0;}
   left: 20px;
   z-index: -50;
 }
+
+@media only screen and (max-width: 800px) {
+  .intro-text {
+    text-align: center;
+  }
+
+  .nuts :nth-child(3){
+    top: 308px;
+  }
+  }

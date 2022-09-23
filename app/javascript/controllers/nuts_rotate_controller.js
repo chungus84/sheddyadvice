@@ -9,7 +9,7 @@ export default class extends Controller {
 
   rotate() {
     this.nutOneTarget.style.transform = "rotate("+ (window.pageYOffset/2) + "deg)"
-    this.nutTwoTarget.style.transform = "rotate("+ (window.pageYOffset/6) + "deg)"
+    this.nutTwoTarget.style.transform = "rotate("+ (window.pageYOffset/-6) + "deg)"
     this.nutThreeTarget.style.transform = "rotate("+ (window.pageYOffset/10) + "deg)"
 
     };

@@ -1,11 +1,11 @@
 <div class="b-background-white shadow-sm">
-  <div class="row f-flex align-items-center">
-    <div class="logo col-lg-2 p-4">
+  <div class="row d-flex align-items-center">
+    <div class="logo col-lg-2 col-md-2 col-9 order-1">
       <%= link_to root_path do  %>
         <%= image_tag("sheddy-advice-logo.svg") %>
       <% end %>
     </div>
-    <div class="collections col-lg-9">
+    <div class="collections col-lg-9 col-md-10 col-sm-4 order-3 order-md-3">
       <ul class="nav d-flex justify-content-around">
            <%= link_to house_posts_path do  %>
             <li class="d-flex align-items-center">
@@ -30,7 +30,7 @@
           <% end %>
       </ul>
     </div>
-    <div class="col-lg-1 d-flex align-items-right">
+    <div class="col-lg-1 col-md-1 col-2 offset-1 offset-md-0 offset-lg-0 d-flex align-items-right order-2 order-md-3">
     <div class="nav-item dropdown" data-controller="menu-dropdown">
             <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
           <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>

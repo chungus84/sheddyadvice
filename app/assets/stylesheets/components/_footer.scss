@@ -30,3 +30,44 @@
   margin-left: 16px;
   margin-right: 6px;
 }
+
+@media only screen and (max-width: 800px) {
+
+  .footer form {
+    justify-content: center;
+  }
+  .footer {
+    padding: 10% !important;
+  }
+
+  .footer>.row {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+  }
+
+  .social-icons {
+    justify-content:center;
+    margin: 24px 0 40px 0;
+  }
+
+  .footer .search-field {
+    justify-content:center;
+  }
+
+  .footer .logo {
+  display:flex;
+  justify-content:center;
+  margin-bottom: 24px;
+}
+
+.sign-up {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.sign-up-text {
+  margin: 0 16px;
+}
+}

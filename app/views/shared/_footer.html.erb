@@ -1,15 +1,15 @@
 <div class="background-green footer p-5 mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-lg-4 col-md-4 col-12 order-1 logo">
         <%= image_tag "sheddy-logo" %>
       </div>
-      <div class="col-5">
-        <div class="d-flex align-items-center">
+      <div class="col-12 col-lg-5 col-md-5  order-md-2 order-3 sign-up">
+        <div class="d-flex align-items-center sign-up-text">
           <i class="fa-regular fa-envelope me-2"></i>
           <span>Sheddy inspiration straight to your inbox</span>
         </div>
-        <p><%= form_with url: posts_path, method: :get, class: "d-flex search-field" do %>
+        <p><%= form_with url: posts_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
           params[:email],
           class: "form-control",
@@ -18,7 +18,7 @@
           <%= submit_tag "sign-up", class: "btn search-button" %>
         <% end %></p>
       </div>
-      <div class="col-3">
+      <div class="order-md-3 order-2 col-12 col-md-3 col-lg-3">
       <div class="d-flex social-icons flex-row-reverse">
         <i class="fa-brands fa-facebook"></i>
         <i class="fa-brands fa-instagram"></i>
