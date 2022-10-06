@@ -32,154 +32,44 @@
   </head>
 
   <body>
-    <%= render "shared/banner_search" %>
-    <div class="container p-5 home-intro-section">
-      <div class="nuts" data-controller="nuts-rotate" data-action="scroll@window->nuts-rotate#rotate">
-        <%= image_tag 'nut.svg' , data: {nuts_rotate_target:"nutOne"} %>
-        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutTwo"}  %>
-        <%= image_tag 'nut.svg', data: {nuts_rotate_target:"nutThree"}  %>
-      </div>
-      <div class="intro-text pt-3 text-grey">
-        <h2>Join our community:</h2>
-      </div>
-      <div class="button-container d-flex justify-content-center p-5">
-        <%= link_to posts_path, class: "main-btn"  do %>
-          <%= icon("fa-solid", "magnifying-glass") %>
-          <span class="mx-2">Explore tutorials</span>
-        <% end %>
-        <%=  link_to new_post_url, class: "main-btn"  do %>
-          <%= icon("fa-solid", "graduation-cap") %>
-          <span class="mx-2">Share expertise</span>
-        <% end %>
-      </div>
-    </div>
+  <div class="container">
+    <div class="my-slider">
 
-    <div class="orange-background p-5">
-      <div class="container">
-          <div class="paintbrush">
-            <h2 class="headline pt-5 background-white">Top Rated</h2>
-            <div class="row">
-            <div class="home-cards p5">
-              <% @top_rated_posts = Post.top_rated %>
-              <% @top_rated_posts.each do |post| %>
-                  <%= link_to post_path(post), class: "small-card" do %>
-                    <div class="small-card-body">
-                      <% if post.photo.present?  %>
-                        <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
-                      <% else %>
-                        <%= image_tag "/app/assets/images/default_thumbnail.jpg" %>
-                      <% end %>
-                      <h2 class="card-title"><%= post.title %></h2>
-                      <div class="card-details">
-                        <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
-                        <% feedback_rating = Feedback.average_rating(post) %>
-                        <% if post.feedback_ids.present? %>
-                          <% if feedback_rating % 1 == 0 %>
-                            <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %>
-                            </span>
-                          <% else %>
-                            <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %><i class="fa-solid fa-star-half primary-green"></i>
-                            </span>
-                          <% end %>
-                        <% else %>
-                          <span class="card-rating">Rating: Not Rated yet</span>
-                        <% end %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="b-background-white p-5">
-      <div class="container">
-        <div class="spanner">
-          <h2 class="headline pt-5 primary-green">Trending</h2>
-          <div class="home-cards p5">
-            <% @trending_posts = Post.trending %>
-            <% @trending_posts.each do |post| %>
-              <%= link_to post_path(post), class: "small-card" do %>
-                <div class="small-card-body">
-
-                  <% if post.photo.present? %>
-                      <%= cl_image_tag post.photo.key,  html: {crop: :fill}, class: "card-media" %>
-                  <% else %>
-                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                  <% end %>
-
-                  <h2 class="card-title"><%= post.title %></h2>
+    <div class="row">
+      <div class="my-slider">
+        <% @top_rated_posts = Post.top_rated %>
+        <% @top_rated_posts.each do |post| %>
+        <div class="col-md-3 px-2">
+          <div class="home-card mb-3">
+            <% if post.photo.present?  %>
+              <%= link_to post_path(post) do %>
+                <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
+                <h2 class="card-title"><%= post.title %></h2>
                   <div class="card-details">
                     <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
                     <% feedback_rating = Feedback.average_rating(post) %>
-                      <% if post.feedback_ids.present? %>
-
-                        <% if feedback_rating % 1 == 0 %>
-                          <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                            <i class="fa-solid fa-star primary-green"></i>
-                          <% end %> </span>
-                        <% else %>
-                          <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                            <i class="fa-solid fa-star primary-green"></i>
-                          <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
-                        <% end %>
-                      <% else %>
-                        <span class="card-rating">Rating: Not Rated yet</span>
-                      <% end %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="orange-background p-5">
-      <div class="container">
-        <div class="hammer">
-          <h2 class="headline pt-5 background-white">Recent Posts</h2>
-          <div class="home-cards">
-            <% @recent_posts = Post.recent %>
-            <% @recent_posts.each do |post| %>
-              <%= link_to post_path(post), class: "small-card" do %>
-                <div class="small-card-body">
-                  <% if post.photo.present?%>
-                    <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
-                  <% else %>
-                    <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                    <% if post.feedback_ids.present? %>
+                    <% if feedback_rating % 1 == 0 %>
+                      <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                      <i class="fa-solid fa-star primary-green"></i>
+                    <% end %>
+                      </span>
+                    <% else %>
+                      <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                      <i class="fa-solid fa-star primary-green"></i>
+                    <% end %><i class="fa-solid fa-star-half primary-green"></i>
+                      </span>
+                    <% end %>
+                    <% else %>
+                      <span class="card-rating">Rating: Not Rated yet</span>
+                    <% end %>
                   <% end %>
-                    <h2 class="card-title"><%= post.title %></h2>
-                      <div class="card-details">
-                        <span class="card-author">created by: <%= User.find(post.user_id).username %> </span>
-                        <% feedback_rating = Feedback.average_rating(post) %>
-                        <% if post.feedback_ids.present? %>
-                          <% if feedback_rating % 1 == 0 %>
-                            <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %> </span>
-                          <% else %>
-                            <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
-                          <% end %>
-                        <% else %>
-                          <span class="card-rating">Rating: Not Rated yet</span>
-                        <% end %>
-                    </div>
-                </div>
+                  </div>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
+          <% end %>
       </div>
     </div>
-    <%= render "shared/footer" %>
-  </body>
-</html>
+  </div>
+</body>

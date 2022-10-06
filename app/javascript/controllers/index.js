@@ -36,3 +36,6 @@ application.register("search-lists", SearchListsController)
 
 import SearchPostsController from "./search_posts_controller"
 application.register("search-posts", SearchPostsController)
+
+import SlidesController from "./slides_controller"
+application.register("slides", SlidesController)

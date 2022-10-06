@@ -22,7 +22,7 @@ class Post < ApplicationRecord
     }
 
   def self.top_rated
-    @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)").last(3)
+    @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)").reverse
     # @post = Post.top(3)
     # @posts = db.execute("select p.id , avg(f.rating) as rating from posts p
     # inner join feedbacks f

@@ -7,6 +7,8 @@
     "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^7.0.4",
     "bootstrap": "^5.2.0",
+    "owl.carousel": "^2.3.4",
+    "tiny-slider": "^2.9.4",
     "webpack-cli": "^4.10.0"
   },
   "scripts": {
