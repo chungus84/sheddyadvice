@@ -149,4 +149,10 @@ margin: 0;}
   .nuts :nth-child(3){
     top: 308px;
   }
-  }
+
+  .spanner, .paintbrush, .hammer {
+  background-size:  50%;
+  background-position-x: 100%;
+  background-position-y: 8%;
+ }
+}

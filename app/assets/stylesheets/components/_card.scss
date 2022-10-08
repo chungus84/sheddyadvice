@@ -234,10 +234,23 @@ $spacer: 8px;
 
 .home-card {
   position: relative;
-  height: 460px;
+  height: 360px !important;
   width: 240px;
   padding: 8px;
-  background-color: orange;
+  background-color: $background-white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  & h2 {
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+
+
+
 
 }
 
@@ -245,9 +258,11 @@ $spacer: 8px;
   height: 200px;
   width: 100%;
   object-fit: cover;
+
 }
 
 .home-card>.card-details {
   position: absolute;
   bottom: 8px;
+
 }
