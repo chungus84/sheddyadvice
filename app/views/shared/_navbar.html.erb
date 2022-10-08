@@ -7,23 +7,23 @@
     </div>
     <div class="collections col-lg-9 col-md-10 col-sm-4 order-3 order-md-3">
       <ul class="nav d-flex justify-content-around">
-           <%= link_to house_posts_path do  %>
+           <%= link_to filter_search_posts_path(category: 'House Maintanance') do  %>
             <li class="d-flex align-items-center">
               <i class="fa-solid fa-house p-2"></i>
             <h2>House maintenance</h2></li>
           <% end %>
-                  <%= link_to bathroom_posts_path do %>
+            <%= link_to filter_search_posts_path(category: 'In the Bathroom') do %>
             <li class="d-flex align-items-center">
               <i class="fa-solid fa-sink p-2"></i>
               <h2>In the bathroom</h2>
             </li>
           <% end %>
-          <%= link_to kitchen_posts_path do %>
+          <%= link_to filter_search_posts_path(category: 'In the Kitchen') do %>
             <li class="d-flex align-items-center">
             <i class="fa-solid fa-kitchen-set p-2"></i>
             <h2>In the kitchen</h2></li>
           <% end %>
-          <%= link_to garden_posts_path do %>
+          <%= link_to filter_search_posts_path(category: 'In the Garden') do %>
             <li class="d-flex align-items-center">
             <i class="fa-solid fa-worm p-2"></i>
             <h2>In the garden</h2></li>

@@ -9,10 +9,7 @@ Rails.application.routes.draw do
       get :top_rated
       get :recent
       get :trending
-      get :house
-      get :bathroom
-      get :kitchen
-      get :garden
+      get :filter_search
     end
     member do
       resources :feedbacks
