@@ -2,26 +2,12 @@
   <div class="container text-center">
     <div class="row justify-content-center my-5">
       <div class="d-flex col-5 justify-content-center collections">
-        <% if (current_page?(house_posts_path))%>
+        <% if (current_page?(filter_search_posts_path))%>
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-house"></i>
-          <h3>House Maintenance</h3>
+          <h3><%= params[:category] %></h3>
         </div>
-        <% elsif (current_page?(bathroom_posts_path)) %>
-          <div class="d-flex">
-            <i class="fa-solid fa-sink"></i>
-            <h3>In the bathroom</h3>
-          </div>
-        <% elsif (current_page?(kitchen_posts_path)) %>
-          <div class="d-flex">
-            <i class="fa-solid fa-kitchen-set"></i>
-            <h3>In the kitchen</h3>
-          </div>
-        <% elsif (current_page?(garden_posts_path))%>
-          <div class="d-flex">
-            <i class="fa-solid fa-worm"></i>
-            <h3>In the garden</h3>
-          </div>
+
           <% else %>
           <div class="d-flex">
             <i class="fa-solid fa-screwdriver-wrench"></i>
