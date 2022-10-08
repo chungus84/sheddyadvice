@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["post", "form", "bodyForm", "button", "info"]
 
   connect() {
-    console.log("hello")
+
 
     }
 

@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets=["nutOne", "nutTwo", "nutThree"]
   connect() {
-    console.log("BOOM")
+
   }
 
   rotate() {
