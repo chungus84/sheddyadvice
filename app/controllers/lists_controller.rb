@@ -21,16 +21,24 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new
+    if user_signed_in?
+      @list = List.new
+    else
+      redirect_to new_user_session_path, danger: "login to create to list"
+    end
   end
 
   def create
-    @list = List.new(list_params)
-    @list.user = current_user
-    if @list.save
-      redirect_to list_path(@list), success: "Created your list #{@list.name}"
+    if user_signed_in?
+      @list = List.new(list_params)
+      @list.user = current_user
+      if @list.save
+        redirect_to list_path(@list), success: "Created your list #{@list.name}"
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to new_user_session_path, danger: "login to create to list"
     end
   end
 
