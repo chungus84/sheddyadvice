@@ -91,15 +91,25 @@ $spacer: 8px;
   color: $text-grey;
  }
 
-.home-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.small-card {
+ .small-card {
   width:33%;
   height: 360px;
+  margin: 20px;
+  background-color: $background-white;
+  padding: 8px;
+  position: relative;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+
+}
+
+
+.small-card-body {
+  width:25%;
+  height: 300px;
   margin: 20px;
   background-color: $background-white;
   padding: 8px;
@@ -125,10 +135,7 @@ $spacer: 8px;
   object-position: center;
 }
 
-.card-details {
-  position: absolute;
-  bottom: 8px;
-}
+
 
 .small-card-body > h2 {
   text-align: left;
@@ -221,3 +228,41 @@ $spacer: 8px;
   .fa-star {
     font-size: 16px;
   }
+
+  // home CSS additions
+
+
+.home-card {
+  position: relative;
+  height: 360px !important;
+  width: 240px;
+  padding: 8px;
+  background-color: $background-white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+
+  & h2 {
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+
+}
+
+  .home-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.home-card>.card-details {
+  position: absolute;
+  bottom: 8px;
+
+}

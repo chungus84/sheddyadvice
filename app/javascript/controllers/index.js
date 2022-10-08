@@ -10,6 +10,9 @@ application.register("add-post-to-list", AddPostToListController)
 import AddReviewInListController from "./add_review_in_list_controller"
 application.register("add-review-in-list", AddReviewInListController)
 
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -36,3 +39,6 @@ application.register("search-lists", SearchListsController)
 
 import SearchPostsController from "./search_posts_controller"
 application.register("search-posts", SearchPostsController)
+
+import SlidesController from "./slides_controller"
+application.register("slides", SlidesController)

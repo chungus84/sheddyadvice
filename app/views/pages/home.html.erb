@@ -54,21 +54,20 @@
       </div>
     </div>
 
-    <div class="orange-background p-5">
-      <div class="container">
-          <div class="paintbrush">
-            <h2 class="headline pt-5 background-white">Top Rated</h2>
+    <div class="orange-background p-md-5">
+      <div class="container ">
+        <div class="paintbrush">
+          <h2 class="headline pt-5 background-white">Top Rated</h2>
+          <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
             <div class="row">
-            <div class="home-cards p5">
-              <% @top_rated_posts = Post.top_rated %>
-              <% @top_rated_posts.each do |post| %>
-                  <%= link_to post_path(post), class: "small-card" do %>
-                    <div class="small-card-body">
-                      <% if post.photo.present?  %>
-                        <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
-                      <% else %>
-                        <%= image_tag "/app/assets/images/default_thumbnail.jpg" %>
-                      <% end %>
+              <div class="swiper-wrapper">
+                <% @top_rated_posts = Post.top_rated %>
+                <% @top_rated_posts.each do |post| %>
+                <div class="col-md-3 col-10 px-2">
+                  <div class="home-card mb-3 swiper-slide">
+                    <% if post.photo.present?  %>
+                      <%= link_to post_path(post) do %>
+                      <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
                       <h2 class="card-title"><%= post.title %></h2>
                       <div class="card-details">
                         <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
@@ -76,106 +75,122 @@
                         <% if post.feedback_ids.present? %>
                           <% if feedback_rating % 1 == 0 %>
                             <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
+                            <i class="fa-solid fa-star primary-green"></i>
                             <% end %>
                             </span>
                           <% else %>
                             <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %><i class="fa-solid fa-star-half primary-green"></i>
+                            <i class="fa-solid fa-star primary-green"></i>
+                            <% end %>
+                            <i class="fa-solid fa-star-half primary-green"></i>
                             </span>
-                          <% end %>
+                            <% end %>
                         <% else %>
                           <span class="card-rating">Rating: Not Rated yet</span>
                         <% end %>
+                      <% end %>
                       </div>
-                    </div>
-                  <% end %>
-                <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
           </div>
         </div>
       </div>
-
-    <div class="b-background-white p-5">
+    </div>
+    <%# Next section %>
+    <div class="b-background-white p-md-5">
       <div class="container">
         <div class="spanner">
           <h2 class="headline pt-5 primary-green">Trending</h2>
-          <div class="home-cards p5">
-            <% @trending_posts = Post.trending %>
-            <% @trending_posts.each do |post| %>
-              <%= link_to post_path(post), class: "small-card" do %>
-                <div class="small-card-body">
-
-                  <% if post.photo.present? %>
-                      <%= cl_image_tag post.photo.key,  html: {crop: :fill}, class: "card-media" %>
-                  <% else %>
-                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                  <% end %>
-
-                  <h2 class="card-title"><%= post.title %></h2>
-                  <div class="card-details">
-                    <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
-                    <% feedback_rating = Feedback.average_rating(post) %>
-                      <% if post.feedback_ids.present? %>
-
-                        <% if feedback_rating % 1 == 0 %>
-                          <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                            <i class="fa-solid fa-star primary-green"></i>
-                          <% end %> </span>
-                        <% else %>
-                          <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                            <i class="fa-solid fa-star primary-green"></i>
-                          <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
+          <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
+            <div class="row">
+              <div class="swiper-wrapper">
+                <% @trending_posts = Post.trending %>
+                <% @trending_posts.each do |post| %>
+                  <div class="col-md-3 col-10 px-2">
+                    <div class="home-card mb-3 swiper-slide">
+                      <% if post.photo.present?  %>
+                        <%= link_to post_path(post) do %>
+                        <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
+                        <h2 class="card-title"><%= post.title %></h2>
+                        <div class="card-details">
+                          <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
+                          <% feedback_rating = Feedback.average_rating(post) %>
+                          <% if post.feedback_ids.present? %>
+                            <% if feedback_rating % 1 == 0 %>
+                              <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                              <i class="fa-solid fa-star primary-green"></i>
+                              <% end %>
+                              </span>
+                            <% else %>
+                              <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                              <i class="fa-solid fa-star primary-green"></i>
+                              <% end %>
+                              <i class="fa-solid fa-star-half primary-green"></i>
+                              </span>
+                              <% end %>
+                          <% else %>
+                            <span class="card-rating">Rating: Not Rated yet</span>
+                          <% end %>
                         <% end %>
-                      <% else %>
-                        <span class="card-rating">Rating: Not Rated yet</span>
+                        </div>
                       <% end %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="orange-background p-5">
+    <%# next section %>
+    <div class="orange-background p-md-5">
       <div class="container">
         <div class="hammer">
           <h2 class="headline pt-5 background-white">Recent Posts</h2>
-          <div class="home-cards">
-            <% @recent_posts = Post.recent %>
-            <% @recent_posts.each do |post| %>
-              <%= link_to post_path(post), class: "small-card" do %>
-                <div class="small-card-body">
-                  <% if post.photo.present?%>
-                    <%= cl_image_tag post.photo.key,  html: { crop: :fill}, class: "card-media" %>
-                  <% else %>
-                    <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-                  <% end %>
-                    <h2 class="card-title"><%= post.title %></h2>
-                      <div class="card-details">
-                        <span class="card-author">created by: <%= User.find(post.user_id).username %> </span>
-                        <% feedback_rating = Feedback.average_rating(post) %>
-                        <% if post.feedback_ids.present? %>
-                          <% if feedback_rating % 1 == 0 %>
-                            <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+          <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
+            <div class="row">
+              <div class="swiper-wrapper">
+                <% @recent_posts = Post.trending %>
+                <% @recent_posts.each do |post| %>
+                  <div class="col-md-3 col-10 px-2">
+                    <div class="home-card mb-3 swiper-slide">
+                      <% if post.photo.present?  %>
+                        <%= link_to post_path(post) do %>
+                        <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
+                        <h2 class="card-title"><%= post.title %></h2>
+                        <div class="card-details">
+                          <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
+                          <% feedback_rating = Feedback.average_rating(post) %>
+                          <% if post.feedback_ids.present? %>
+                            <% if feedback_rating % 1 == 0 %>
+                              <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
                               <i class="fa-solid fa-star primary-green"></i>
-                            <% end %> </span>
+                              <% end %>
+                              </span>
+                            <% else %>
+                              <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                              <i class="fa-solid fa-star primary-green"></i>
+                              <% end %>
+                              <i class="fa-solid fa-star-half primary-green"></i>
+                              </span>
+                              <% end %>
                           <% else %>
-                            <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                            <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
+                            <span class="card-rating">Rating: Not Rated yet</span>
                           <% end %>
-                        <% else %>
-                          <span class="card-rating">Rating: Not Rated yet</span>
                         <% end %>
+                        </div>
+                      <% end %>
                     </div>
-                </div>
-              <% end %>
-            <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>

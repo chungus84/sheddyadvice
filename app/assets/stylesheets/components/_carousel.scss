@@ -1,0 +1,28 @@
+.owl-carousel {
+  display: flex;
+  .owl-prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    font-size: 30px !important;
+  }
+  .owl-next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90%;
+    font-size: 30px !important;
+  }
+}
+.owl-item.active:hover {
+  cursor: grab;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .carousel-inner {
+    width: 100%;
+  }
+
+}

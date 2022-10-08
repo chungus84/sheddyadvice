@@ -22,7 +22,7 @@ class Post < ApplicationRecord
     }
 
   def self.top_rated
-    @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)").last(3)
+    @post = Post.joins(:feedbacks).group("posts.id").order("avg(feedbacks.rating)")
     # @post = Post.top(3)
     # @posts = db.execute("select p.id , avg(f.rating) as rating from posts p
     # inner join feedbacks f
@@ -33,10 +33,10 @@ class Post < ApplicationRecord
   end
 
   def self.recent
-    @posts = Post.last(3)
+    @posts = Post.all
   end
 
   def self.trending
-    @posts = Post.offset(rand(Post.count)).first(3)
+    @posts = Post.offset(rand(Post.count)).all
   end
 end
