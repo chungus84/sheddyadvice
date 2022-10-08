@@ -52,7 +52,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if user_signed_in?
+      @post = Post.new
+    else
+      redirect_to new_user_session_path, danger: "login to upload"
+    end
   end
 
   def create
