@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :bathroom
       get :kitchen
       get :garden
+      get :filter_search
     end
     member do
       resources :feedbacks

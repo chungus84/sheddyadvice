@@ -77,20 +77,24 @@ class PostsController < ApplicationController
   end
 
 
-  def house
-    @posts = Post.where(category: "House Maintanance")
-  end
+  # def house
+  #   @posts = Post.where(category: "House Maintanance")
+  # end
 
-  def bathroom
-    @posts = Post.where(category: "In the Bathroom")
-  end
+  # def bathroom
+  #   @posts = Post.where(category: "In the Bathroom")
+  # end
 
-  def kitchen
-    @posts = Post.where(category: "In the Kitchen")
-  end
+  # def kitchen
+  #   @posts = Post.where(category: "In the Kitchen")
+  # end
 
   def garden
     @posts = Post.where(category: "In the Garden")
+  end
+
+  def filter_search
+    @posts = Post.where(category: params[:category])
   end
 
 
