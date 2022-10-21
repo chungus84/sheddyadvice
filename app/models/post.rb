@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   # validates :title, uniqueness: true
   validates :body, length: { minimum: 20 }
   validates_presence_of :user
-  # validates_presence_of :category
+  validates_presence_of :category
   has_one_attached :photo
   has_one_attached :video
   include PgSearch::Model
