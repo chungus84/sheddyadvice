@@ -1,64 +1,66 @@
 <div class="b-background-white shadow-sm">
-  <div class="row d-flex align-items-center">
-    <div class="logo col-lg-2 col-md-2 col-9 order-1">
-      <%= link_to root_path do  %>
-        <%= image_tag("sheddy-advice-logo.svg") %>
-      <% end %>
-    </div>
-    <div class="collections col-lg-9 col-md-10 col-sm-4 order-3 order-md-3">
-      <ul class="nav d-flex justify-content-around">
-           <%= link_to filter_search_posts_path(category: 'House Maintanance') do  %>
-            <li class="d-flex align-items-center">
-              <i class="fa-solid fa-house p-2"></i>
-            <h2>House maintenance</h2></li>
-          <% end %>
-            <%= link_to filter_search_posts_path(category: 'In the Bathroom') do %>
-            <li class="d-flex align-items-center">
-              <i class="fa-solid fa-sink p-2"></i>
-              <h2>In the bathroom</h2>
-            </li>
-          <% end %>
-          <%= link_to filter_search_posts_path(category: 'In the Kitchen') do %>
-            <li class="d-flex align-items-center">
-            <i class="fa-solid fa-kitchen-set p-2"></i>
-            <h2>In the kitchen</h2></li>
-          <% end %>
-          <%= link_to filter_search_posts_path(category: 'In the Garden') do %>
-            <li class="d-flex align-items-center">
-            <i class="fa-solid fa-worm p-2"></i>
-            <h2>In the garden</h2></li>
-          <% end %>
-      </ul>
-    </div>
-    <div class="col-lg-1 col-md-1 col-2 offset-1 offset-md-0 offset-lg-0 d-flex align-items-right order-2 order-md-3">
-    <div class="nav-item dropdown" data-controller="menu-dropdown">
-            <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-          <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
-              <%= content_tag :span %>
+  <div class="container-fluid">
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-2 col-md-2 col-9 order-1">
+        <%= link_to root_path do  %>
+          <%= image_tag("sheddy-advice-logo.svg") %>
+        <% end %>
+      </div>
+      <div class="collections col-lg-9 col-md-9 col-sm-4 order-3 order-md-3">
+        <ul class="nav d-flex justify-content-around">
+            <%= link_to filter_search_posts_path(category: 'House Maintanance') do  %>
+              <li class="d-flex align-items-center">
+                <i class="fa-solid fa-house p-2"></i>
+              <h2>House maintenance</h2></li>
             <% end %>
-                        <% end %>
+              <%= link_to filter_search_posts_path(category: 'In the Bathroom') do %>
+              <li class="d-flex align-items-center">
+                <i class="fa-solid fa-sink p-2"></i>
+                <h2>In the bathroom</h2>
+              </li>
+            <% end %>
+            <%= link_to filter_search_posts_path(category: 'In the Kitchen') do %>
+              <li class="d-flex align-items-center">
+              <i class="fa-solid fa-kitchen-set p-2"></i>
+              <h2>In the kitchen</h2></li>
+            <% end %>
+            <%= link_to filter_search_posts_path(category: 'In the Garden') do %>
+              <li class="d-flex align-items-center">
+              <i class="fa-solid fa-worm p-2"></i>
+              <h2>In the garden</h2></li>
+            <% end %>
+        </ul>
+      </div>
+      <div class="col-lg-1 col-md-1 col-2 offset-1 offset-md-0 offset-lg-0 d-flex align-items-right order-2 order-md-3">
+      <div class="nav-item dropdown" data-controller="menu-dropdown">
+              <%= content_tag :div, class: " dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+            <%= content_tag :div, class:"nav-icon3",  data: {menu_dropdown_target: "hamburger", action: "click->menu-dropdown#reveal"}  do %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+                <%= content_tag :span %>
+              <% end %>
+                          <% end %>
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <ul class="nav-items p-2">
-                <% if user_signed_in? %>
-                <div class="background-green mb-2 ps-2 d-flex align-items-center">
-                  <li><i class="fa-solid fa-user background-white px-3 py-3"></i><span class="background-white">Hello, <%= current_user.username %></span></li>
-                </div>
-                <li><i class="fa-solid fa-graduation-cap ps-4"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-circle-plus ps-4"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-list-ul ps-4"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-message ps-4"></i></i><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-right-from-bracket ps-4"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
-                <% else %>
-                <li><i class="fa-solid fa-right-to-bracket ps-4"></i><%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %></li>
-                <li><i class="fa-solid fa-user-plus ps-4"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
-                <% end %>
-              </ul>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <ul class="nav-items p-2">
+                  <% if user_signed_in? %>
+                  <div class="background-green mb-2 ps-2 d-flex align-items-center">
+                    <li><i class="fa-solid fa-user background-white px-3 py-3"></i><span class="background-white">Hello, <%= current_user.username %></span></li>
+                  </div>
+                  <li><i class="fa-solid fa-graduation-cap ps-4"></i><%= link_to "Posts", posts_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-circle-plus ps-4"></i><%= link_to "Add Post", new_post_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-list-ul ps-4"></i><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-message ps-4"></i></i><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-right-from-bracket ps-4"></i><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+                  <% else %>
+                  <li><i class="fa-solid fa-right-to-bracket ps-4"></i><%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %></li>
+                  <li><i class="fa-solid fa-user-plus ps-4"></i><%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+    </div>
   </div>
 </div>
