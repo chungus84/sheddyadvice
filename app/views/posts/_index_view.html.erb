@@ -1,11 +1,12 @@
 
+  <div class="background-orange p-2">
   <div class="container">
     <div class="row justify-content-center my-5">
       <div class="d-flex col-5 justify-content-center collections">
         <% if (current_page?(filter_search_posts_path))%>
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-house"></i>
-          <h3><%= params[:category] %></h3>
+          <h3 class="background-white"><%= params[:category] %></h3>
         </div>
         <% else %>
           <div class="d-flex">
@@ -63,3 +64,4 @@
         <% end %>
       <% end %>
   </div>
+</div>
