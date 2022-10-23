@@ -3,9 +3,9 @@
     <div data-edit-fields-target="post">
       <h1 class="py-3 text-grey"><%= @post.title %></h1>
       <% if @post.video.attached? %>
-          <%= cl_video_tag(@post.video.key, height: 500, width: 900, crop: :fill, controls: '') %>
+          <%= cl_video_tag(@post.video.key, height: 500, width: 900, crop: :fill, controls: '', class: "show-media") %>
         <% elsif @post.photo.attached? %>
-          <%= cl_image_tag(@post.photo.key, height: 500, width: 900, crop: :fill, controls: '') %>
+          <%= cl_image_tag(@post.photo.key, height: 500, width: 900, crop: :fill, controls: '', class:"show-media") %>
         <% else %>
           <p>Nothing</p>
         <% end %>

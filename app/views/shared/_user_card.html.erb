@@ -1,47 +1,52 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-7">
+    <div class="col-12 col-md-8">
       <div class="user-card-body d-flex align-items-center">
-        <div class="user-card-avatar">
-          <% if @post.user.photo.present? %>
-            <%= cl_image_tag @post.user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
-          <% else %>
-            <%= image_tag 'Meeseeks.png', class: "avatar-bordered-new", alt: "avatar-bordered" %>
-          <% end %>
-        </div>
-        <div class="text-greybackground-white">
-          <i class="fa-solid fa-user"></i>
-          <span><%= @post.user.username %></span>
-        </div>
-        <div class="button-list">
-          <% if user_signed_in? %>
-            <% if current_user.id == @post.user.id %>
-              <%= link_to 'See your messages', chatrooms_path, class: "main-btn" %>
-            <% elsif @existingchatroom.present? %>
-              <%= link_to 'Send message', chatroom_path(@existingchatroom), class: "main-btn" %>
-              <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Leave a review
-              </div>
-            <% else %>
-              <%= simple_form_for(@newchatroom) do |f| %>
-                <% if user_signed_in? %>
-                  <%= f.hidden_field :sender_id, value: current_user.id %>
-                <% end %>
-                  <%= f.hidden_field :receiver_id, value: @post.user.id %>
-                  <%= f.submit 'Send message', class: "main-btn" %>
+        <div class="row">
+          <div class="col-12 col-md-4 m-auto">
+            <div class="d-flex justify-content-center">
+              <% if @post.user.photo.present? %>
+                <%= cl_image_tag @post.user.photo.key, class: "avatar-bordered", alt: "avatar-bordered" %>
+              <% else %>
+                <%= image_tag 'Meeseeks.png', class: "avatar-bordered-new", alt: "avatar-bordered" %>
               <% end %>
-              <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Leave a review
-              </div>
-            <% end %>
-          <% else %>
-            <%= link_to 'Send message', new_user_session_path, class: "main-btn" %>
-            <%= link_to 'Leave a review', new_user_session_path, class: "main-btn" %>
-          <% end %>
-
-
-
+            </div>
+          </div>
+          <div class="col-12 col-md-4 m-auto py-4">
+            <div class="d-flex justify-content-center">
+            <i class="fa-solid fa-user pe-2"></i>
+            <span><%= @post.user.username %></span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="button-list">
+              <% if user_signed_in? %>
+                <% if current_user.id == @post.user.id %>
+                  <%= link_to 'See your messages', chatrooms_path, class: "main-btn" %>
+                <% elsif @existingchatroom.present? %>
+                  <%= link_to 'Send message', chatroom_path(@existingchatroom), class: "main-btn" %>
+                  <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      Leave a review
+                  </div>
+                <% else %>
+                  <%= simple_form_for(@newchatroom) do |f| %>
+                    <% if user_signed_in? %>
+                      <%= f.hidden_field :sender_id, value: current_user.id %>
+                    <% end %>
+                      <%= f.hidden_field :receiver_id, value: @post.user.id %>
+                      <%= f.submit 'Send message', class: "main-btn" %>
+                  <% end %>
+                  <div class="main-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      Leave a review
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to 'Send message', new_user_session_path, class: "main-btn" %>
+                <%= link_to 'Leave a review', new_user_session_path, class: "main-btn" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

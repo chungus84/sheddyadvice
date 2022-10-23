@@ -1,0 +1,11 @@
+.show-media {
+  width: 68vw;
+  height: auto;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .show-media {
+    width: 100vw;
+  }
+}
