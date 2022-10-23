@@ -28,11 +28,9 @@ $spacer: 8px;
 }
 
 .large-card {
-  display: flex;
-  flex-direction: row;
+  min-height: 250px;
   background-color: $background-white;
-  // background-color: orange;
-  padding: 8px;
+  padding:24px;
   position: relative;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 
@@ -45,6 +43,17 @@ $spacer: 8px;
 .large-card-body {
   flex-grow: 2;
 }
+
+.card-media{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+ .large-card-body > .card-rating {
+  text-decoration: none;
+  color: $text-grey;
+ }
 
 
 
@@ -64,7 +73,7 @@ $spacer: 8px;
   font-family: $titles-font;
   font-size: 24px;
   font-weight: 300;
-  line-height: 60px;
+  line-height: 1.2;
   margin: 10px 0;
 }
 
@@ -80,16 +89,7 @@ $spacer: 8px;
   color: $text-grey;
 }
 
-.large-card > img {
-  height: 200px;
-  width: 300px;
-  object-fit: cover;
-  object-position: center;
-}
- .large-card-body > .card-rating {
-  text-decoration: none;
-  color: $text-grey;
- }
+
 
  .small-card {
   width:33%;

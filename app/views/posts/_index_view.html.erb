@@ -1,5 +1,5 @@
 
-  <div class="container text-center">
+  <div class="container">
     <div class="row justify-content-center my-5">
       <div class="d-flex col-5 justify-content-center collections">
         <% if (current_page?(filter_search_posts_path))%>
@@ -7,8 +7,7 @@
           <i class="fa-solid fa-house"></i>
           <h3><%= params[:category] %></h3>
         </div>
-
-          <% else %>
+        <% else %>
           <div class="d-flex">
             <i class="fa-solid fa-screwdriver-wrench"></i>
             <% if params[:query].present? %>
@@ -20,43 +19,47 @@
         <% end %>
       </div>
     </div>
-   <div class="card-container">
+      <% @posts.each do |post| %>
 
-   <% @posts.each do |post| %>
-      <%= link_to post_path(post), class: "large-card" do %>
-        <% if post.photo.present? %>
-            <%= cl_image_tag post.photo.key, html: {crop: :fill}, class: "card-media" %>
-        <% else %>
-          <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
-        <% end %>
-        <div class="large-card-body">
-            <h2 class="card-title"><%= post.title %></h2>
-            <span class="card-description"><%= post.body[0..50] %>...</span>
-            <span class="card-author">Created by: <%= post.user.username %> </span>
-            <% average_rating = Feedback.average_rating(post) %>
-            <% if post.feedback_ids.present? %>
-              <% if average_rating % 1 == 0 %>
-                  <span class="card-rating">Rating: <% average_rating.to_i.times do %>
-                    <i class="fa-solid fa-star primary-green"></i>
-                  <% end %> </span>
+          <%= link_to post_path(post) do %>
+            <div class="large-card mb-3">
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <% if post.photo.present? %>
+                    <%= cl_image_tag post.photo.key, class:"card-media"%>
+                  <% else %>
+                    <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg" %>
+                  <% end %>
+                </div>
+                <div class="col-12 col-md-6 ps-md-2">
+                  <h2 class="card-title"><%= post.title %></h2>
+                <span class="card-description"><%= post.body[0..50] %>...</span>
+                <span class="card-author">Created by: <%= post.user.username %> </span>
+                <% average_rating = Feedback.average_rating(post) %>
+                <% if post.feedback_ids.present? %>
+                  <% if average_rating % 1 == 0 %>
+                    <span class="card-rating">Rating: <% average_rating.to_i.times do %>
+                      <i class="fa-solid fa-star primary-green"></i>
+                  <% end %>
+                    </span>
+                  <% else %>
+                    <span class="card-rating"> Rating: <% average_rating.to_i.times do %>
+                      <i class="fa-solid fa-star primary-green"></i>
+                    <% end %>
+                      <i class="fa-solid fa-star-half primary-green"></i>
+                    </span>
+                  <% end %>
                 <% else %>
-                  <span class="card-rating"> Rating: <% average_rating.to_i.times do %>
-                    <i class="fa-solid fa-star primary-green"></i>
-                  <% end %><i class="fa-solid fa-star-half primary-green"></i></span>
+                  <span class="card-rating">Rating: Not Rated yet</span>
                 <% end %>
-              <% else %>
-                <span class="card-rating">Rating: Not Rated yet</span>
-            <% end %>
-        </div>
-        <div class="card-date">
-          <span>Posted: <%= post.created_at.strftime("%d %B") %></span>
-        </div>
-
+              </div>
+              <div class="col-12 col-md-2">
+                <div class="card-date">
+                  <span>Posted: <%= post.created_at.strftime("%d %B") %></span>
+                </div>
+              </div>
+                  </div>
+</div>
+        <% end %>
       <% end %>
-    <% end %>
-
-
-
-
-</div>
-</div>
+  </div>
