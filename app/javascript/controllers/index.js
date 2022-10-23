@@ -42,3 +42,9 @@ application.register("search-posts", SearchPostsController)
 
 import SlidesController from "./slides_controller"
 application.register("slides", SlidesController)
+
+import { Application } from '@hotwired/stimulus'
+import Carousel from 'stimulus-carousel'
+
+const application = Application.start()
+application.register('carousel', Carousel)
