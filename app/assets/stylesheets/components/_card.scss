@@ -1,4 +1,3 @@
-$titles-font : 'Hammersmith One';
 $font-small : 'Hind';
 $mustard: #F3A440;
 $black: #000000;
@@ -36,7 +35,7 @@ $spacer: 8px;
 
   &:hover {
     box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
-
+    cursor:pointer;
   }
 }
 
@@ -102,6 +101,7 @@ $spacer: 8px;
 
   &:hover {
     box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+    cursor:pointer;
   }
 
 }
@@ -247,6 +247,7 @@ $spacer: 8px;
 
   &:hover {
     box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+    cursor:pointer
   }
 
 
@@ -265,4 +266,8 @@ $spacer: 8px;
   position: absolute;
   bottom: 8px;
 
+}
+
+.card-rating {
+  color: $text-grey;
 }
