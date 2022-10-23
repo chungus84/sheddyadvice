@@ -152,9 +152,9 @@ $spacer: 8px;
   display: flex;
   justify-content: space-between;
   background-color: $secondary-orange;
-  padding: 14px;
   border-radius: 8px;
-  height: 180px;
+  min-height: 180px;
+  padding: 16px;
 }
 
 .user-card-container {
@@ -174,9 +174,9 @@ $spacer: 8px;
   padding-left: 10px;
 }
 
-.user-card-avatar {
-  height: 100%;
-}
+// .user-card-avatar {
+//   height: 100%;
+// }
 
 @media screen and (max-width: 750px) {
   .card-container {
