@@ -59,8 +59,8 @@
         <div class="paintbrush">
           <h2 class="headline pt-5 background-white">Top Rated</h2>
           <div class="swiper">
-            <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
-              <div class="row">
+            <div class="row">
+              <div data-controller="carousel" class="swiper-container swiper-pointer-events" <!--data-carousel-options-value='{"loop":"true"}'-->>
                 <div class="swiper-wrapper">
                   <% @top_rated_posts = Post.top_rated %>
                   <% @top_rated_posts.each do |post| %>

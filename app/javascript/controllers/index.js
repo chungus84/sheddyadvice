@@ -44,5 +44,5 @@ import SlidesController from "./slides_controller"
 application.register("slides", SlidesController)
 
 // import { Application } from '@hotwired/stimulus'
-import Carousel from 'stimulus-carousel'
-application.register('carousel', Carousel)
+// import Carousel from 'stimulus-carousel'
+// application.register('carousel', Carousel)

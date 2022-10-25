@@ -2,6 +2,7 @@ import Carousel from 'stimulus-carousel'
 
 export default class extends Carousel {
   connect() {
+    // console.log("Hi There")
     super.connect()
 
     // The swiper instance.

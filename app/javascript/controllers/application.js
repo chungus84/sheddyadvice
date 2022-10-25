@@ -1,5 +1,5 @@
 import { Application } from "@hotwired/stimulus"
-// import 'swiper/swiper-bundle.min.css'
+
 const application = Application.start()
 
 // Configure Stimulus development experience
