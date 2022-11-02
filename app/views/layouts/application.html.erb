@@ -26,6 +26,7 @@
 
 
     <%= favicon_link_tag 'spanner.svg' %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
@@ -37,6 +38,8 @@
   <%= render "shared/pop_up" %>
     <%= yield %>
     <%= render "shared/footer" %>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 </body>
 </html>

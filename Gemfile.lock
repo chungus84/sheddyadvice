@@ -273,6 +273,8 @@ GEM
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.4)
+    swiper-rails (1.0.4)
+      rails (>= 3.1)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -337,6 +339,7 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
+  swiper-rails
   turbo-rails
   tzinfo-data
   unsplash

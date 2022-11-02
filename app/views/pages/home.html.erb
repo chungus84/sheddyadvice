@@ -54,18 +54,13 @@
       </div>
     </div>
 
-    <div class="orange-background p-md-5">
-      <div class="container ">
+    <div class="orange-background p-md-5 p-3">
         <div class="paintbrush">
           <h2 class="headline pt-5 background-white">Top Rated</h2>
-          <div class="swiper">
-            <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
-              <div class="row">
-                <div class="swiper-wrapper">
+            <div class="scroll-box d-flex">
                   <% @top_rated_posts = Post.top_rated %>
                   <% @top_rated_posts.each do |post| %>
-                  <div class="col-md-3 col-10 px-2">
-                    <div class="home-card mb-3 swiper-slide">
+                    <div class="home-card mb-3">
                       <% if post.photo.present?  %>
                         <%= link_to post_path(post) do %>
                         <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
@@ -93,29 +88,18 @@
                         </div>
                       <% end %>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                  </div>
                 <% end %>
-              </div>
-            </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <%# Next section %>
-    <div class="b-background-white p-md-5">
-      <div class="container">
+    <div class="b-background-white p-md-5 p-3">
         <div class="spanner">
           <h2 class="headline pt-5 primary-green">Trending</h2>
-          <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
-            <div class="row">
-              <div class="swiper-wrapper">
+            <div class="scroll-box d-flex">
                 <% @trending_posts = Post.trending %>
                 <% @trending_posts.each do |post| %>
-                  <div class="col-md-3 col-10 px-2">
-                    <div class="home-card mb-3 swiper-slide">
+                    <div class="home-card mb-3">
                       <% if post.photo.present?  %>
                         <%= link_to post_path(post) do %>
                         <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
@@ -143,27 +127,21 @@
                         </div>
                       <% end %>
                     </div>
+                                                          <% end %>
+
                   </div>
-                <% end %>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <%# next section %>
-    <div class="orange-background p-md-5">
-      <div class="container">
+    <div class="orange-background p-md-5 p-3">
         <div class="hammer">
           <h2 class="headline pt-5 background-white">Recent Posts</h2>
-          <div data-controller="carousel" class="swiper-container swiper-pointer-events" data-carousel-options-value='{"loop":"true"}'>
-            <div class="row">
-              <div class="swiper-wrapper">
+            <div class="scroll-box d-flex">
                 <% @recent_posts = Post.trending %>
                 <% @recent_posts.each do |post| %>
-                  <div class="col-md-3 col-10 px-2">
-                    <div class="home-card mb-3 swiper-slide">
+                    <div class="home-card mb-3">
                       <% if post.photo.present?  %>
                         <%= link_to post_path(post) do %>
                         <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
@@ -191,14 +169,12 @@
                         </div>
                       <% end %>
                     </div>
+                  <% end %>
+
                   </div>
-                <% end %>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <%= render "shared/footer" %>
   </body>
 </html>

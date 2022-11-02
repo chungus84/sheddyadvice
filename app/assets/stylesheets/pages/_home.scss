@@ -141,6 +141,10 @@ margin: 0;}
   z-index: -50;
 }
 
+.scroll-box {
+  overflow-x: scroll;
+}
+
 @media only screen and (max-width: 800px) {
   .intro-text {
     text-align: center;
