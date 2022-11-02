@@ -235,7 +235,9 @@ $spacer: 8px;
 .home-card {
   position: relative;
   height: 360px !important;
-  width: 240px;
+  margin: 16px;
+  min-width: 240px;
+  max-width:240px;
   padding: 8px;
   background-color: $background-white;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);

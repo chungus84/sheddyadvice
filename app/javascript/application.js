@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import 'swiper/css/bundle'
+// import 'swiper/css/bundle'
