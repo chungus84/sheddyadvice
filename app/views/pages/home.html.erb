@@ -60,10 +60,13 @@
             <div class="scroll-box d-flex">
                   <% @top_rated_posts = Post.top_rated %>
                   <% @top_rated_posts.each do |post| %>
-                    <div class="home-card mb-3">
-                      <% if post.photo.present?  %>
-                        <%= link_to post_path(post) do %>
-                        <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
+                    <%= link_to post_path(post) do %>
+                      <div class="home-card mb-3">
+                        <% if post.photo.present?  %>
+                          <%= cl_image_tag post.photo.key , html: { crop: :fill} %>
+                        <% else %>
+                          <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg", html: { crop: :fill}  %>
+                        <% end %>
                         <h2 class="card-title"><%= post.title %></h2>
                         <div class="card-details">
                           <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
@@ -84,10 +87,11 @@
                           <% else %>
                             <span class="card-rating">Rating: Not Rated yet</span>
                           <% end %>
-                        <% end %>
+
                         </div>
-                      <% end %>
+
                     </div>
+                    <% end %>
                 <% end %>
         </div>
       </div>
@@ -99,12 +103,15 @@
             <div class="scroll-box d-flex">
                 <% @trending_posts = Post.trending %>
                 <% @trending_posts.each do |post| %>
+                  <%= link_to post_path(post) do %>
                     <div class="home-card mb-3">
                       <% if post.photo.present?  %>
-                        <%= link_to post_path(post) do %>
                         <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
-                        <h2 class="card-title"><%= post.title %></h2>
-                        <div class="card-details">
+                      <% else %>
+                        <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg", html: { crop: :fill}  %>
+                      <% end %>
+                      <h2 class="card-title"><%= post.title %></h2>
+                       <div class="card-details">
                           <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
                           <% feedback_rating = Feedback.average_rating(post) %>
                           <% if post.feedback_ids.present? %>
@@ -123,11 +130,12 @@
                           <% else %>
                             <span class="card-rating">Rating: Not Rated yet</span>
                           <% end %>
-                        <% end %>
+
                         </div>
-                      <% end %>
+
                     </div>
-                                                          <% end %>
+                    <% end %>
+                  <% end %>
 
                   </div>
               </div>
@@ -141,34 +149,38 @@
             <div class="scroll-box d-flex">
                 <% @recent_posts = Post.trending %>
                 <% @recent_posts.each do |post| %>
+                  <%= link_to post_path(post) do %>
                     <div class="home-card mb-3">
-                      <% if post.photo.present?  %>
-                        <%= link_to post_path(post) do %>
-                        <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
-                        <h2 class="card-title"><%= post.title %></h2>
-                        <div class="card-details">
-                          <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
-                          <% feedback_rating = Feedback.average_rating(post) %>
-                          <% if post.feedback_ids.present? %>
-                            <% if feedback_rating % 1 == 0 %>
-                              <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                              <% end %>
-                              </span>
-                            <% else %>
-                              <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
-                              <i class="fa-solid fa-star primary-green"></i>
-                              <% end %>
-                              <i class="fa-solid fa-star-half primary-green"></i>
-                              </span>
-                              <% end %>
+                    <% if post.photo.present?  %>
+                      <%= cl_image_tag post.photo.key,  html: { crop: :fill} %>
+                    <% else %>
+                      <%= image_tag "https://s15.postimg.cc/temvv7u4r/recipe.jpg", html: { crop: :fill}  %>
+                    <% end %>
+                    <h2 class="card-title"><%= post.title %></h2>
+                    <div class="card-details">
+                      <span class="card-author">created by: <%= User.find(post.user_id).username %></span>
+                      <% feedback_rating = Feedback.average_rating(post) %>
+                      <% if post.feedback_ids.present? %>
+                        <% if feedback_rating % 1 == 0 %>
+                          <span class="card-rating">Rating: <% feedback_rating.to_i.times do %>
+                            <i class="fa-solid fa-star primary-green"></i>
+                         <% end %>
+                          </span>
+                      <% else %>
+                        <span class="card-rating"> Rating: <% feedback_rating.to_i.times do %>
+                          <i class="fa-solid fa-star primary-green"></i>
+                      <% end %>
+                      <i class="fa-solid fa-star-half primary-green"></i>
+                      </span>
+                             <% end %>
                           <% else %>
                             <span class="card-rating">Rating: Not Rated yet</span>
                           <% end %>
-                        <% end %>
+
                         </div>
-                      <% end %>
+
                     </div>
+                  <% end %>
                   <% end %>
 
                   </div>
