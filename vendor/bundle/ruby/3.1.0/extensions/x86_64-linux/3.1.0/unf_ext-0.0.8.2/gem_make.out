@@ -1,0 +1,16 @@
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+/home/harriemay/.rbenv/versions/3.1.2/bin/ruby -I /home/harriemay/.rbenv/versions/3.1.2/lib/ruby/site_ruby/3.1.0 extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fs6eyu sitelibdir\=./.gem.20221210-23111-fs6eyu clean
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fs6eyu sitelibdir\=./.gem.20221210-23111-fs6eyu
+compiling unf.cc
+linking shared-object unf_ext.so
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fs6eyu sitelibdir\=./.gem.20221210-23111-fs6eyu install
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20221210-23111-fs6eyu

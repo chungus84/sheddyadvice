@@ -1,0 +1,16 @@
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+/home/harriemay/.rbenv/versions/3.1.2/bin/ruby -I /home/harriemay/.rbenv/versions/3.1.2/lib/ruby/site_ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-5j4dk sitelibdir\=./.gem.20221210-23111-5j4dk clean
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-5j4dk sitelibdir\=./.gem.20221210-23111-5j4dk
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/debug-1.6.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-5j4dk sitelibdir\=./.gem.20221210-23111-5j4dk install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20221210-23111-5j4dk/debug

@@ -93,3 +93,7 @@ gem "cloudinary"
 
 # Allow any model to be voted on, like/dislike, upvote/downvote, etc.
 gem 'acts_as_votable'
+
+group :development, :test do
+  gem "rspec-rails"
+end

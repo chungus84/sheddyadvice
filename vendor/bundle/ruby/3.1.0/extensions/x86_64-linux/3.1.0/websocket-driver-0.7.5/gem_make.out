@@ -1,0 +1,15 @@
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/home/harriemay/.rbenv/versions/3.1.2/bin/ruby -I /home/harriemay/.rbenv/versions/3.1.2/lib/ruby/site_ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fu67sp sitelibdir\=./.gem.20221210-23111-fu67sp clean
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fu67sp sitelibdir\=./.gem.20221210-23111-fu67sp
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/harriemay/code/mayhemcreates/sheddyadvice/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20221210-23111-fu67sp sitelibdir\=./.gem.20221210-23111-fu67sp install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20221210-23111-fu67sp
